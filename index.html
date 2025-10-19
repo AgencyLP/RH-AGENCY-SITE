@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your SMMA Name - Upgraded Hero</title>
+    <style>
+        /* --- Basic Setup & Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+        :root {
+            --background-color: #050505;
+            --text-color: #EAEAEA;
+            --subtle-text-color: #888888;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --glow-color: rgba(255, 255, 255, 0.06);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow: hidden; /* Prevents scrollbars from the full-height section */
+        }
+
+        /* --- Hero Section & Background Effects --- */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100vh;
+            padding: 0 20px;
+            box-sizing: border-box;
+            position: relative;
+            /* NEW: Added a subtle grid background */
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        /* NEW: Interactive Mouse Glow Effect */
+        .glow-cursor {
+            position: absolute;
+            left: var(--mouse-x, 50%);
+            top: var(--mouse-y, 50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle at center, var(--glow-color) 0%, transparent 50%);
+            transform: translate(-50%, -50%);
+            pointer-events: none; /* Allows clicking through it */
+            transition: transform 0.1s ease-out;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1; /* Ensures content is above the background effects */
+        }
+
+        /* --- NEW: Staggered Load-in Animation --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Apply animation to all direct children of hero-content */
+        .hero-content > * {
+            opacity: 0; /* Start hidden */
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Stagger the animation */
+        h1 { animation-delay: 0.2s; }
+        .subtitle { animation-delay: 0.4s; }
+        .key-benefits { animation-delay: 0.6s; }
+        .cta-button { animation-delay: 0.8s; }
+
+
+        /* --- Content Styling --- */
+        h1 {
+            font-size: clamp(2.8rem, 6vw, 4.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0 0 24px 0;
+            background: linear-gradient(180deg, #FFFFFF, #CFCFCF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.15rem;
+            color: var(--subtle-text-color);
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
+        }
+
+        .key-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        /* UPGRADED: Benefit "Tags" styling */
+        .benefit-item {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #CCCCCC;
+            background-color: rgba(255, 255, 255, 0.05); /* Slightly transparent background */
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 20px; /* Pill shape */
+            transition: background-color 0.2s;
+        }
+        
+        .benefit-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .benefit-item .checkmark {
+            margin-right: 8px;
+            color: var(--subtle-text-color);
+        }
+
+        /* Call to Action Button */
+        .cta-button {
+            display: inline-block;
+            background-color: #FFFFFF;
+            color: #000000;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <div class="glow-cursor"></div>
+
+        <div class="hero-content">
+            <h1>Focus on Your Craft. We'll Handle the Leads.</h1>
+
+            <p class="subtitle">
+                We deliver high-intent, qualified appointments directly to your calendar. Stop chasing clients and start closing deals with our performance-based lead generation system.
+            </p>
+
+            <div class="key-benefits">
+                <div class="benefit-item"><span class="checkmark">✓</span> Guaranteed Appointments</div>
+                <div class="benefit-item"><span class="checkmark">✓</span> Pay-For-Results Model</div>
+                <div class="benefit-item"><span class="checkmark">✓</span> No Long-Term Contracts</div>
+            </div>
+
+            <a href="#contact" class="cta-button">Book a Free Discovery Call</a>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
+            document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
+        });
+    </script>
+
+</body>
+</html>
