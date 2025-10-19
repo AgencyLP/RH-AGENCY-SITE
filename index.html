@@ -22,7 +22,7 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
-            overflow: hidden; /* Prevents scrollbars from the full-height section */
+            overflow-x: hidden; /* Allow scrolling, but no horizontal overflow */
         }
 
         /* --- Hero Section & Background Effects --- */
@@ -35,14 +35,12 @@
             padding: 0 20px;
             box-sizing: border-box;
             position: relative;
-            /* NEW: Added a subtle grid background */
             background-image:
                 linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
             background-size: 40px 40px;
         }
-        
-        /* NEW: Interactive Mouse Glow Effect */
+
         .glow-cursor {
             position: absolute;
             left: var(--mouse-x, 50%);
@@ -51,41 +49,30 @@
             height: 800px;
             background: radial-gradient(circle at center, var(--glow-color) 0%, transparent 50%);
             transform: translate(-50%, -50%);
-            pointer-events: none; /* Allows clicking through it */
+            pointer-events: none;
             transition: transform 0.1s ease-out;
         }
 
         .hero-content {
             max-width: 800px;
-            z-index: 1; /* Ensures content is above the background effects */
+            z-index: 1;
         }
 
-        /* --- NEW: Staggered Load-in Animation --- */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        
-        /* Apply animation to all direct children of hero-content */
+
         .hero-content > * {
-            opacity: 0; /* Start hidden */
+            opacity: 0;
             animation: fadeInUp 0.8s ease-out forwards;
         }
 
-        /* Stagger the animation */
         h1 { animation-delay: 0.2s; }
         .subtitle { animation-delay: 0.4s; }
         .key-benefits { animation-delay: 0.6s; }
         .cta-button { animation-delay: 0.8s; }
 
-
-        /* --- Content Styling --- */
         h1 {
             font-size: clamp(2.8rem, 6vw, 4.8rem);
             font-weight: 800;
@@ -94,7 +81,6 @@
             background: linear-gradient(180deg, #FFFFFF, #CFCFCF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .subtitle {
@@ -113,28 +99,24 @@
             flex-wrap: wrap;
         }
 
-        /* UPGRADED: Benefit "Tags" styling */
         .benefit-item {
             font-size: 0.9rem;
             font-weight: 600;
             color: #CCCCCC;
-            background-color: rgba(255, 255, 255, 0.05); /* Slightly transparent background */
+            background-color: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-color);
             padding: 8px 16px;
-            border-radius: 20px; /* Pill shape */
+            border-radius: 20px;
             transition: background-color 0.2s;
         }
         
-        .benefit-item:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
+        .benefit-item:hover { background-color: rgba(255, 255, 255, 0.1); }
 
         .benefit-item .checkmark {
             margin-right: 8px;
             color: var(--subtle-text-color);
         }
 
-        /* Call to Action Button */
         .cta-button {
             display: inline-block;
             background-color: #FFFFFF;
@@ -152,35 +134,195 @@
             transform: translateY(-4px);
             box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
         }
+
+        /* ====================================================== */
+        /* Pain Points Section */
+        /* ====================================================== */
+        .pain-points-section {
+            background-color: var(--background-color);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .pain-points-section h2 {
+            font-size: clamp(2.2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(180deg, #FFFFFF, #CFCFCF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--subtle-text-color);
+            max-width: 600px;
+            margin: 0 auto 60px auto;
+            line-height: 1.6;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .pain-card {
+            background-color: #0c0c0c;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .pain-card:hover { transform: translateY(-5px); }
+
+        .pain-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 12px;
+            padding: 1px;
+            background: radial-gradient(400px at 50% 100%, rgba(255,255,255,0.3), transparent 80%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .pain-card:hover::before { opacity: 1; }
+
+        .card-icon {
+            width: 44px; height: 44px;
+            background-color: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
+            color: var(--subtle-text-color);
+        }
+
+        .pain-card h3 {
+            font-size: 1.25rem;
+            margin: 0 0 10px 0;
+            color: var(--text-color);
+        }
+
+        .pain-card p {
+            font-size: 1rem;
+            color: var(--subtle-text-color);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .pain-points-section .section-content > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .pain-points-section.is-visible .section-content > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pain-points-section.is-visible .pain-card:nth-child(1) { transition-delay: 0.2s; }
+        .pain-points-section.is-visible .pain-card:nth-child(2) { transition-delay: 0.3s; }
+        .pain-points-section.is-visible .pain-card:nth-child(3) { transition-delay: 0.4s; }
+        .pain-points-section.is-visible .pain-card:nth-child(4) { transition-delay: 0.5s; }
     </style>
 </head>
 <body>
 
+    <!-- HERO SECTION -->
     <section class="hero-section">
         <div class="glow-cursor"></div>
-
         <div class="hero-content">
             <h1>Focus on Your Craft. We'll Handle the Leads.</h1>
-
             <p class="subtitle">
                 We deliver high-intent, qualified appointments directly to your calendar. Stop chasing clients and start closing deals with our performance-based lead generation system.
             </p>
-
             <div class="key-benefits">
                 <div class="benefit-item"><span class="checkmark">✓</span> Guaranteed Appointments</div>
                 <div class="benefit-item"><span class="checkmark">✓</span> Pay-For-Results Model</div>
                 <div class="benefit-item"><span class="checkmark">✓</span> No Long-Term Contracts</div>
             </div>
-
             <a href="#contact" class="cta-button">Book a Free Discovery Call</a>
         </div>
     </section>
 
+    <!-- PAIN POINTS SECTION -->
+    <section class="pain-points-section" id="pain-points">
+        <div class="section-content">
+            <h2>Tired of marketing that doesn't work?</h2>
+            <p class="section-subtitle">
+                Most agencies promise the world but deliver inconsistent results. Stop the cycle of frustration and wasted resources.
+            </p>
+            <div class="pain-grid">
+                <!-- 4 Cards -->
+                <!-- (kept exactly as you wrote them) -->
+                <!-- Card 1 -->
+                <div class="pain-card">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 6H8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2Z"/><path d="m10 12 4 4"/><path d="m14 12-4 4"/><path d="M15 6V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v10"/></svg>
+                    </div>
+                    <h3>Wasted Ad Spend</h3>
+                    <p>Pouring money into campaigns with little to no return, leaving you with empty pockets and no new business.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+                    </div>
+                    <h3>Unqualified Leads</h3>
+                    <p>Your calendar is full, but the calls are with tire-kickers who aren't a good fit, wasting your valuable time.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    </div>
+                    <h3>Inconsistent Results</h3>
+                    <p>One good month followed by two bad ones. This unpredictable feast-or-famine cycle makes it impossible to scale.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3.1 12 2l2 1.1"/><path d="M10 20.9 12 22l2-1.1"/><path d="M12 2v20"/><path d="M5 8.5 7.8 7"/><path d="m16.2 17 2.8-1.5"/><path d="m5 15.5 2.8 1.5"/><path d="m16.2 7 2.8 1.5"/><path d="M3.1 14 2 12l1.1-2"/><path d="M20.9 10 22 12l-1.1 2"/><path d="M3.1 10 2 12l1.1 2"/><path d="M20.9 14 22 12l-1.1-2"/><path d="M14 3.1 12 2l-2 1.1"/><path d="M14 20.9 12 22l-2-1.1"/></svg>
+                    </div>
+                    <h3>Complex Strategies</h3>
+                    <p>Feeling overwhelmed by algorithms, funnels, and jargon. You just want a simple system that works.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
-        document.addEventListener('mousemove', function(e) {
+        // Mouse glow effect
+        document.addEventListener('mousemove', e => {
             document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
             document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
         });
+
+        // Scroll animation for pain-points
+        const sectionToAnimate = document.querySelector('.pain-points-section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        observer.observe(sectionToAnimate);
     </script>
 
 </body>
