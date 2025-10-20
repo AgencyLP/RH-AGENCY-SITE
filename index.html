@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Appointment Setting for Agencies | Your SMMA</title>
+  <meta name="description" content="Premium, pay-per-result appointment setting for agencies—guaranteed high-intent calls to your calendar." />
+  <meta property="og:title" content="Your SMMA – Premium Lead Generation" />
+  <meta property="og:description" content="We deliver qualified, high-intent appointments straight to your calendar." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -12,102 +16,170 @@
       --bg-card: #111111;
       --text-primary: #ffffff;
       --text-secondary: #a0a0a0;
+      --text-muted: #7a7a7a;
       --accent: #ffffff;
-      --border: rgba(255,255,255,0.08);
+      --border: rgba(255, 255, 255, 0.08);
       --gradient-text: linear-gradient(135deg, #ffffff 0%, #bdbdbd 100%);
     }
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',sans-serif;background:var(--bg-dark);color:var(--text-primary);line-height:1.6;overflow-x:hidden}
-    .grid-background{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.03)1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03)1px,transparent 1px);background-size:48px 48px;animation:gridMove 22s linear infinite;will-change:transform}
-    @keyframes gridMove{0%{transform:translate(0,0)}100%{transform:translate(48px,48px)}}
-    section{padding:60px 20px}
-    .hero{min-height:auto;padding:48px 20px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative}
-    .hero h1{font-size:clamp(2.4rem,7vw,4.6rem);font-weight:900;background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
-    .hero p{color:var(--text-secondary);font-size:1.2rem;max-width:720px;margin:0 auto 28px}
-    .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:999px;padding:10px 16px;margin:4px;font-weight:600}
-    .pill svg{width:16px;height:16px;stroke:#4ade80}
-    .cta{display:inline-block;background:var(--accent);color:var(--bg-dark);padding:14px 28px;border-radius:10px;font-weight:700;text-decoration:none;box-shadow:0 8px 24px rgba(255,255,255,.18);transition:transform .3s ease}
-    .cta:hover{transform:translateY(-3px)}
-    .section-header{text-align:center;max-width:800px;margin:0 auto 40px}
-    .section-header h2{font-size:clamp(2rem,5vw,3rem);font-weight:800;background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
-    .section-header p{color:var(--text-secondary)}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1100px;margin:0 auto}
-    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:28px;transition:all .3s ease}
-    .card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.2);box-shadow:0 20px 44px rgba(0,0,0,.55)}
-    .icon{width:48px;height:48px;background:rgba(255,255,255,.05);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-    .icon svg{width:24px;height:24px;stroke:currentColor}
-    .cta-section{text-align:center;padding:80px 20px;background:linear-gradient(180deg,var(--bg-card)0%,#0f0f0f100%)}
-    .cta-section h2{font-size:clamp(2rem,5vw,3rem);font-weight:800;margin-bottom:16px;background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .cta-section p{color:var(--text-secondary);max-width:700px;margin:0 auto 24px}
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    .grid-background {
+      position: fixed; inset: 0; z-index: -1;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      animation: gridMove 22s linear infinite;
+      will-change: transform;
+    }
+    @keyframes gridMove { 0%{transform:translate(0,0)} 100%{transform:translate(48px,48px)} }
+
+    section { padding: 56px 20px; }
+
+    .hero { min-height: 85svh; display:flex; align-items:center; justify-content:center; position:relative; }
+    .hero-inner { max-width: 980px; text-align:center; margin-inline:auto; }
+    .eyebrow { display:inline-flex; gap:8px; align-items:center; padding:6px 12px; border:1px solid var(--border); border-radius:999px; color:var(--text-secondary); font-size: .9rem; background: rgba(255,255,255,.04); backdrop-filter: blur(6px); }
+    .hero h1 { font-size: clamp(2.4rem, 7vw, 4.6rem); line-height:1.1; font-weight: 900; letter-spacing:-.02em; margin: 14px 0 16px; background:var(--gradient-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .subtitle { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--text-secondary); max-width:720px; margin:0 auto 28px; }
+
+    .benefits { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin: 6px 0 28px; list-style:none; }
+    .pill { background: rgba(255,255,255,.05); border:1px solid var(--border); border-radius:999px; padding:10px 16px; font-weight:600; font-size:.95rem; display:inline-flex; align-items:center; gap:8px; backdrop-filter: blur(8px); }
+    .pill svg { width:16px; height:16px; stroke:#4ade80; }
+
+    .cta { display:inline-block; background:var(--accent); color:var(--bg-dark); padding:14px 28px; border-radius:10px; text-decoration:none; font-weight:700; box-shadow:0 8px 24px rgba(255,255,255,.18); position:relative; overflow:hidden; }
+    .cta:focus-visible{ outline:2px solid #fff; outline-offset:3px; }
+    .cta::before{ content:''; position:absolute; inset:0; transform:translateX(-100%); background:linear-gradient(90deg, transparent, rgba(0,0,0,.08), transparent); transition:transform .6s ease; }
+    .cta:hover::before{ transform:translateX(100%); }
+
+    .float { position:absolute; width:4px; height:4px; background:rgba(255,255,255,.2); border-radius:50%; animation:float 10s ease-in-out infinite; }
+    @keyframes float{ 0%,100%{ transform:translate(0,0)} 33%{ transform:translate(16px,-26px)} 66%{ transform:translate(-18px,24px)} }
+    .float:nth-of-type(1){ top:22%; left:12%; animation-delay:0s }
+    .float:nth-of-type(2){ top:58%; right:12%; animation-delay:2s }
+    .float:nth-of-type(3){ bottom:18%; left:18%; animation-delay:4s }
+
+    .section-header{ text-align:center; max-width:820px; margin:0 auto 36px; }
+    .section-header h2{ font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 800; background:var(--gradient-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:10px; }
+    .section-header p{ color:var(--text-secondary); }
+
+    .pain { background: linear-gradient(180deg, var(--bg-dark) 0%, #0f0f0f 100%); }
+    .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:18px; max-width: 1100px; margin: 0 auto; }
+    .card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:26px; transition:transform .32s ease, box-shadow .32s ease, border-color .32s ease; position:relative; overflow:hidden; }
+    .card:hover{ transform: translateY(-6px); border-color:rgba(255,255,255,.2); box-shadow:0 20px 44px rgba(0,0,0,.55); }
+    .card::before{ content:''; position:absolute; top:0; left:-100%; height:2px; right:0; background:linear-gradient(90deg, transparent, rgba(255,255,255,.5), transparent); transition: transform .6s ease; transform:translateX(0); }
+    .card:hover::before{ transform:translateX(200%); }
+    .icon { width:48px; height:48px; border-radius:12px; background: rgba(255,255,255,.05); display:flex; align-items:center; justify-content:center; color:var(--text-secondary); margin-bottom:14px; }
+    .card h3{ font-size:1.15rem; margin-bottom:8px; }
+    .card p{ color:var(--text-secondary); }
+
+    .reveal{ opacity:0; transform:translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.active{ opacity:1; transform:translateY(0); }
+
+    #contact .form{ max-width:760px; margin: 20px auto 0; display:grid; gap:12px; }
+    #contact input, #contact textarea{ padding:14px 16px; border-radius:12px; border:1px solid var(--border); background:var(--bg-card); color:var(--text-primary); }
+    #contact textarea{ min-height:120px; resize:vertical; }
+
+    @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } .grid-background{ animation:none; } }
   </style>
 </head>
 <body>
-  <div class="grid-background"></div>
-  <section class="hero">
-    <div>
-      <h1>Stop Chasing Clients. Let Them Come to You.</h1>
-      <p>We deliver qualified, high‑intent appointments directly to your calendar. No more cold outreach, no more wasted ad spend. Just real results.</p>
-      <div>
-        <span class="pill"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Guaranteed Appointments</span>
-        <span class="pill"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Pay‑Per‑Result</span>
-        <span class="pill"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No Contracts</span>
+  <div class="grid-background" aria-hidden="true"></div>
+
+  <section class="hero" aria-label="Hero">
+    <div class="float" aria-hidden="true"></div>
+    <div class="float" aria-hidden="true"></div>
+    <div class="float" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="eyebrow" aria-hidden="true">
+        <span>Premium Lead Generation</span>
       </div>
-      <a href="#contact" class="cta">Book Your Free Strategy Call</a>
+      <h1>Stop Chasing Clients. Let Them Come to You.</h1>
+      <p class="subtitle">We deliver qualified, high-intent appointments directly to your calendar. No more cold outreach, no more wasted ad spend. Just real results.</p>
+
+      <ul class="benefits" role="list">
+        <li class="pill"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>Guaranteed Appointments</li>
+        <li class="pill"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>Pay-Per-Result Model</li>
+        <li class="pill"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>No Contracts</li>
+      </ul>
+
+      <a class="cta" href="#contact">Book Your Free Strategy Call</a>
     </div>
   </section>
 
-  <section class="pain">
-    <div class="section-header">
-      <h2>The Old Way Isn’t Working Anymore</h2>
+  <section class="pain" aria-labelledby="pain-title">
+    <div class="section-header reveal">
+      <h2 id="pain-title">The Old Way Isn’t Working Anymore</h2>
       <p>Traditional marketing agencies are failing businesses like yours. Here’s what you’re dealing with:</p>
     </div>
+
     <div class="cards">
-      <div class="card"><div class="icon"><svg fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3>Wasting Time & Money</h3><p>Burning through thousands on ads with nothing to show for it.</p></div>
-      <div class="card"><div class="icon"><svg fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21l-2-2m2 2v-7a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0H4m4-10V5a2 2 0 012-2h4a2 2 0 012 2v6"/></svg></div><h3>Unqualified Leads</h3><p>Your calendar fills with tire‑kickers who can’t afford your services.</p></div>
-      <div class="card"><div class="icon"><svg fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M9 15l3-3 2 2 5-5"/></svg></div><h3>Inconsistent Revenue</h3><p>Feast‑or‑famine cycles make it impossible to scale predictably.</p></div>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+        </div>
+        <h3>Wasting Time & Money</h3>
+        <p>Burning through thousands on ads with nothing to show for it. Your competitors are winning while you’re still testing.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21l-2-2m2 2v-7a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0H4m4-10V5a2 2 0 012-2h4a2 2 0 012 2v6"></path></svg>
+        </div>
+        <h3>Unqualified Leads</h3>
+        <p>Your calendar fills up with tire-kickers who can’t afford your services. Quality matters more than quantity.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3v18h18M9 15l3-3 2 2 5-5"></path></svg>
+        </div>
+        <h3>Inconsistent Revenue</h3>
+        <p>One great month followed by three bad ones. This feast-or-famine cycle makes it impossible to scale predictably.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+        </div>
+        <h3>No Competitive Edge</h3>
+        <p>Using the same generic strategies as everyone else. You need a system that makes you stand out, not blend in.</p>
+      </article>
     </div>
   </section>
 
-  <section>
+  <section id="contact" aria-label="Book a call">
     <div class="section-header">
-      <h2>The Solution: Predictable Appointments</h2>
-      <p>We’ve built a proven system that books qualified, ready‑to‑buy prospects directly on your calendar so you can focus on closing deals, not chasing leads.</p>
+      <h2>Book Your Free Strategy Call</h2>
+      <p>Tell us a bit about your business and we’ll send over a few times.</p>
     </div>
-    <div class="cards">
-      <div class="card"><div class="icon"><svg fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2 4 4 8-8 4 4"/></svg></div><h3>AI‑Driven Targeting</h3><p>Smart filters find the highest‑intent prospects for your offer.</p></div>
-      <div class="card"><div class="icon"><svg fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3>Automated Booking</h3><p>We schedule calls straight into your calendar—hands‑free.</p></div>
-      <div class="card"><div class="icon"><svg fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><h3>Guaranteed ROI</h3><p>Pay only for results—no retainers, no wasted spend.</p></div>
-    </div>
+    <form class="form" action="#" method="post">
+      <input name="name" placeholder="Your name" aria-label="Your name" required>
+      <input type="email" name="email" placeholder="Email" aria-label="Email" required>
+      <input name="website" placeholder="Website (optional)" aria-label="Website">
+      <textarea name="message" placeholder="What do you sell and who do you sell to?" aria-label="Message"></textarea>
+      <button class="cta" type="submit">Submit</button>
+    </form>
   </section>
 
-  <section>
-    <div class="section-header">
-      <h2>How It Works</h2>
-      <p>We make it simple to start seeing results in days, not months.</p>
-    </div>
-    <div class="cards">
-      <div class="card"><h3>1. Audit</h3><p>We analyze your current offer, pricing, and funnel to find immediate wins.</p></div>
-      <div class="card"><h3>2. Build</h3><p>Our team launches custom lead‑gen campaigns that match your niche.</p></div>
-      <div class="card"><h3>3. Deliver</h3><p>Appointments start showing up in your calendar, ready to close.</p></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-header">
-      <h2>Client Results</h2>
-      <p>Agencies like yours are closing more deals with less effort. Real outcomes, real growth.</p>
-    </div>
-    <div class="cards">
-      <div class="card"><h3>+240% Booked Calls</h3><p>In 30 days for a fitness coaching agency using our system.</p></div>
-      <div class="card"><h3>$80K MRR Added</h3><p>After 6 weeks of consistent appointment flow in the home‑services niche.</p></div>
-      <div class="card"><h3>4X ROI</h3><p>For an e‑commerce agency that stopped relying on outbound DMs.</p></div>
-    </div>
-  </section>
-
-  <section id="contact" class="cta-section">
-    <h2>Ready to Scale Predictably?</h2>
-    <p>Stop guessing where your next client comes from. Let us fill your calendar with qualified, ready‑to‑buy prospects.</p>
-    <a href="#" class="cta">Book Your Free Strategy Call</a>
-  </section>
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      for (const e of entries){
+        if (e.isIntersecting){ e.target.classList.add('active'); io.unobserve(e.target); }
+      }
+    }, { rootMargin: '0px 0px -100px 0px' });
+    reveals.forEach(el=>io.observe(el));
+  </script>
 </body>
 </html>
