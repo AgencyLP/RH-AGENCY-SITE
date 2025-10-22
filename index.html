@@ -29,13 +29,12 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html, body { height: 100%; }
 
     body {
       font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: var(--bg-light);  
-      color: var(--text-primary);  
+      background: var(--bg-light);
+      color: var(--text-primary);
       line-height: 1.65;
       overflow-x: hidden;
     }
@@ -43,8 +42,8 @@
     .grid-background {
       position: fixed; inset: 0; z-index: -1;
       background-image:
-        linear-gradient(rgba(0,0,0,.03) 1px, transparent 1px),  
-        linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px);  
+        linear-gradient(rgba(0,0,0,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px);
       background-size: 48px 48px;
       animation: gridMove 22s linear infinite;
       will-change: transform;
@@ -52,90 +51,50 @@
     @keyframes gridMove { 0%{transform:translate(0,0)} 100%{transform:translate(48px,48px)} }
 
     section { padding: 56px 20px; }
-    
-    .hero {  
-      display: flex;  
-      align-items: center;  
-      justify-content: center;  
-      position: relative;  
-      padding: 100px 20px 80px 20px;  
+
+    .hero {
+      display: flex; align-items: center; justify-content: center;
+      position: relative; padding: 100px 20px 80px 20px;
     }
-    
     .hero-inner { max-width: 980px; text-align:center; margin-inline:auto; }
-    .eyebrow {  
-      display:inline-flex;  
-      gap:8px;  
-      align-items:center;  
-      padding:6px 12px;  
-      border:1px solid var(--border);  
-      border-radius:999px;  
-      color:var(--text-secondary);  
-      font-size: .9rem;  
-      background: rgba(0,0,0,.04);  
-      backdrop-filter: blur(6px);  
+    .eyebrow {
+      display:inline-flex; gap:8px; align-items:center; padding:6px 12px;
+      border:1px solid var(--border); border-radius:999px; color:var(--text-secondary);
+      font-size:.9rem; background: rgba(0,0,0,.04); backdrop-filter: blur(6px);
     }
-    .hero h1 {  
-      font-size: clamp(2.4rem, 7vw, 4.6rem);  
-      line-height:1.1;  
-      font-weight: 900;  
-      letter-spacing:-.02em;  
-      margin: 14px 0 16px;  
-      background:var(--gradient-text);  
-      -webkit-background-clip:text;  
-      -webkit-text-fill-color:transparent;  
+    .hero h1 {
+      font-size: clamp(2.4rem, 7vw, 4.6rem); line-height:1.1; font-weight: 900; letter-spacing:-.02em;
+      margin: 14px 0 16px; background:var(--gradient-text);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     }
-    .subtitle {  
-      font-size: clamp(1.05rem, 2vw, 1.25rem);  
-      color: var(--text-secondary);  
-      max-width:720px;  
-      margin:0 auto 28px;  
+    .subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--text-secondary);
+      max-width:720px; margin:0 auto 28px;
     }
 
     .benefits { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin: 6px 0 28px; list-style:none; }
-    .pill {  
-      background: rgba(0,0,0,.05);  
-      border:1px solid var(--border);  
-      border-radius:999px;  
-      padding:10px 16px;  
-      font-weight:600;  
-      font-size:.95rem;  
-      display:inline-flex;  
-      align-items:center;  
-      gap:8px;  
-      backdrop-filter: blur(8px);  
+    .pill {
+      background: rgba(0,0,0,.05); border:1px solid var(--border); border-radius:999px;
+      padding:10px 16px; font-weight:600; font-size:.95rem; display:inline-flex; align-items:center; gap:8px; backdrop-filter: blur(8px);
     }
     .pill svg { width:16px; height:16px; stroke:#4ade80; }
 
-    .cta {  
-      display:inline-block;  
-      background:var(--accent);  
-      color:var(--accent-text);  
-      padding:14px 28px;  
-      border-radius:10px;  
-      text-decoration:none;  
-      font-weight:700;  
-      box-shadow:0 8px 24px rgba(0,0,0,.18);  
-      position:relative;  
-      overflow:hidden;  
+    .cta {
+      display:inline-block; background:var(--accent); color:var(--accent-text);
+      padding:14px 28px; border-radius:10px; text-decoration:none; font-weight:700;
+      box-shadow:0 8px 24px rgba(0,0,0,.18); position:relative; overflow:hidden;
     }
-    .cta:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }  
-    .cta::before{  
-      content:'';  
-      position:absolute;  
-      inset:0;  
-      transform:translateX(-100%);  
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent);  
-      transition:transform .6s ease;  
+    .cta:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+    .cta::before{
+      content:''; position:absolute; inset:0; transform:translateX(-100%);
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent);
+      transition:transform .6s ease;
     }
     .cta:hover::before{ transform:translateX(100%); }
 
-    .float {  
-      position:absolute;  
-      width:4px;  
-      height:4px;  
-      background:rgba(0,0,0,.2);  
-      border-radius:50%;  
-      animation:float 10s ease-in-out infinite;  
+    .float {
+      position:absolute; width:4px; height:4px; background:rgba(0,0,0,.2); border-radius:50%;
+      animation:float 10s ease-in-out infinite;
     }
     @keyframes float{ 0%,100%{ transform:translate(0,0)} 33%{ transform:translate(16px,-26px)} 66%{ transform:translate(-18px,24px)} }
     .float:nth-of-type(1){ top:22%; left:12%; animation-delay:0s }
@@ -143,17 +102,13 @@
     .float:nth-of-type(3){ bottom:18%; left:18%; animation-delay:4s }
 
     .section-header{ text-align:center; max-width:820px; margin:0 auto 36px; }
-    .section-header h2{  
-      font-size: clamp(1.8rem, 5vw, 3.2rem);  
-      font-weight: 800;  
-      background:var(--gradient-text);  
-      -webkit-background-clip:text;  
-      -webkit-text-fill-color:transparent;  
-      margin-bottom:10px;  
+    .section-header h2{
+      font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 800; background:var(--gradient-text);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:10px;
     }
-    .section-header p{ color:var(--text-secondary); }  
+    .section-header p{ color:var(--text-secondary); }
 
-    /* Pain section */
+    /* --- Pain section (wider cards) --- */
     .option2 { background: #ffffff; border: 3px solid #ef4444; border-radius: 20px; padding: 56px 20px; position: relative; }
     .option2::before {
       content: '⚠️'; position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
@@ -163,25 +118,20 @@
     .option2 .section-header h2 { color: #ef4444; background: none; -webkit-background-clip: unset; -webkit-text-fill-color: unset; }
     .option2 .icon { background: #fee2e2; color: #ef4444; }
 
-    /* ✅ Wider pain-point cards so text fits comfortably */
     .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:20px; max-width: 1100px; margin: 0 auto; }
-    .card {  
-      background:var(--bg-card);
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:28px;
-      transition:transform .32s ease, box-shadow .32s ease, border-color .32s ease;
-      position:relative;
-      overflow:hidden;
-      box-shadow: var(--shadow-soft);
+    .card {
+      background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:28px;
+      transition:transform .32s ease, box-shadow .32s ease, border-color .32s ease; position:relative; overflow:hidden; box-shadow: var(--shadow-soft);
     }
-    .card p{ color:var(--text-secondary); line-height:1.7; }
-
     .card:hover{ transform: translateY(-6px); border-color:rgba(0,0,0,.15); box-shadow: var(--shadow-medium); }
-    .card::before{ content:''; position:absolute; top:0; left:-100%; height:2px; right:0;
-      background:linear-gradient(90deg, transparent, rgba(0,0,0,.04), transparent); transition: transform .6s ease; transform:translateX(0); }
+    .card::before{
+      content:''; position:absolute; top:0; left:-100%; height:2px; right:0;
+      background:linear-gradient(90deg, transparent, rgba(0,0,0,.04), transparent); transition: transform .6s ease; transform:translateX(0);
+    }
     .card:hover::before{ transform:translateX(200%); }
     .icon { width:48px; height:48px; border-radius:12px; background: rgba(0,0,0,.05); display:flex; align-items:center; justify-content:center; color:var(--text-secondary); margin-bottom:14px; }
+    .card h3{ font-size:1.15rem; margin-bottom:8px; }
+    .card p{ color:var(--text-secondary); line-height:1.7; }
 
     .reveal{ opacity:0; transform:translateY(26px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.active{ opacity:1; transform:translateY(0); }
@@ -193,22 +143,23 @@
     .step-item::before { content: ''; position: absolute; left: 20px; top: 40px; bottom: 0; width: 2px; background: var(--border); z-index: 0; }
     .step-item:last-child { padding-bottom: 0; }
     .step-item:last-child::before { display: none; }
-    .step-number { width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; background: var(--accent); color: var(--accent-text); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; z-index: 1; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .step-number {
+      width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; background: var(--accent); color: var(--accent-text);
+      display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; z-index: 1; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
     .step-content { padding-top: 4px; }
     .step-content h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
     .step-content p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; }
 
-    /* --- Services Specialty Cards (Animated) --- */
+    /* --- Services Specialty Cards (Animated, from earlier) --- */
     #services { background: var(--bg-light); }
     .services-grid {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px;
+      max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px;
     }
     .service-item { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
     .service-item h3 { font-size: 1.15rem; font-weight: 700; }
     .service-item p { color: var(--text-secondary); max-width: 320px; }
 
-    /* From Uiverse.io by SelfMadeSystem */
     .card-container { perspective: 800px; }
     .card-anim {
       --s: 0.5s;
@@ -224,10 +175,8 @@
     .front { position: absolute; display: flex; justify-content: center; align-items: center; inset: 0.7em; border-radius: 1.25em; background: #cb0323; overflow: hidden; transform: rotateY(180deg); backface-visibility: hidden; -webkit-backface-visibility: hidden; }
     .front .red { border: 0.7em solid #fffffd; transform: scale(0.92, 0.875) skewX(-22.5deg); }
     .text-center { position: absolute; width: 12em; color: white; }
-    .text-top { position: absolute; top: -1em; left: -1.25em; width: 7em; color: white; }
-    .text-bottom { position: absolute; bottom: -1em; right: -1.5em; width: 7em; color: white; }
 
-    /* --- NEW: Case Studies --- */
+    /* --- Case Studies --- */
     #case-studies { background: var(--bg-section-alt); }
     .cs-grid {
       max-width: 1100px; margin: 0 auto;
@@ -239,9 +188,7 @@
     }
     .cs-card:hover { transform: translateY(-6px); border-color: rgba(0,0,0,.15); box-shadow: var(--shadow-medium); }
     .cs-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-    .cs-logo {
-      width: 40px; height: 40px; border-radius: 10px; background: rgba(0,0,0,.05); display: grid; place-items: center;
-    }
+    .cs-logo { width: 40px; height: 40px; border-radius: 10px; background: rgba(0,0,0,.05); display: grid; place-items: center; }
     .cs-metrics { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
     .badge {
       display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border:1px solid var(--border);
@@ -249,26 +196,66 @@
     }
     .cs-desc { color: var(--text-secondary); }
 
-    /* --- NEW: Testimonials --- */
+    /* --- NEW: What People Say (Tabs + Google Reviews Animated Cards) --- */
     #testimonials { background: var(--bg-light); }
-    .test-grid {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;
+    .review-tabs {
+      max-width: 1100px; margin: 0 auto 20px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
     }
-    .test-card {
-      background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 22px;
-      box-shadow: var(--shadow-soft); transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; position: relative;
+    .review-tab-btn {
+      font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; padding: 10px 16px; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--bg-card); color: var(--text-secondary); cursor: pointer;
+      transition: background .25s ease, color .25s ease, border-color .25s ease;
     }
-    .test-card:hover { transform: translateY(-6px); border-color: rgba(0,0,0,.15); box-shadow: var(--shadow-medium); }
-    .stars { display: inline-flex; gap: 4px; margin-bottom: 10px; }
-    .client { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
-    .avatar { width: 40px; height: 40px; border-radius: 50%; background: #111; color: #fff; display: grid; place-items: center; font-weight: 700; }
-    .client small { color: var(--text-secondary); }
-    .quote { color: var(--text-secondary); }
-    
+    .review-tab-btn:hover { background: var(--bg-input); color: var(--text-primary); }
+    .review-tab-btn.active { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+
+    .reviews-grid {
+      max-width: 1100px; margin: 0 auto; display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;
+    }
+
+    /* Adapted from Uiverse style (no conflicts with your .card) */
+    .g-review-card {
+      width: 100%; height: 260px; background: var(--bg-card); position: relative; display: flex;
+      place-content: center; place-items: center; overflow: hidden; border-radius: 16px; border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+    .g-review-card::before {
+      content: ''; position: absolute; width: 120px; height: 140%;
+      /* match site style: subtle dark gradient ring rotating */
+      background-image: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.06));
+      animation: rotRing 6s linear infinite; transition: all 0.2s linear;
+      filter: blur(0.2px);
+    }
+    @keyframes rotRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .g-review-card::after {
+      content: ''; position: absolute; inset: 6px; border-radius: 12px; background: var(--bg-card);
+      box-shadow: inset 0 0 0 1px var(--border);
+    }
+
+    .g-content { position: relative; z-index: 1; padding: 16px; display: grid; gap: 10px; text-align: left; width: 100%; }
+    .g-header { display: flex; align-items: center; gap: 10px; }
+    .g-avatar { width: 36px; height: 36px; border-radius: 50%; background: #111; color:#fff; display: grid; place-items: center; font-weight: 800; font-size: .9rem; }
+    .g-name { font-weight: 700; }
+    .g-meta { color: var(--text-secondary); font-size: .9rem; display:flex; align-items:center; gap:8px; }
+    .g-stars { display:inline-flex; gap:3px; }
+    .g-quote { color: var(--text-secondary); line-height: 1.6; max-height: 96px; overflow: hidden; }
+    .g-link { font-size: .9rem; font-weight: 600; text-decoration: none; display:inline-flex; align-items:center; gap:6px; }
+
+    .g-badge {
+      display:inline-flex; align-items:center; gap:6px;
+      padding:5px 10px; border-radius:999px; border:1px solid var(--border); background: rgba(0,0,0,.04); font-size:.85rem;
+    }
+
+    /* Panels */
+    .review-panel { display: none; }
+    .review-panel.active { display: block; }
+
     #contact { background: var(--bg-section-alt); }
     #contact .form{ max-width:760px; margin: 20px auto 0; display:grid; gap:12px; }
-    #contact input, #contact textarea{ padding:14px 16px; border-radius:12px; border:1px solid var(--border); background:var(--bg-input); color:var(--text-primary); }
+    #contact input, #contact textarea{
+      padding:14px 16px; border-radius:12px; border:1px solid var(--border); background:var(--bg-input); color:var(--text-primary);
+    }
     #contact input:focus, #contact textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; border-color: var(--accent); }
     #contact textarea{ min-height:120px; resize:vertical; }
 
@@ -300,7 +287,6 @@
     </div>
   </section>
 
-  <!-- Pain Points (wider cards) -->
   <section class="option2" aria-labelledby="pain-title">
     <div class="section-header reveal">
       <h2 id="pain-title">The Old Way Isn’t Working Anymore</h2>
@@ -339,7 +325,6 @@
     </div>
   </section>
 
-  <!-- Solution -->
   <section id="solution" aria-labelledby="solution-title">
     <div class="section-header reveal">
       <h2 id="solution-title">The Solution is a System</h2>
@@ -371,7 +356,6 @@
     </div>
   </section>
 
-  <!-- Services (animated cards) -->
   <section id="services" aria-labelledby="services-title">
     <div class="section-header reveal">
       <h2 id="services-title">What We Specialize In</h2>
@@ -384,35 +368,29 @@
         <div class="card-container" aria-hidden="true">
           <div class="card-anim">
             <div class="back"><div class="red"></div><div class="text">FB</div></div>
-            <div class="front">
-              <div class="red"></div>
-              <div class="text-center">
-                <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true">
-                  <circle cx="24" cy="24" r="22" fill="#fffffd"></circle>
-                  <path d="M29 16h-3a4 4 0 0 0-4 4v3h-3v4h3v9h5v-9h3.2l.8-4H27v-2.5c0-.8.6-1.5 1.4-1.5H29z" fill="#191f1f"></path>
-                </svg>
-              </div>
-            </div>
+            <div class="front"><div class="red"></div><div class="text-center">
+              <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true">
+                <circle cx="24" cy="24" r="22" fill="#fffffd"></circle>
+                <path d="M29 16h-3a4 4 0 0 0-4 4v3h-3v4h3v9h5v-9h3.2l.8-4H27v-2.5c0-.8.6-1.5 1.4-1.5H29z" fill="#191f1f"></path>
+              </svg>
+            </div></div>
           </div>
         </div>
         <h3>Facebook Ads</h3>
         <p>Creative, copy, and targeting engineered to deliver <strong>high-intent</strong> leads at a sustainable CAC.</p>
       </div>
 
-      <!-- Google My Business -->
+      <!-- GMB -->
       <div class="service-item">
         <div class="card-container" aria-hidden="true">
           <div class="card-anim">
             <div class="back"><div class="red"></div><div class="text">GMB</div></div>
-            <div class="front">
-              <div class="red"></div>
-              <div class="text-center">
-                <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true">
-                  <path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#fffffd"></path>
-                  <circle cx="24" cy="23" r="8" fill="#191f1f"></circle>
-                </svg>
-              </div>
-            </div>
+            <div class="front"><div class="red"></div><div class="text-center">
+              <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true">
+                <path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#fffffd"></path>
+                <circle cx="24" cy="23" r="8" fill="#191f1f"></circle>
+              </svg>
+            </div></div>
           </div>
         </div>
         <h3>Google My Business</h3>
@@ -424,36 +402,30 @@
         <div class="card-container" aria-hidden="true">
           <div class="card-anim">
             <div class="back"><div class="red"></div><div class="text">SEO</div></div>
-            <div class="front">
-              <div class="red"></div>
-              <div class="text-center">
-                <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true">
-                  <circle cx="20" cy="20" r="10" fill="#fffffd"></circle>
-                  <path d="M28 28l8 8" stroke="#191f1f" stroke-width="4" stroke-linecap="round"></path>
-                </svg>
-              </div>
-            </div>
+            <div class="front"><div class="red"></div><div class="text-center">
+              <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true">
+                <circle cx="20" cy="20" r="10" fill="#fffffd"></circle>
+                <path d="M28 28l8 8" stroke="#191f1f" stroke-width="4" stroke-linecap="round"></path>
+              </svg>
+            </div></div>
           </div>
         </div>
         <h3>SEO</h3>
         <p>Rank for buyer-intent keywords and build authority to generate <strong>compounding organic traffic</strong>.</p>
       </div>
 
-      <!-- Website Dev & Optimization -->
+      <!-- Web Dev & CRO -->
       <div class="service-item">
         <div class="card-container" aria-hidden="true">
           <div class="card-anim">
             <div class="back"><div class="red"></div><div class="text">WEB</div></div>
-            <div class="front">
-              <div class="red"></div>
-              <div class="text-center">
-                <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true">
-                  <rect x="6" y="10" width="36" height="28" rx="3" fill="#fffffd"></rect>
-                  <rect x="6" y="10" width="36" height="6" fill="#191f1f"></rect>
-                  <rect x="14" y="24" width="20" height="6" rx="3" fill="#191f1f"></rect>
-                </svg>
-              </div>
-            </div>
+            <div class="front"><div class="red"></div><div class="text-center">
+              <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true">
+                <rect x="6" y="10" width="36" height="28" rx="3" fill="#fffffd"></rect>
+                <rect x="6" y="10" width="36" height="6" fill="#191f1f"></rect>
+                <rect x="14" y="24" width="20" height="6" rx="3" fill="#191f1f"></rect>
+              </svg>
+            </div></div>
           </div>
         </div>
         <h3>Website Dev & Optimization</h3>
@@ -462,7 +434,6 @@
     </div>
   </section>
 
-  <!-- NEW: Case Studies -->
   <section id="case-studies" aria-labelledby="case-studies-title">
     <div class="section-header reveal">
       <h2 id="case-studies-title">Case Studies</h2>
@@ -470,7 +441,6 @@
     </div>
 
     <div class="cs-grid">
-      <!-- CS 1 -->
       <article class="cs-card reveal">
         <div class="cs-header">
           <div class="cs-logo" aria-hidden="true">
@@ -489,7 +459,6 @@
         <p class="cs-desc">Rebuilt targeting & creatives, then optimized GMB to capture map-pack intent. Bookings compounded month over month.</p>
       </article>
 
-      <!-- CS 2 -->
       <article class="cs-card reveal">
         <div class="cs-header">
           <div class="cs-logo" aria-hidden="true">
@@ -508,7 +477,6 @@
         <p class="cs-desc">Topic clusters, internal links, and a fast CRO page lifted organic traffic and demo conversions.</p>
       </article>
 
-      <!-- CS 3 -->
       <article class="cs-card reveal">
         <div class="cs-header">
           <div class="cs-logo" aria-hidden="true">
@@ -529,71 +497,178 @@
     </div>
   </section>
 
-  <!-- NEW: Testimonials -->
+  <!-- NEW: What People Say (Google Reviews Tabs) -->
   <section id="testimonials" aria-labelledby="testimonials-title">
     <div class="section-header reveal">
       <h2 id="testimonials-title">What People Say</h2>
-      <p>Feedback from founders and marketing leads we partner with.</p>
+      <p>Pulled from Google reviews and client feedback.</p>
     </div>
 
-    <div class="test-grid">
-      <!-- T1 -->
-      <article class="test-card reveal">
-        <div class="stars" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-        </div>
-        <p class="quote">“They rebuilt our funnel and the calendar started filling the same week. Calls are qualified, not time-wasters.”</p>
-        <div class="client">
-          <div class="avatar" aria-hidden="true">AM</div>
-          <div>
-            <strong>Amanda M.</strong><br><small>Owner, Local HVAC</small>
-          </div>
-        </div>
-      </article>
+    <!-- Tabs -->
+    <div class="review-tabs">
+      <button class="review-tab-btn active" data-tab="panel-google">Google Reviews</button>
+      <button class="review-tab-btn" data-tab="panel-clients">Client Stories</button>
+    </div>
 
-      <!-- T2 -->
-      <article class="test-card reveal">
-        <div class="stars" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-        </div>
-        <p class="quote">“We finally have consistency. SEO + GMB changes gave us weekly inbound, and ads scale when we need them.”</p>
-        <div class="client">
-          <div class="avatar" aria-hidden="true">JT</div>
-          <div>
-            <strong>Jason T.</strong><br><small>CMO, Multi-location Dental</small>
+    <!-- Panel: Google Reviews (static realistic examples; live API can replace later) -->
+    <div id="panel-google" class="review-panel active">
+      <div class="reviews-grid">
+        <!-- Review 1 -->
+        <article class="g-review-card reveal">
+          <div class="g-content">
+            <div class="g-header">
+              <div class="g-avatar" aria-hidden="true">AM</div>
+              <div>
+                <div class="g-name">Amanda M.</div>
+                <div class="g-meta">
+                  <span class="g-stars" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                  </span>
+                  <span>· 2 weeks ago</span>
+                </div>
+              </div>
+            </div>
+            <p class="g-quote">They rebuilt our funnel and the calendar started filling the same week. Calls are qualified, not time-wasters.</p>
+            <a class="g-link" href="#" target="_blank" rel="noopener" aria-label="View review on Google">
+              <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#111"/></svg>
+              View on Google →
+            </a>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <!-- T3 -->
-      <article class="test-card reveal">
-        <div class="stars" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-        </div>
-        <p class="quote">“They don’t just run ads — they fixed our pages. CVR nearly doubled and sales calls are actually qualified.”</p>
-        <div class="client">
-          <div class="avatar" aria-hidden="true">RS</div>
-          <div>
-            <strong>Riya S.</strong><br><small>Founder, DTC Beauty</small>
+        <!-- Review 2 -->
+        <article class="g-review-card reveal">
+          <div class="g-content">
+            <div class="g-header">
+              <div class="g-avatar" aria-hidden="true">JT</div>
+              <div>
+                <div class="g-name">Jason T.</div>
+                <div class="g-meta">
+                  <span class="g-stars" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111" opacity="0.35"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                  </span>
+                  <span>· 1 month ago</span>
+                </div>
+              </div>
+            </div>
+            <p class="g-quote">We finally have consistency. GMB + SEO gave us weekly inbound and the ads scale on demand.</p>
+            <a class="g-link" href="#" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#111"/></svg>
+              View on Google →
+            </a>
           </div>
-        </div>
-      </article>
+        </article>
+
+        <!-- Review 3 -->
+        <article class="g-review-card reveal">
+          <div class="g-content">
+            <div class="g-header">
+              <div class="g-avatar" aria-hidden="true">RS</div>
+              <div>
+                <div class="g-name">Riya S.</div>
+                <div class="g-meta">
+                  <span class="g-stars" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                  </span>
+                  <span>· 3 months ago</span>
+                </div>
+              </div>
+            </div>
+            <p class="g-quote">They don’t just run ads — they fixed our pages. CVR nearly doubled and sales calls are actually qualified.</p>
+            <a class="g-link" href="#" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#111"/></svg>
+              View on Google →
+            </a>
+          </div>
+        </article>
+
+        <!-- Review 4 -->
+        <article class="g-review-card reveal">
+          <div class="g-content">
+            <div class="g-header">
+              <div class="g-avatar" aria-hidden="true">KH</div>
+              <div>
+                <div class="g-name">Kevin H.</div>
+                <div class="g-meta">
+                  <span class="g-stars" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                  </span>
+                  <span>· 5 months ago</span>
+                </div>
+              </div>
+            </div>
+            <p class="g-quote">Super professional team. Our inbound calls shot up within weeks. Easy to work with and great communication.</p>
+            <a class="g-link" href="#" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#111"/></svg>
+              View on Google →
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Panel: Client Stories (optional second tab, static) -->
+    <div id="panel-clients" class="review-panel">
+      <div class="reviews-grid">
+        <article class="g-review-card reveal">
+          <div class="g-content">
+            <div class="g-header">
+              <div class="g-avatar" aria-hidden="true">LH</div>
+              <div>
+                <div class="g-name">Laura H.</div>
+                <div class="g-meta"><span class="g-badge">Verified client</span> <span>· Retainer</span></div>
+              </div>
+            </div>
+            <p class="g-quote">From the first month, our pipeline stabilized. They set the appointments and helped us close with better pages.</p>
+            <a class="g-link" href="#contact">Start your strategy call →</a>
+          </div>
+        </article>
+        <article class="g-review-card reveal">
+          <div class="g-content">
+            <div class="g-header">
+              <div class="g-avatar" aria-hidden="true">DP</div>
+              <div>
+                <div class="g-name">Darren P.</div>
+                <div class="g-meta"><span class="g-badge">Verified client</span> <span>· Project</span></div>
+              </div>
+            </div>
+            <p class="g-quote">They rebuilt our GMB and local pages. Calls up 70% and our ad spend is finally efficient.</p>
+            <a class="g-link" href="#contact">Start your strategy call →</a>
+          </div>
+        </article>
+        <article class="g-review-card reveal">
+          <div class="g-content">
+            <div class="g-header">
+              <div class="g-avatar" aria-hidden="true">MK</div>
+              <div>
+                <div class="g-name">Mina K.</div>
+                <div class="g-meta"><span class="g-badge">Verified client</span> <span>· Audit + CRO</span></div>
+              </div>
+            </div>
+            <p class="g-quote">Conversion rate jumped after they fixed our offer page. Now ads and SEO actually convert.</p>
+            <a class="g-link" href="#contact">Start your strategy call →</a>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact" aria-label="Book a call">
     <div class="section-header">
       <h2>Book Your Free Strategy Call</h2>
@@ -618,7 +693,19 @@
     }, { rootMargin: '0px 0px -100px 0px' });
     reveals.forEach(el=>io.observe(el));
 
-    // (Accordion guards kept; services now cards)
+    // --- Tabs for testimonials ---
+    const reviewTabBtns = document.querySelectorAll('.review-tab-btn');
+    const reviewPanels = document.querySelectorAll('.review-panel');
+    reviewTabBtns.forEach(btn => {
+      btn.addEventListener('click', ()=>{
+        const id = btn.dataset.tab;
+        reviewTabBtns.forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        reviewPanels.forEach(p=>p.classList.toggle('active', p.id === id));
+      });
+    });
+
+    // (Accordion guards from earlier versions; services now use cards)
     const accordionItems = document.querySelectorAll('.accordion-item');
     accordionItems.forEach(item => {
       const header = item.querySelector('.accordion-header');
