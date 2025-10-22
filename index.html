@@ -153,9 +153,7 @@
     }
     .section-header p{ color:var(--text-secondary); } 
 
-    .pain { 
-      background: var(--bg-section-alt); 
-    }
+    .pain { background: var(--bg-section-alt); }
     
     .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:18px; max-width: 1100px; margin: 0 auto; }
     .card { 
@@ -168,33 +166,11 @@
       overflow:hidden; 
       box-shadow: var(--shadow-soft); 
     }
-    .card:hover{ 
-      transform: translateY(-6px); 
-      border-color:rgba(0,0,0,.15); 
-      box-shadow: var(--shadow-medium); 
-    }
-    .card::before{ 
-      content:''; 
-      position:absolute; 
-      top:0; 
-      left:-100%; 
-      height:2px; 
-      right:0; 
-      background:linear-gradient(90deg, transparent, rgba(0,0,0,.04), transparent); 
-      transition: transform .6s ease; 
-      transform:translateX(0); 
-    }
-    .card:hover::before{ transform:translateX(200%); }
+    .card:hover{ transform: translateY(-6px); border-color:rgba(0,0,0,.15); box-shadow: var(--shadow-medium); }
+
     .icon { 
-      width:48px; 
-      height:48px; 
-      border-radius:12px; 
-      background: rgba(0,0,0,.05); 
-      display:flex; 
-      align-items:center; 
-      justify-content:center; 
-      color:var(--text-secondary); 
-      margin-bottom:14px; 
+      width:48px; height:48px; border-radius:12px; background: rgba(0,0,0,.05); 
+      display:flex; align-items:center; justify-content:center; color:var(--text-secondary); margin-bottom:14px; 
     }
     .card h3{ font-size:1.15rem; margin-bottom:8px; } 
     .card p{ color:var(--text-secondary); } 
@@ -246,391 +222,170 @@
     }
     /* --- End of Red Alert Style --- */
 
-    
     /* --- Tab Section Styles --- */
-    #solution {
-      background: var(--bg-section-alt);
-    }
-    .tabs-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr; 
-      gap: 20px;
-    }
-    .tab-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    #solution { background: var(--bg-section-alt); }
+    .tabs-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 20px; }
+    .tab-nav { display: flex; flex-direction: column; gap: 10px; }
     .tab-button {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      padding: 16px 20px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--bg-card);
-      color: var(--text-secondary);
-      cursor: pointer;
-      text-align: left;
-      transition: background .3s ease, color .3s ease;
+      font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 600;
+      padding: 16px 20px; border-radius: 12px; border: 1px solid var(--border);
+      background: var(--bg-card); color: var(--text-secondary);
+      cursor: pointer; text-align: left; transition: background .3s ease, color .3s ease;
     }
-    .tab-button:hover {
-      background: var(--bg-input);
-      color: var(--text-primary);
-    }
-    .tab-button.active {
-      background: var(--accent);
-      color: var(--accent-text);
-      border-color: var(--accent);
-    }
-    .tab-panel {
-      display: none; 
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: var(--shadow-soft);
-      animation: fadeIn .4s ease;
-    }
-    .tab-panel.active {
-      display: block; 
-    }
-    .tab-panel h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .tab-panel p {
-      color: var(--text-secondary);
-      font-size: 1.05rem;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (min-width: 768px) {
-      .tabs-container {
-        grid-template-columns: 1fr 2fr; 
-        gap: 24px;
-      }
-    }
-    /* --- End of Tab Section Styles --- */
+    .tab-button:hover { background: var(--bg-input); color: var(--text-primary); }
+    .tab-button.active { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+    .tab-panel { display: none; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 30px; box-shadow: var(--shadow-soft); animation: fadeIn .4s ease; }
+    .tab-panel.active { display: block; }
+    .tab-panel h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; }
+    .tab-panel p { color: var(--text-secondary); font-size: 1.05rem; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @media (min-width: 768px) { .tabs-container { grid-template-columns: 1fr 2fr; gap: 24px; } }
 
-
-    /* --- NEW: Accordion Service Section --- */
-    #services {
-      background: var(--bg-light);
-    }
-    .accordion-container {
-      max-width: 980px;
-      margin: 0 auto;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden; /* Clips the inner items to the border radius */
-      box-shadow: var(--shadow-soft);
-    }
-    .accordion-item {
-      border-bottom: 1px solid var(--border);
-    }
-    .accordion-item:last-child {
-      border-bottom: none;
-    }
+    /* --- NEW: Accordion Section --- */
+    #services { background: var(--bg-light); }
+    .accordion-container { max-width: 980px; margin: 0 auto; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-soft); }
+    .accordion-item { border-bottom: 1px solid var(--border); }
+    .accordion-item:last-child { border-bottom: none; }
     .accordion-header {
-      font-family: 'Inter', sans-serif;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      padding: 20px 24px;
-      background: var(--bg-card);
-      border: none;
-      cursor: pointer;
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      text-align: left;
+      display: flex; justify-content: space-between; align-items: center;
+      width: 100%; padding: 20px 24px; background: var(--bg-card);
+      border: none; cursor: pointer; font-size: 1.15rem; font-weight: 600;
+      color: var(--text-primary); text-align: left;
     }
-    .accordion-header:hover {
-      background: var(--bg-section-alt);
-    }
-    .accordion-icon {
-      width: 20px;
-      height: 20px;
-      stroke: var(--text-secondary);
-      transition: transform .3s ease;
-      flex-shrink: 0;
-      margin-left: 16px;
-    }
-    .accordion-item.active .accordion-icon {
-      transform: rotate(45deg);
-      stroke: var(--text-primary);
-    }
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      background: var(--bg-card);
-      transition: max-height .4s ease-out, padding .4s ease-out;
-    }
-    .accordion-content p {
-      padding: 0 24px 24px;
-      color: var(--text-secondary);
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-    .accordion-item.active .accordion-content {
-      /* max-height is set by JS for smooth animation */
-    }
-    /* --- End of Accordion Styles --- */
+    .accordion-header:hover { background: var(--bg-section-alt); }
+    .accordion-icon { width: 20px; height: 20px; stroke: var(--text-secondary); transition: transform .3s ease; }
+    .accordion-item.active .accordion-icon { transform: rotate(45deg); stroke: var(--text-primary); }
+    .accordion-content { max-height: 0; overflow: hidden; background: var(--bg-card); transition: max-height .4s ease-out, padding .4s ease-out; }
+    .accordion-content p { padding: 0 24px 24px; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; }
 
-
-    #contact { 
-      background: var(--bg-section-alt); /* Changed for contrast */
-    } 
+    #contact { background: var(--bg-section-alt); } 
     #contact .form{ max-width:760px; margin: 20px auto 0; display:grid; gap:12px; }
-    #contact input, #contact textarea{ 
-      padding:14px 16px; 
-      border-radius:12px; 
-      border:1px solid var(--border); 
-      background:var(--bg-input); 
-      color:var(--text-primary); 
-    }
-    #contact input:focus, #contact textarea:focus {
-      outline: 2px solid var(--accent);
-      outline-offset: -1px;
-      border-color: var(--accent);
-    }
+    #contact input, #contact textarea{ padding:14px 16px; border-radius:12px; border:1px solid var(--border); background:var(--bg-input); color:var(--text-primary); }
+    #contact input:focus, #contact textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; border-color: var(--accent); }
     #contact textarea{ min-height:120px; resize:vertical; }
-    
+
     @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } .grid-background{ animation:none; } }
   </style>
 </head>
 <body>
   <div class="grid-background" aria-hidden="true"></div>
 
-  <section class="hero" aria-label="Hero">
+  <!-- Hero -->
+  <section class="hero">
     <div class="float" aria-hidden="true"></div>
     <div class="float" aria-hidden="true"></div>
     <div class="float" aria-hidden="true"></div>
-
     <div class="hero-inner">
-      <div class="eyebrow" aria-hidden="true">
-        <span>Premium Lead Generation</span>
-      </div>
+      <div class="eyebrow"><span>Premium Lead Generation</span></div>
       <h1>Stop Chasing Clients. Let Them Come to You.</h1>
       <p class="subtitle">We deliver qualified, high-intent appointments directly to your calendar. No more cold outreach, no more wasted ad spend. Just real results.</p>
-
-      <ul class="benefits" role="list">
-        <li class="pill"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>Guaranteed Appointments</li>
-        <li class="pill"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>Pay-Per-Result Model</li>
-        <li class="pill"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>No Contracts</li>
+      <ul class="benefits">
+        <li class="pill">Guaranteed Appointments</li>
+        <li class="pill">Pay-Per-Result Model</li>
+        <li class="pill">No Contracts</li>
       </ul>
-
       <a class="cta" href="#contact">Book Your Free Strategy Call</a>
     </div>
   </section>
 
-  <section class="option2" aria-labelledby="pain-title">
+  <!-- Pain Points -->
+  <section class="option2">
     <div class="section-header reveal">
-      <h2 id="pain-title">The Old Way Isn’t Working Anymore</h2>
+      <h2>The Old Way Isn’t Working Anymore</h2>
       <p>Traditional marketing agencies are failing businesses like yours. Here’s what you’re dealing with:</p>
     </div>
-
     <div class="cards">
-      <article class="card reveal">
-        <div class="icon" aria-hidden="true">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
-        </div>
-        <h3>Wasting Time & Money</h3>
-        <p>Burning through thousands on ads with nothing to show for it. Your competitors are winning while you’re still testing.</p>
-      </article>
-      <article class="card reveal">
-        <div class="icon" aria-hidden="true">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21l-2-2m2 2v-7a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0H4m4-10V5a2 2 0 012-2h4a2 2 0 012 2v6"></path></svg>
-        </div>
-        <h3>Unqualified Leads</h3>
-        <p>Your calendar fills up with tire-kickers who can’t afford your services. Quality matters more than quantity.</p>
-      </article>
-      <article class="card reveal">
-        <div class="icon" aria-hidden="true">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3v18h18M9 15l3-3 2 2 5-5"></path></svg>
-        </div>
-        <h3>Inconsistent Revenue</h3>
-        <p>One great month followed by three bad ones. This feast-or-famine cycle makes it impossible to scale predictably.</p>
-      </article>
-      <article class="card reveal">
-        <div class="icon" aria-hidden="true">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-        </div>
-        <h3>No Competitive Edge</h3>
-        <p>Using the same generic strategies as everyone else. You need a system that makes you stand out, not blend in.</p>
-      </article>
+      <article class="card reveal"><div class="icon">⏳</div><h3>Wasting Time & Money</h3><p>Burning through thousands on ads with nothing to show for it.</p></article>
+      <article class="card reveal"><div class="icon">🚫</div><h3>Unqualified Leads</h3><p>Your calendar fills up with tire-kickers who can’t afford your services.</p></article>
+      <article class="card reveal"><div class="icon">📉</div><h3>Inconsistent Revenue</h3><p>One great month followed by three bad ones. Impossible to scale predictably.</p></article>
+      <article class="card reveal"><div class="icon">⚔️</div><h3>No Competitive Edge</h3><p>Using the same generic strategies as everyone else. You need a system that makes you stand out.</p></article>
     </div>
   </section>
 
+  <!-- ✅ UPDATED SOLUTION SECTION -->
   <section id="solution" aria-labelledby="solution-title">
     <div class="section-header reveal">
-      <h2 id="solution-title">The Solution is a System</h2>
-      <p>We built a simple, 3-step process to fill your calendar predictably.</p>
+      <h2 id="solution-title">How We Fix What’s Broken</h2>
+      <p>Every pain point you’re facing has a direct, tested solution. Here’s exactly how we turn problems into predictable growth.</p>
     </div>
 
     <div class="tabs-container reveal">
-      <div class="tab-nav" role="tablist" aria-label="Our Solution">
-        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1">Step 1: Strategy & Targeting</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2">Step 2: We Launch & Manage</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3">Step 3: You Get Results</button>
+      <div class="tab-nav" role="tablist" aria-label="Our Fixes">
+        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1">Fix 1: Stop Wasting Ad Spend</button>
+        <button class="tab-button" role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2">Fix 2: Attract Only Qualified Prospects</button>
+        <button class="tab-button" role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3">Fix 3: Build Predictable Growth</button>
       </div>
 
       <div class="tab-content">
         <div class="tab-panel active" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
-          <h3>Strategy & Targeting</h3>
-          <p>We start with a deep-dive call to understand your exact ideal client. We're not just looking for any lead; we're looking for your *next client*. We analyze your offer, market, and unique value proposition to build a hyper-targeted outreach campaign.</p>
+          <h3>Stop Wasting Ad Spend</h3>
+          <p>We eliminate guesswork with data-driven targeting and messaging. Our system pinpoints audiences most likely to convert — no more throwing money at “maybe” leads. Every dollar spent moves you closer to a booked appointment.</p>
         </div>
         <div class="tab-panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2">
-          <h3>We Launch & Manage</h3>
-          <p>Our team of experts handles everything. From writing compelling copy to managing omni-channel outreach (Email, LinkedIn, etc.), we run the entire system for you. You don't have to lift a finger, write a line of code, or worry about ad platforms. We do all the heavy lifting.</p>
+          <h3>Attract Only Qualified Prospects</h3>
+          <p>We use intelligent filtering and pre-qualification to ensure only real buyers make it to your calendar. Before a call is booked, we verify fit, interest, and budget — so you spend time only on prospects ready to invest.</p>
         </div>
         <div class="tab-panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3">
-          <h3>You Get Results</h3>
-          <p>Qualified, high-intent appointments are booked directly into your calendar. These are prospects who have shown interest and are ready to talk. All you have to do is show up, present your value, and close the deal. This is the pay-per-result model you've been looking for.</p>
+          <h3>Build Predictable Growth</h3>
+          <p>Our automated outreach engine runs 24/7, delivering steady, high-quality appointments every week. You’ll never depend on random referrals or one good month again — just consistent pipeline and measurable ROI.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="services" aria-labelledby="services-title">
+  <!-- Services Accordion -->
+  <section id="services">
     <div class="section-header reveal">
-      <h2 id="services-title">Your Full-Stack Growth Partner</h2>
+      <h2>Your Full-Stack Growth Partner</h2>
       <p>We're more than appointments. We handle the entire funnel, from first click to closed deal.</p>
     </div>
-
     <div class="accordion-container reveal">
       <div class="accordion-item">
-        <button class="accordion-header">
-          Facebook Ads
-          <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg>
-        </button>
-        <div class="accordion-content">
-          <p>We design, launch, and manage targeted, high-ROI Facebook & Instagram ad campaigns that deliver qualified leads directly to your sales pipeline. We handle the targeting, copy, and creative so you can focus on closing.</p>
-        </div>
+        <button class="accordion-header">Facebook Ads <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg></button>
+        <div class="accordion-content"><p>We design, launch, and manage high-ROI ad campaigns that deliver qualified leads directly to your pipeline.</p></div>
       </div>
-
       <div class="accordion-item">
-        <button class="accordion-header">
-          Website & Landing Page Dev
-          <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg>
-        </button>
-        <div class="accordion-content">
-          <p>Your ads are useless if they point to a poor-performing page. We build high-converting landing pages and full-scale websites that are fast, beautiful, and optimized to turn visitors into paying customers.</p>
-        </div>
+        <button class="accordion-header">Website & Landing Page Dev <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg></button>
+        <div class="accordion-content"><p>We build fast, beautiful, high-converting landing pages that turn clicks into booked calls.</p></div>
       </div>
-
       <div class="accordion-item">
-        <button class="accordion-header">
-          Search Engine Optimization (SEO)
-          <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg>
-        </button>
-        <div class="accordion-content">
-          <p>Dominate search engine rankings for your key terms. We attract organic, high-intent traffic that is actively searching for your solution, building a sustainable, long-term asset for your business.</p>
-        </div>
+        <button class="accordion-header">Search Engine Optimization (SEO) <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg></button>
+        <div class="accordion-content"><p>We help you dominate search rankings, attracting organic, high-intent traffic that compounds over time.</p></div>
       </div>
-
       <div class="accordion-item">
-        <button class="accordion-header">
-          GMB / Local SEO Optimization
-          <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg>
-        </button>
-        <div class="accordion-content">
-          <p>For businesses that serve a local area, your Google My Business profile is your most important asset. We fully optimize your profile to capture the "near me" searches, manage reviews, and help you stand out from local competitors.</p>
-        </div>
+        <button class="accordion-header">GMB / Local SEO Optimization <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg></button>
+        <div class="accordion-content"><p>We fully optimize your Google My Business profile to capture local “near me” searches and stand out from competitors.</p></div>
       </div>
     </div>
   </section>
-  <section id="contact" aria-label="Book a call">
-    <div class="section-header">
-      <h2>Book Your Free Strategy Call</h2>
-      <p>Tell us a bit about your business and we’ll send over a few times.</p>
-    </div>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-header"><h2>Book Your Free Strategy Call</h2><p>Tell us a bit about your business and we’ll send over a few times.</p></div>
     <form class="form" action="#" method="post">
-      <input name="name" placeholder="Your name" aria-label="Your name" required>
-      <input type="email" name="email" placeholder="Email" aria-label="Email" required>
-      <input name="website" placeholder="Website (optional)" aria-label="Website">
-      <textarea name="message" placeholder="What do you sell and who do you sell to?" aria-label="Message"></textarea>
+      <input name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input name="website" placeholder="Website (optional)">
+      <textarea name="message" placeholder="What do you sell and who do you sell to?"></textarea>
       <button class="cta" type="submit">Submit</button>
     </form>
   </section>
 
   <script>
-    // --- Intersection Observer for "reveal" animations ---
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries)=>{
-      for (const e of entries){
-        if (e.isIntersecting){ e.target.classList.add('active'); io.unobserve(e.target); }
-      }
-    }, { rootMargin: '0px 0px -100px 0px' });
+    // Reveal animations
+    const reveals=document.querySelectorAll('.reveal');
+    const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');io.unobserve(e.target);}})},{rootMargin:'0px 0px -100px 0px'});
     reveals.forEach(el=>io.observe(el));
 
+    // Tabs
+    const tabButtons=document.querySelectorAll('.tab-button');
+    const tabPanels=document.querySelectorAll('.tab-panel');
+    tabButtons.forEach(btn=>{btn.addEventListener('click',()=>{tabButtons.forEach(b=>{b.classList.remove('active');b.setAttribute('aria-selected','false');});tabPanels.forEach(p=>p.classList.remove('active'));btn.classList.add('active');btn.setAttribute('aria-selected','true');document.getElementById(btn.getAttribute('aria-controls')).classList.add('active');});});
 
-    // --- JavaScript for Tab Section ---
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabPanels = document.querySelectorAll('.tab-panel');
-
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // 1. Deactivate all buttons and panels
-        tabButtons.forEach(btn => {
-          btn.classList.remove('active');
-          btn.setAttribute('aria-selected', 'false');
-        });
-        tabPanels.forEach(panel => {
-          panel.classList.remove('active');
-        });
-
-        // 2. Activate the clicked button
-        button.classList.add('active');
-        button.setAttribute('aria-selected', 'true');
-
-        // 3. Activate the corresponding panel
-        const targetPanelId = button.getAttribute('aria-controls');
-        const targetPanel = document.getElementById(targetPanelId);
-        if (targetPanel) {
-          targetPanel.classList.add('active');
-        }
-      });
-    });
-
-    // --- NEW: JavaScript for Accordion Section ---
-    const accordionItems = document.querySelectorAll('.accordion-item');
-
-    accordionItems.forEach(item => {
-      const header = item.querySelector('.accordion-header');
-      const content = item.querySelector('.accordion-content');
-
-      header.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-
-        // Close all other items
-        accordionItems.forEach(otherItem => {
-          otherItem.classList.remove('active');
-          otherItem.querySelector('.accordion-content').style.maxHeight = '0px';
-        });
-
-        // Open the clicked item (if it wasn't already open)
-        if (!isActive) {
-          item.classList.add('active');
-          content.style.maxHeight = content.scrollHeight + 'px';
-        }
-      });
-    });
-
-    // Optional: Open the first item by default
-    if (accordionItems.length > 0) {
-      accordionItems[0].classList.add('active');
-      accordionItems[0].querySelector('.accordion-content').style.maxHeight = 
-        accordionItems[0].querySelector('.accordion-content').scrollHeight + 'px';
-    }
-
+    // Accordion
+    const items=document.querySelectorAll('.accordion-item');
+    items.forEach(it=>{const h=it.querySelector('.accordion-header');const c=it.querySelector('.accordion-content');h.addEventListener('click',()=>{const open=it.classList.contains('active');items.forEach(o=>{o.classList.remove('active');o.querySelector('.accordion-content').style.maxHeight='0px';});if(!open){it.classList.add('active');c.style.maxHeight=c.scrollHeight+'px';}});});
+    if(items.length>0){items[0].classList.add('active');items[0].querySelector('.accordion-content').style.maxHeight=items[0].querySelector('.accordion-content').scrollHeight+'px';}
   </script>
 </body>
 </html>
