@@ -34,8 +34,8 @@
 
     body {
       font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: var(--bg-light); 
-      color: var(--text-primary); 
+      background: var(--bg-light);  
+      color: var(--text-primary);  
       line-height: 1.65;
       overflow-x: hidden;
     }
@@ -43,8 +43,8 @@
     .grid-background {
       position: fixed; inset: 0; z-index: -1;
       background-image:
-        linear-gradient(rgba(0,0,0,.03) 1px, transparent 1px), 
-        linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px); 
+        linear-gradient(rgba(0,0,0,.03) 1px, transparent 1px),  
+        linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px);  
       background-size: 48px 48px;
       animation: gridMove 22s linear infinite;
       will-change: transform;
@@ -53,89 +53,89 @@
 
     section { padding: 56px 20px; }
     
-    .hero { 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      position: relative; 
-      padding: 100px 20px 80px 20px; 
+    .hero {  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      position: relative;  
+      padding: 100px 20px 80px 20px;  
     }
     
     .hero-inner { max-width: 980px; text-align:center; margin-inline:auto; }
-    .eyebrow { 
-      display:inline-flex; 
-      gap:8px; 
-      align-items:center; 
-      padding:6px 12px; 
-      border:1px solid var(--border); 
-      border-radius:999px; 
-      color:var(--text-secondary); 
-      font-size: .9rem; 
-      background: rgba(0,0,0,.04); 
-      backdrop-filter: blur(6px); 
+    .eyebrow {  
+      display:inline-flex;  
+      gap:8px;  
+      align-items:center;  
+      padding:6px 12px;  
+      border:1px solid var(--border);  
+      border-radius:999px;  
+      color:var(--text-secondary);  
+      font-size: .9rem;  
+      background: rgba(0,0,0,.04);  
+      backdrop-filter: blur(6px);  
     }
-    .hero h1 { 
-      font-size: clamp(2.4rem, 7vw, 4.6rem); 
-      line-height:1.1; 
-      font-weight: 900; 
-      letter-spacing:-.02em; 
-      margin: 14px 0 16px; 
-      background:var(--gradient-text); 
-      -webkit-background-clip:text; 
-      -webkit-text-fill-color:transparent; 
+    .hero h1 {  
+      font-size: clamp(2.4rem, 7vw, 4.6rem);  
+      line-height:1.1;  
+      font-weight: 900;  
+      letter-spacing:-.02em;  
+      margin: 14px 0 16px;  
+      background:var(--gradient-text);  
+      -webkit-background-clip:text;  
+      -webkit-text-fill-color:transparent;  
     }
-    .subtitle { 
-      font-size: clamp(1.05rem, 2vw, 1.25rem); 
-      color: var(--text-secondary); 
-      max-width:720px; 
-      margin:0 auto 28px; 
+    .subtitle {  
+      font-size: clamp(1.05rem, 2vw, 1.25rem);  
+      color: var(--text-secondary);  
+      max-width:720px;  
+      margin:0 auto 28px;  
     }
 
     .benefits { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin: 6px 0 28px; list-style:none; }
-    .pill { 
-      background: rgba(0,0,0,.05); 
-      border:1px solid var(--border); 
-      border-radius:999px; 
-      padding:10px 16px; 
-      font-weight:600; 
-      font-size:.95rem; 
-      display:inline-flex; 
-      align-items:center; 
-      gap:8px; 
-      backdrop-filter: blur(8px); 
+    .pill {  
+      background: rgba(0,0,0,.05);  
+      border:1px solid var(--border);  
+      border-radius:999px;  
+      padding:10px 16px;  
+      font-weight:600;  
+      font-size:.95rem;  
+      display:inline-flex;  
+      align-items:center;  
+      gap:8px;  
+      backdrop-filter: blur(8px);  
     }
     .pill svg { width:16px; height:16px; stroke:#4ade80; }
 
-    .cta { 
-      display:inline-block; 
-      background:var(--accent); 
-      color:var(--accent-text); 
-      padding:14px 28px; 
-      border-radius:10px; 
-      text-decoration:none; 
-      font-weight:700; 
-      box-shadow:0 8px 24px rgba(0,0,0,.18); 
-      position:relative; 
-      overflow:hidden; 
+    .cta {  
+      display:inline-block;  
+      background:var(--accent);  
+      color:var(--accent-text);  
+      padding:14px 28px;  
+      border-radius:10px;  
+      text-decoration:none;  
+      font-weight:700;  
+      box-shadow:0 8px 24px rgba(0,0,0,.18);  
+      position:relative;  
+      overflow:hidden;  
     }
-    .cta:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; } 
-    .cta::before{ 
-      content:''; 
-      position:absolute; 
-      inset:0; 
-      transform:translateX(-100%); 
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent); 
-      transition:transform .6s ease; 
+    .cta:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }  
+    .cta::before{  
+      content:'';  
+      position:absolute;  
+      inset:0;  
+      transform:translateX(-100%);  
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent);  
+      transition:transform .6s ease;  
     }
     .cta:hover::before{ transform:translateX(100%); }
 
-    .float { 
-      position:absolute; 
-      width:4px; 
-      height:4px; 
-      background:rgba(0,0,0,.2); 
-      border-radius:50%; 
-      animation:float 10s ease-in-out infinite; 
+    .float {  
+      position:absolute;  
+      width:4px;  
+      height:4px;  
+      background:rgba(0,0,0,.2);  
+      border-radius:50%;  
+      animation:float 10s ease-in-out infinite;  
     }
     @keyframes float{ 0%,100%{ transform:translate(0,0)} 33%{ transform:translate(16px,-26px)} 66%{ transform:translate(-18px,24px)} }
     .float:nth-of-type(1){ top:22%; left:12%; animation-delay:0s }
@@ -143,37 +143,61 @@
     .float:nth-of-type(3){ bottom:18%; left:18%; animation-delay:4s }
 
     .section-header{ text-align:center; max-width:820px; margin:0 auto 36px; }
-    .section-header h2{ 
-      font-size: clamp(1.8rem, 5vw, 3.2rem); 
-      font-weight: 800; 
-      background:var(--gradient-text); 
-      -webkit-background-clip:text; 
-      -webkit-text-fill-color:transparent; 
-      margin-bottom:10px; 
+    .section-header h2{  
+      font-size: clamp(1.8rem, 5vw, 3.2rem);  
+      font-weight: 800;  
+      background:var(--gradient-text);  
+      -webkit-background-clip:text;  
+      -webkit-text-fill-color:transparent;  
+      margin-bottom:10px;  
     }
-    .section-header p{ color:var(--text-secondary); } 
+    .section-header p{ color:var(--text-secondary); }  
 
-    .pain { background: var(--bg-section-alt); }
+    .pain {  
+      background: var(--bg-section-alt);  
+    }
     
     .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:18px; max-width: 1100px; margin: 0 auto; }
-    .card { 
-      background:var(--bg-card); 
-      border:1px solid var(--border); 
-      border-radius:16px; 
-      padding:26px; 
-      transition:transform .32s ease, box-shadow .32s ease, border-color .32s ease; 
-      position:relative; 
-      overflow:hidden; 
-      box-shadow: var(--shadow-soft); 
+    .card {  
+      background:var(--bg-card);  
+      border:1px solid var(--border);  
+      border-radius:16px;  
+      padding:26px;  
+      transition:transform .32s ease, box-shadow .32s ease, border-color .32s ease;  
+      position:relative;  
+      overflow:hidden;  
+      box-shadow: var(--shadow-soft);  
     }
-    .card:hover{ transform: translateY(-6px); border-color:rgba(0,0,0,.15); box-shadow: var(--shadow-medium); }
-
-    .icon { 
-      width:48px; height:48px; border-radius:12px; background: rgba(0,0,0,.05); 
-      display:flex; align-items:center; justify-content:center; color:var(--text-secondary); margin-bottom:14px; 
+    .card:hover{  
+      transform: translateY(-6px);  
+      border-color:rgba(0,0,0,.15);  
+      box-shadow: var(--shadow-medium);  
     }
-    .card h3{ font-size:1.15rem; margin-bottom:8px; } 
-    .card p{ color:var(--text-secondary); } 
+    .card::before{  
+      content:'';  
+      position:absolute;  
+      top:0;  
+      left:-100%;  
+      height:2px;  
+      right:0;  
+      background:linear-gradient(90deg, transparent, rgba(0,0,0,.04), transparent);  
+      transition: transform .6s ease;  
+      transform:translateX(0);  
+    }
+    .card:hover::before{ transform:translateX(200%); }
+    .icon {  
+      width:48px;  
+      height:48px;  
+      border-radius:12px;  
+      background: rgba(0,0,0,.05);  
+      display:flex;  
+      align-items:center;  
+      justify-content:center;  
+      color:var(--text-secondary);  
+      margin-bottom:14px;  
+    }
+    .card h3{ font-size:1.15rem; margin-bottom:8px; }  
+    .card p{ color:var(--text-secondary); }  
 
     .reveal{ opacity:0; transform:translateY(26px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.active{ opacity:1; transform:translateY(0); }
@@ -204,7 +228,7 @@
     }
     .option2 .section-header h2 {
       color: #ef4444;
-      background: none; 
+      background: none;  
       -webkit-background-clip: unset;
       -webkit-text-fill-color: unset;
     }
@@ -222,170 +246,357 @@
     }
     /* --- End of Red Alert Style --- */
 
-    /* --- Tab Section Styles --- */
-    #solution { background: var(--bg-section-alt); }
-    .tabs-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 20px; }
-    .tab-nav { display: flex; flex-direction: column; gap: 10px; }
-    .tab-button {
-      font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 600;
-      padding: 16px 20px; border-radius: 12px; border: 1px solid var(--border);
-      background: var(--bg-card); color: var(--text-secondary);
-      cursor: pointer; text-align: left; transition: background .3s ease, color .3s ease;
+    
+    /* --- NEW: Stepper Process Section --- */
+    #solution {
+      background: var(--bg-section-alt);
     }
-    .tab-button:hover { background: var(--bg-input); color: var(--text-primary); }
-    .tab-button.active { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
-    .tab-panel { display: none; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 30px; box-shadow: var(--shadow-soft); animation: fadeIn .4s ease; }
-    .tab-panel.active { display: block; }
-    .tab-panel h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; }
-    .tab-panel p { color: var(--text-secondary); font-size: 1.05rem; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    @media (min-width: 768px) { .tabs-container { grid-template-columns: 1fr 2fr; gap: 24px; } }
+    .stepper-container {
+      max-width: 980px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .step-item {
+      display: flex;
+      gap: 24px;
+      position: relative;
+      padding-bottom: 32px; /* Space between items */
+    }
+    /* The vertical connector line */
+    .step-item::before {
+      content: '';
+      position: absolute;
+      left: 20px; /* Aligns with center of 40px number */
+      top: 40px; /* Starts below the number */
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+    /* No line after the last item */
+    .step-item:last-child {
+      padding-bottom: 0;
+    }
+    .step-item:last-child::before {
+      display: none;
+    }
+    .step-number {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--accent-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      z-index: 1; /* Sits on top of the line */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .step-content {
+      padding-top: 4px; /* Aligns text with number */
+    }
+    .step-content h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .step-content p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    /* --- End of Stepper Process Section --- */
 
-    /* --- NEW: Accordion Section --- */
-    #services { background: var(--bg-light); }
-    .accordion-container { max-width: 980px; margin: 0 auto; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-soft); }
-    .accordion-item { border-bottom: 1px solid var(--border); }
-    .accordion-item:last-child { border-bottom: none; }
+
+    /* --- NEW: Accordion Service Section --- */
+    #services {
+      background: var(--bg-light);
+    }
+    .accordion-container {
+      max-width: 980px;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden; /* Clips the inner items to the border radius */
+      box-shadow: var(--shadow-soft);
+    }
+    .accordion-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .accordion-item:last-child {
+      border-bottom: none;
+    }
     .accordion-header {
-      display: flex; justify-content: space-between; align-items: center;
-      width: 100%; padding: 20px 24px; background: var(--bg-card);
-      border: none; cursor: pointer; font-size: 1.15rem; font-weight: 600;
-      color: var(--text-primary); text-align: left;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 20px 24px;
+      background: var(--bg-card);
+      border: none;
+      cursor: pointer;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-align: left;
     }
-    .accordion-header:hover { background: var(--bg-section-alt); }
-    .accordion-icon { width: 20px; height: 20px; stroke: var(--text-secondary); transition: transform .3s ease; }
-    .accordion-item.active .accordion-icon { transform: rotate(45deg); stroke: var(--text-primary); }
-    .accordion-content { max-height: 0; overflow: hidden; background: var(--bg-card); transition: max-height .4s ease-out, padding .4s ease-out; }
-    .accordion-content p { padding: 0 24px 24px; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; }
+    .accordion-header:hover {
+      background: var(--bg-section-alt);
+    }
+    .accordion-icon {
+      width: 20px;
+      height: 20px;
+      stroke: var(--text-secondary);
+      transition: transform .3s ease;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+    .accordion-item.active .accordion-icon {
+      transform: rotate(45deg);
+      stroke: var(--text-primary);
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      background: var(--bg-card);
+      transition: max-height .4s ease-out, padding .4s ease-out;
+    }
+    .accordion-content p {
+      padding: 0 24px 24px;
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .accordion-item.active .accordion-content {
+      /* max-height is set by JS for smooth animation */
+    }
+    /* --- End of Accordion Styles --- */
 
-    #contact { background: var(--bg-section-alt); } 
+
+    #contact {  
+      background: var(--bg-section-alt); /* Changed for contrast */
+    }  
     #contact .form{ max-width:760px; margin: 20px auto 0; display:grid; gap:12px; }
-    #contact input, #contact textarea{ padding:14px 16px; border-radius:12px; border:1px solid var(--border); background:var(--bg-input); color:var(--text-primary); }
-    #contact input:focus, #contact textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; border-color: var(--accent); }
+    #contact input, #contact textarea{  
+      padding:14px 16px;  
+      border-radius:12px;  
+      border:1px solid var(--border);  
+      background:var(--bg-input);  
+      color:var(--text-primary);  
+    }
+    #contact input:focus, #contact textarea:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: -1px;
+      border-color: var(--accent);
+    }
     #contact textarea{ min-height:120px; resize:vertical; }
-
+    
     @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } .grid-background{ animation:none; } }
   </style>
 </head>
 <body>
   <div class="grid-background" aria-hidden="true"></div>
 
-  <!-- Hero -->
-  <section class="hero">
+  <section class="hero" aria-label="Hero">
     <div class="float" aria-hidden="true"></div>
     <div class="float" aria-hidden="true"></div>
     <div class="float" aria-hidden="true"></div>
+
     <div class="hero-inner">
-      <div class="eyebrow"><span>Premium Lead Generation</span></div>
+      <div class="eyebrow" aria-hidden="true">
+        <span>Premium Lead Generation</span>
+      </div>
       <h1>Stop Chasing Clients. Let Them Come to You.</h1>
       <p class="subtitle">We deliver qualified, high-intent appointments directly to your calendar. No more cold outreach, no more wasted ad spend. Just real results.</p>
-      <ul class="benefits">
-        <li class="pill">Guaranteed Appointments</li>
-        <li class="pill">Pay-Per-Result Model</li>
-        <li class="pill">No Contracts</li>
+
+      <ul class="benefits" role="list">
+        <li class="pill"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>Guaranteed Appointments</li>
+        <li class="pill"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>Pay-Per-Result Model</li>
+        <li class="pill"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>No Contracts</li>
       </ul>
+
       <a class="cta" href="#contact">Book Your Free Strategy Call</a>
     </div>
   </section>
 
-  <!-- Pain Points -->
-  <section class="option2">
+  <section classs="option2" aria-labelledby="pain-title">
     <div class="section-header reveal">
-      <h2>The Old Way Isn’t Working Anymore</h2>
+      <h2 id="pain-title">The Old Way Isn’t Working Anymore</h2>
       <p>Traditional marketing agencies are failing businesses like yours. Here’s what you’re dealing with:</p>
     </div>
+
     <div class="cards">
-      <article class="card reveal"><div class="icon">⏳</div><h3>Wasting Time & Money</h3><p>Burning through thousands on ads with nothing to show for it.</p></article>
-      <article class="card reveal"><div class="icon">🚫</div><h3>Unqualified Leads</h3><p>Your calendar fills up with tire-kickers who can’t afford your services.</p></article>
-      <article class="card reveal"><div class="icon">📉</div><h3>Inconsistent Revenue</h3><p>One great month followed by three bad ones. Impossible to scale predictably.</p></article>
-      <article class="card reveal"><div class="icon">⚔️</div><h3>No Competitive Edge</h3><p>Using the same generic strategies as everyone else. You need a system that makes you stand out.</p></article>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+        </div>
+        <h3>Wasting Time & Money</h3>
+        <p>Burning through thousands on ads with nothing to show for it. Your competitors are winning while you’re still testing.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21l-2-2m2 2v-7a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0H4m4-10V5a2 2 0 012-2h4a2 2 0 012 2v6"></path></svg>
+        </div>
+        <h3>Unqualified Leads</h3>
+        <p>Your calendar fills up with tire-kickers who can’t afford your services. Quality matters more than quantity.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3v18h18M9 15l3-3 2 2 5-5"></path></svg>
+        </div>
+        <h3>Inconsistent Revenue</h3>
+        <p>One great month followed by three bad ones. This feast-or-famine cycle makes it impossible to scale predictably.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+        </div>
+        <h3>No Competitive Edge</h3>
+        <p>Using the same generic strategies as everyone else. You need a system that makes you stand out, not blend in.</p>
+      </article>
     </div>
   </section>
 
-  <!-- ✅ UPDATED SOLUTION SECTION -->
   <section id="solution" aria-labelledby="solution-title">
     <div class="section-header reveal">
-      <h2 id="solution-title">How We Fix What’s Broken</h2>
-      <p>Every pain point you’re facing has a direct, tested solution. Here’s exactly how we turn problems into predictable growth.</p>
+      <h2 id="solution-title">The Solution is a System</h2>
+      <p>We built a simple, 3-step process to fill your calendar predictably.</p>
     </div>
 
-    <div class="tabs-container reveal">
-      <div class="tab-nav" role="tablist" aria-label="Our Fixes">
-        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1">Fix 1: Stop Wasting Ad Spend</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2">Fix 2: Attract Only Qualified Prospects</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3">Fix 3: Build Predictable Growth</button>
+    <div class="stepper-container reveal">
+      <div class="step-item">
+        <div class="step-number" aria-hidden="true">1</div>
+        <div class="step-content">
+          <h3>Your Ideal Client, Defined</h3>
+          <p>First, we work with you to build a crystal-clear profile of your perfect client. We analyze your market and offer to ensure every appointment is with a pre-qualified, high-intent prospect, not a time-waster.</p>
+        </div>
       </div>
-
-      <div class="tab-content">
-        <div class="tab-panel active" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
-          <h3>Stop Wasting Ad Spend</h3>
-          <p>We eliminate guesswork with data-driven targeting and messaging. Our system pinpoints audiences most likely to convert — no more throwing money at “maybe” leads. Every dollar spent moves you closer to a booked appointment.</p>
+      
+      <div class="step-item">
+        <div class="step-number" aria-hidden="true">2</div>
+        <div class="step-content">
+          <h3>We Build Your Lead Machine</h3>
+          <p>Then, we build and perfect your ads while simultaneously optimizing your existing sales systems (like GMB or SEO). This ensures you get high-quality paid leads *and* a steady stream of free, organic leads coming in every week.</p>
         </div>
-        <div class="tab-panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2">
-          <h3>Attract Only Qualified Prospects</h3>
-          <p>We use intelligent filtering and pre-qualification to ensure only real buyers make it to your calendar. Before a call is booked, we verify fit, interest, and budget — so you spend time only on prospects ready to invest.</p>
-        </div>
-        <div class="tab-panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3">
-          <h3>Build Predictable Growth</h3>
-          <p>Our automated outreach engine runs 24/7, delivering steady, high-quality appointments every week. You’ll never depend on random referrals or one good month again — just consistent pipeline and measurable ROI.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-number"aria-hidden="true">3</div>
+        <div class="step-content">
+          <h3>Your Calendar, Filled</h3>
+          <p>This is the final step: qualified appointments appear directly in your calendar. All you do is show up, present your value, and close the deal. This is the predictable, pay-per-result system you've been looking for.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services Accordion -->
-  <section id="services">
+  <section id="services" aria-labelledby="services-title">
     <div class="section-header reveal">
-      <h2>Your Full-Stack Growth Partner</h2>
+      <h2 id="services-title">Your Full-Stack Growth Partner</h2>
       <p>We're more than appointments. We handle the entire funnel, from first click to closed deal.</p>
     </div>
+
     <div class="accordion-container reveal">
       <div class="accordion-item">
-        <button class="accordion-header">Facebook Ads <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg></button>
-        <div class="accordion-content"><p>We design, launch, and manage high-ROI ad campaigns that deliver qualified leads directly to your pipeline.</p></div>
+        <button class="accordion-header">
+          Facebook Ads
+          <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg>
+        </button>
+        <div class="accordion-content">
+          <p>We design, launch, and manage targeted, high-ROI Facebook & Instagram ad campaigns that deliver qualified leads directly to your sales pipeline. We handle the targeting, copy, and creative so you can focus on closing.</p>
+        </div>
       </div>
+
       <div class="accordion-item">
-        <button class="accordion-header">Website & Landing Page Dev <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg></button>
-        <div class="accordion-content"><p>We build fast, beautiful, high-converting landing pages that turn clicks into booked calls.</p></div>
+        <button class="accordion-header">
+          Website & Landing Page Dev
+          <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg>
+        </button>
+        <div class="accordion-content">
+          <p>Your ads are useless if they point to a poor-performing page. We build high-converting landing pages and full-scale websites that are fast, beautiful, and optimized to turn visitors into paying customers.</p>
+        </div>
       </div>
+
       <div class="accordion-item">
-        <button class="accordion-header">Search Engine Optimization (SEO) <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg></button>
-        <div class="accordion-content"><p>We help you dominate search rankings, attracting organic, high-intent traffic that compounds over time.</p></div>
+        <button class="accordion-header">
+          Search Engine Optimization (SEO)
+          <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg>
+        </button>
+        <div class="accordion-content">
+          <p>Dominate search engine rankings for your key terms. We attract organic, high-intent traffic that is actively searching for your solution, building a sustainable, long-term asset for your business.</p>
+        </div>
       </div>
+
       <div class="accordion-item">
-        <button class="accordion-header">GMB / Local SEO Optimization <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg></button>
-        <div class="accordion-content"><p>We fully optimize your Google My Business profile to capture local “near me” searches and stand out from competitors.</p></div>
+        <button class="accordion-header">
+          GMB / Local SEO Optimization
+          <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg>
+        </button>
+        <div class="accordion-content">
+          <p>For businesses that serve a local area, your Google My Business profile is your most important asset. We fully optimize your profile to capture the "near me" searches, manage reviews, and help you stand out from local competitors.</p>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="section-header"><h2>Book Your Free Strategy Call</h2><p>Tell us a bit about your business and we’ll send over a few times.</p></div>
+  <section id="contact" aria-label="Book a call">
+    <div class="section-header">
+      <h2>Book Your Free Strategy Call</h2>
+      <p>Tell us a bit about your business and we’ll send over a few times.</p>
+    </div>
     <form class="form" action="#" method="post">
-      <input name="name" placeholder="Your name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input name="website" placeholder="Website (optional)">
-      <textarea name="message" placeholder="What do you sell and who do you sell to?"></textarea>
+      <input name="name" placeholder="Your name" aria-label="Your name" required>
+      <input type="email" name="email" placeholder="Email" aria-label="Email" required>
+      <input name="website" placeholder="Website (optional)" aria-label="Website">
+      <textarea name="message" placeholder="What do you sell and who do you sell to?" aria-label="Message"></textarea>
       <button class="cta" type="submit">Submit</button>
     </form>
   </section>
 
   <script>
-    // Reveal animations
-    const reveals=document.querySelectorAll('.reveal');
-    const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');io.unobserve(e.target);}})},{rootMargin:'0px 0px -100px 0px'});
+    // --- Intersection Observer for "reveal" animations ---
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      for (const e of entries){
+        if (e.isIntersecting){ e.target.classList.add('active'); io.unobserve(e.target); }
+      }
+    }, { rootMargin: '0px 0px -100px 0px' });
     reveals.forEach(el=>io.observe(el));
 
-    // Tabs
-    const tabButtons=document.querySelectorAll('.tab-button');
-    const tabPanels=document.querySelectorAll('.tab-panel');
-    tabButtons.forEach(btn=>{btn.addEventListener('click',()=>{tabButtons.forEach(b=>{b.classList.remove('active');b.setAttribute('aria-selected','false');});tabPanels.forEach(p=>p.classList.remove('active'));btn.classList.add('active');btn.setAttribute('aria-selected','true');document.getElementById(btn.getAttribute('aria-controls')).classList.add('active');});});
 
-    // Accordion
-    const items=document.querySelectorAll('.accordion-item');
-    items.forEach(it=>{const h=it.querySelector('.accordion-header');const c=it.querySelector('.accordion-content');h.addEventListener('click',()=>{const open=it.classList.contains('active');items.forEach(o=>{o.classList.remove('active');o.querySelector('.accordion-content').style.maxHeight='0px';});if(!open){it.classList.add('active');c.style.maxHeight=c.scrollHeight+'px';}});});
-    if(items.length>0){items[0].classList.add('active');items[0].querySelector('.accordion-content').style.maxHeight=items[0].querySelector('.accordion-content').scrollHeight+'px';}
+    // --- NEW: JavaScript for Accordion Section ---
+    const accordionItems = document.querySelectorAll('.accordion-item');
+
+    accordionItems.forEach(item => {
+      const header = item.querySelector('.accordion-header');
+      const content = item.querySelector('.accordion-content');
+
+      header.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        // Close all other items
+        accordionItems.forEach(otherItem => {
+          otherItem.classList.remove('active');
+          otherItem.querySelector('.accordion-content').style.maxHeight = '0px';
+        });
+
+        // Open the clicked item (if it wasn't already open)
+        if (!isActive) {
+          item.classList.add('active');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Optional: Open the first item by default
+    if (accordionItems.length > 0) {
+      accordionItems[0].classList.add('active');
+      accordionItems[0].querySelector('.accordion-content').style.maxHeight = 
+        accordionItems[0].querySelector('.accordion-content').scrollHeight + 'px';
+    }
+
   </script>
 </body>
 </html>
