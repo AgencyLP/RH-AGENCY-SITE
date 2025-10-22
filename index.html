@@ -246,139 +246,136 @@
     }
     /* --- End of Red Alert Style --- */
 
-    
-    /* --- NEW: Stepper Process Section --- */
-    #solution {
-      background: var(--bg-section-alt);
-    }
-    .stepper-container {
-      max-width: 980px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .step-item {
-      display: flex;
-      gap: 24px;
-      position: relative;
-      padding-bottom: 32px; /* Space between items */
-    }
-    /* The vertical connector line */
+    /* --- Stepper Process Section --- */
+    #solution { background: var(--bg-section-alt); }
+    .stepper-container { max-width: 980px; margin: 0 auto; position: relative; }
+    .step-item { display: flex; gap: 24px; position: relative; padding-bottom: 32px; }
     .step-item::before {
-      content: '';
-      position: absolute;
-      left: 20px; /* Aligns with center of 40px number */
-      top: 40px; /* Starts below the number */
-      bottom: 0;
-      width: 2px;
-      background: var(--border);
-      z-index: 0;
+      content: ''; position: absolute; left: 20px; top: 40px; bottom: 0; width: 2px; background: var(--border); z-index: 0;
     }
-    /* No line after the last item */
-    .step-item:last-child {
-      padding-bottom: 0;
-    }
-    .step-item:last-child::before {
-      display: none;
-    }
+    .step-item:last-child { padding-bottom: 0; }
+    .step-item:last-child::before { display: none; }
     .step-number {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: var(--accent);
-      color: var(--accent-text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.1rem;
-      z-index: 1; /* Sits on top of the line */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%;
+      background: var(--accent); color: var(--accent-text); display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1.1rem; z-index: 1; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    .step-content {
-      padding-top: 4px; /* Aligns text with number */
-    }
-    .step-content h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .step-content p {
-      color: var(--text-secondary);
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-    /* --- End of Stepper Process Section --- */
+    .step-content { padding-top: 4px; }
+    .step-content h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+    .step-content p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; }
 
-
-    /* --- NEW: Accordion Service Section --- */
-    #services {
-      background: var(--bg-light);
-    }
-    .accordion-container {
-      max-width: 980px;
+    /* --- NEW: Services Specialty Cards (Animated) --- */
+    #services { background: var(--bg-light); }
+    .services-grid {
+      max-width: 1100px;
       margin: 0 auto;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden; /* Clips the inner items to the border radius */
-      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 28px;
     }
-    .accordion-item {
-      border-bottom: 1px solid var(--border);
-    }
-    .accordion-item:last-child {
-      border-bottom: none;
-    }
-    .accordion-header {
-      font-family: 'Inter', sans-serif;
+    .service-item {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      width: 100%;
-      padding: 20px 24px;
-      background: var(--bg-card);
-      border: none;
-      cursor: pointer;
+      gap: 14px;
+      text-align: center;
+    }
+    .service-item h3 {
       font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      text-align: left;
+      font-weight: 700;
     }
-    .accordion-header:hover {
-      background: var(--bg-section-alt);
-    }
-    .accordion-icon {
-      width: 20px;
-      height: 20px;
-      stroke: var(--text-secondary);
-      transition: transform .3s ease;
-      flex-shrink: 0;
-      margin-left: 16px;
-    }
-    .accordion-item.active .accordion-icon {
-      transform: rotate(45deg);
-      stroke: var(--text-primary);
-    }
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      background: var(--bg-card);
-      transition: max-height .4s ease-out, padding .4s ease-out;
-    }
-    .accordion-content p {
-      padding: 0 24px 24px;
+    .service-item p {
       color: var(--text-secondary);
-      font-size: 1.05rem;
-      line-height: 1.7;
+      max-width: 320px;
     }
-    .accordion-item.active .accordion-content {
-      /* max-height is set by JS for smooth animation */
-    }
-    /* --- End of Accordion Styles --- */
 
+    /* From Uiverse.io by SelfMadeSystem */
+    .card-container { perspective: 800px; }
+    .card {
+      --s: 0.5s;
+      position: relative;
+      width: 210px;
+      height: 332px;
+      background: #fffffd;
+      border-radius: 1em;
+      box-shadow: 0 0 6px -4px black;
+      transition: 0.5s all linear;
+      transform-style: preserve-3d;
+      pointer-events: none;
+      user-select: none;
+      animation: 2s spin linear infinite;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 210px;
+      height: 110px;
+      transform: translate(0em, 60%) rotateX(90deg) scale(0.8);
+      border-radius: 100%;
+      background-color: #000a;
+      z-index: -10;
+      filter: blur(24px);
+    }
+    @keyframes spin { to { transform: rotateY(360deg); } }
+    .back {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      inset: 0.7em;
+      border-radius: 1.25em;
+      background: #191f1f;
+      overflow: hidden;
+    }
+    .red {
+      position: absolute;
+      background: #cb0323;
+      inset: 0;
+      border-radius: 100%;
+      transform-origin: center;
+      transform: scale(0.875) skewX(-22.5deg);
+    }
+    .back .text {
+      position: absolute;
+      font-size: 5em;
+      font-weight: 800;
+      color: #e4c713;
+      transform-origin: center;
+      transform: rotate(-15deg) translateX(5px);
+      text-shadow:
+        2px 2px #f1e8ad, 2px 1px #f1e8ad, 2px 0px #f1e8ad, 2px -1px #f1e8ad, 2px -2px #f1e8ad,
+        1px -2px #f1e8ad, 0px -2px #f1e8ad, -1px -2px #f1e8ad, -2px -2px #f1e8ad, -2px -1px #f1e8ad,
+        -2px 0px #f1e8ad, -2px 1px #f1e8ad, -2px 2px #f1e8ad, -12px 10px #191f1f, -10px 10px #191f1f,
+        -9px 9.428571429px #191f1f, -8px 8.857142857px #191f1f, -7px 8.285714286px #191f1f,
+        -6px 7.714285714px #191f1f, -5px 7.142857143px #191f1f, -4px 6.571428572px #191f1f,
+        -3px 6px #191f1f, -2px 5.428571429px #191f1f, -1px 4.857142857px #191f1f, 0px 4.285714286px #191f1f,
+        1px 3.714285715px #191f1f, 2px 3.142857143px #191f1f, 3px 2.571428572px #191f1f, 4px 2px #191f1f;
+    }
+    .front {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      inset: 0.7em;
+      border-radius: 1.25em;
+      background: #cb0323;
+      overflow: hidden;
+      transform: rotateY(180deg);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .front .red {
+      border: 0.7em solid #fffffd;
+      transform: scale(0.92, 0.875) skewX(-22.5deg);
+    }
+    .text-center { position: absolute; width: 12em; color: white; }
+    .text-top { position: absolute; top: -1em; left: -1.25em; width: 7em; color: white; }
+    .text-bottom { position: absolute; bottom: -1em; right: -1.5em; width: 7em; color: white; }
 
     #contact {  
-      background: var(--bg-section-alt); /* Changed for contrast */
+      background: var(--bg-section-alt); /* Contrast */
     }  
     #contact .form{ max-width:760px; margin: 20px auto 0; display:grid; gap:12px; }
     #contact input, #contact textarea{  
@@ -494,54 +491,155 @@
     </div>
   </section>
 
+  <!-- UPDATED: Full-Stack Growth Partner -> Our Specialties -->
   <section id="services" aria-labelledby="services-title">
     <div class="section-header reveal">
-      <h2 id="services-title">Your Full-Stack Growth Partner</h2>
-      <p>We're more than appointments. We handle the entire funnel, from first click to closed deal.</p>
+      <h2 id="services-title">What We Specialize In</h2>
+      <p>Four core services that work together to drive, capture, and convert demand — so your pipeline grows every week.</p>
     </div>
 
-    <div class="accordion-container reveal">
-      <div class="accordion-item">
-        <button class="accordion-header">
-          Facebook Ads
-          <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg>
-        </button>
-        <div class="accordion-content">
-          <p>We design, launch, and manage targeted, high-ROI Facebook & Instagram ad campaigns that deliver qualified leads directly to your sales pipeline. We handle the targeting, copy, and creative so you can focus on closing.</p>
+    <div class="services-grid reveal">
+      <!-- Facebook Ads -->
+      <div class="service-item">
+        <div class="card-container" aria-hidden="true">
+          <div class="card">
+            <div class="back">
+              <div class="red"></div>
+              <div class="text">FB</div>
+            </div>
+            <div class="front">
+              <div class="red"></div>
+              <div class="text-center">
+                <!-- Stylized "f" logo -->
+                <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true">
+                  <circle cx="24" cy="24" r="22" fill="#fffffd"></circle>
+                  <path d="M29 16h-3a4 4 0 0 0-4 4v3h-3v4h3v9h5v-9h3.2l.8-4H27v-2.5c0-.8.6-1.5 1.4-1.5H29z" fill="#191f1f"></path>
+                </svg>
+              </div>
+              <div class="text-top">
+                <svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true">
+                  <path d="M29 16h-3a4 4 0 0 0-4 4v3h-3v4h3v9h5v-9h3.2l.8-4H27v-2.5c0-.8.6-1.5 1.4-1.5H29z" fill="#191f1f"></path>
+                </svg>
+              </div>
+              <div class="text-bottom">
+                <svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true">
+                  <path d="M29 16h-3a4 4 0 0 0-4 4v3h-3v4h3v9h5v-9h3.2l.8-4H27v-2.5c0-.8.6-1.5 1.4-1.5H29z" fill="#191f1f"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
+        <h3>Facebook Ads</h3>
+        <p>We craft and test creative, copy, and targeting to consistently bring **high-intent** leads to your pipeline at a profitable CAC.</p>
       </div>
 
-      <div class="accordion-item">
-        <button class="accordion-header">
-          Website & Landing Page Dev
-          <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg>
-        </button>
-        <div class="accordion-content">
-          <p>Your ads are useless if they point to a poor-performing page. We build high-converting landing pages and full-scale websites that are fast, beautiful, and optimized to turn visitors into paying customers.</p>
+      <!-- Google My Business -->
+      <div class="service-item">
+        <div class="card-container" aria-hidden="true">
+          <div class="card">
+            <div class="back">
+              <div class="red"></div>
+              <div class="text">GMB</div>
+            </div>
+            <div class="front">
+              <div class="red"></div>
+              <div class="text-center">
+                <!-- Map pin + G -->
+                <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true">
+                  <path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#fffffd"></path>
+                  <circle cx="24" cy="23" r="8" fill="#191f1f"></circle>
+                  <path d="M27 20h-4v3h3a3 3 0 1 1-1 5" fill="none" stroke="#fffffd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <div class="text-top">
+                <svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true">
+                  <path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#191f1f"></path>
+                </svg>
+              </div>
+              <div class="text-bottom">
+                <svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true">
+                  <circle cx="24" cy="23" r="6" fill="#191f1f"></circle>
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
+        <h3>Google My Business</h3>
+        <p>We optimize your GMB to capture “near me” intent, boost calls and directions, and generate **free local leads** every week.</p>
       </div>
 
-      <div class="accordion-item">
-        <button class="accordion-header">
-          Search Engine Optimization (SEO)
-          <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg>
-        </button>
-        <div class="accordion-content">
-          <p>Dominate search engine rankings for your key terms. We attract organic, high-intent traffic that is actively searching for your solution, building a sustainable, long-term asset for your business.</p>
+      <!-- SEO -->
+      <div class="service-item">
+        <div class="card-container" aria-hidden="true">
+          <div class="card">
+            <div class="back">
+              <div class="red"></div>
+              <div class="text">SEO</div>
+            </div>
+            <div class="front">
+              <div class="red"></div>
+              <div class="text-center">
+                <!-- Magnifier + trend line -->
+                <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true">
+                  <circle cx="20" cy="20" r="10" fill="#fffffd"></circle>
+                  <path d="M28 28l8 8" stroke="#191f1f" stroke-width="4" stroke-linecap="round"></path>
+                  <path d="M14 22l4-4 3 3 5-5" stroke="#191f1f" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <div class="text-top">
+                <svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true">
+                  <path d="M14 22l4-4 3 3 5-5" stroke="#191f1f" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <div class="text-bottom">
+                <svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true">
+                  <path d="M28 28l8 8" stroke="#191f1f" stroke-width="4" stroke-linecap="round"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
+        <h3>SEO</h3>
+        <p>We rank for buyer-intent keywords and build topical authority so you capture **organic traffic** that’s actively searching for you.</p>
       </div>
 
-      <div class="accordion-item">
-        <button class="accordion-header">
-          GMB / Local SEO Optimization
-          <svg class="accordion-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12"></path></svg>
-        </button>
-        <div class="accordion-content">
-          <p>For businesses that serve a local area, your Google My Business profile is your most important asset. We fully optimize your profile to capture the "near me" searches, manage reviews, and help you stand out from local competitors.</p>
+      <!-- Website Dev & Optimization -->
+      <div class="service-item">
+        <div class="card-container" aria-hidden="true">
+          <div class="card">
+            <div class="back">
+              <div class="red"></div>
+              <div class="text">WEB</div>
+            </div>
+            <div class="front">
+              <div class="red"></div>
+              <div class="text-center">
+                <!-- Browser window + CTA -->
+                <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true">
+                  <rect x="6" y="10" width="36" height="28" rx="3" fill="#fffffd"></rect>
+                  <rect x="6" y="10" width="36" height="6" fill="#191f1f"></rect>
+                  <rect x="14" y="24" width="20" height="6" rx="3" fill="#191f1f"></rect>
+                </svg>
+              </div>
+              <div class="text-top">
+                <svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true">
+                  <rect x="8" y="12" width="32" height="4" fill="#191f1f"></rect>
+                </svg>
+              </div>
+              <div class="text-bottom">
+                <svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true">
+                  <rect x="16" y="28" width="16" height="4" rx="2" fill="#191f1f"></rect>
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
+        <h3>Website Dev & Optimization</h3>
+        <p>Fast, beautiful, conversion-focused pages that turn clicks into **booked calls** with clean UX, load speed, and CRO best practices.</p>
       </div>
     </div>
   </section>
+
   <section id="contact" aria-label="Book a call">
     <div class="section-header">
       <h2>Book Your Free Strategy Call</h2>
@@ -566,38 +664,32 @@
     }, { rootMargin: '0px 0px -100px 0px' });
     reveals.forEach(el=>io.observe(el));
 
-
-    // --- NEW: JavaScript for Accordion Section ---
+    // --- Accordion (from your earlier version) ---
     const accordionItems = document.querySelectorAll('.accordion-item');
-
     accordionItems.forEach(item => {
       const header = item.querySelector('.accordion-header');
       const content = item.querySelector('.accordion-content');
-
+      if(!header) return; // guard (services now use cards)
       header.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
-
-        // Close all other items
         accordionItems.forEach(otherItem => {
           otherItem.classList.remove('active');
-          otherItem.querySelector('.accordion-content').style.maxHeight = '0px';
+          const c = otherItem.querySelector('.accordion-content');
+          if (c) c.style.maxHeight = '0px';
         });
-
-        // Open the clicked item (if it wasn't already open)
         if (!isActive) {
           item.classList.add('active');
-          content.style.maxHeight = content.scrollHeight + 'px';
+          if (content) content.style.maxHeight = content.scrollHeight + 'px';
         }
       });
     });
 
-    // Optional: Open the first item by default
-    if (accordionItems.length > 0) {
+    // Optional default open (kept safe if none exist)
+    if (accordionItems.length > 0 && accordionItems[0].querySelector('.accordion-content')) {
       accordionItems[0].classList.add('active');
-      accordionItems[0].querySelector('.accordion-content').style.maxHeight = 
-        accordionItems[0].querySelector('.accordion-content').scrollHeight + 'px';
+      const c0 = accordionItems[0].querySelector('.accordion-content');
+      if (c0) c0.style.maxHeight = c0.scrollHeight + 'px';
     }
-
   </script>
 </body>
 </html>
