@@ -12,7 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* --- Light Mode Palette --- */
       --bg-light: #ffffff;
       --bg-section-alt: #f9f9f9;
       --bg-card: #ffffff;
@@ -151,7 +150,7 @@
     .step-content h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
     .step-content p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; }
 
-    /* --- Services Specialty Cards (Animated, from earlier) --- */
+    /* --- Services Specialty Cards (Animated) --- */
     #services { background: var(--bg-light); }
     .services-grid {
       max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px;
@@ -196,7 +195,7 @@
     }
     .cs-desc { color: var(--text-secondary); }
 
-    /* --- NEW: What People Say (Tabs + Google Reviews Animated Cards) --- */
+    /* --- What People Say (Tabs + Google-styled cards) --- */
     #testimonials { background: var(--bg-light); }
     .review-tabs {
       max-width: 1100px; margin: 0 auto 20px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
@@ -213,8 +212,6 @@
       max-width: 1100px; margin: 0 auto; display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;
     }
-
-    /* Adapted from Uiverse style (no conflicts with your .card) */
     .g-review-card {
       width: 100%; height: 260px; background: var(--bg-card); position: relative; display: flex;
       place-content: center; place-items: center; overflow: hidden; border-radius: 16px; border: 1px solid var(--border);
@@ -222,17 +219,14 @@
     }
     .g-review-card::before {
       content: ''; position: absolute; width: 120px; height: 140%;
-      /* match site style: subtle dark gradient ring rotating */
       background-image: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.06));
-      animation: rotRing 6s linear infinite; transition: all 0.2s linear;
-      filter: blur(0.2px);
+      animation: rotRing 6s linear infinite; transition: all 0.2s linear; filter: blur(0.2px);
     }
     @keyframes rotRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     .g-review-card::after {
       content: ''; position: absolute; inset: 6px; border-radius: 12px; background: var(--bg-card);
       box-shadow: inset 0 0 0 1px var(--border);
     }
-
     .g-content { position: relative; z-index: 1; padding: 16px; display: grid; gap: 10px; text-align: left; width: 100%; }
     .g-header { display: flex; align-items: center; gap: 10px; }
     .g-avatar { width: 36px; height: 36px; border-radius: 50%; background: #111; color:#fff; display: grid; place-items: center; font-weight: 800; font-size: .9rem; }
@@ -241,23 +235,65 @@
     .g-stars { display:inline-flex; gap:3px; }
     .g-quote { color: var(--text-secondary); line-height: 1.6; max-height: 96px; overflow: hidden; }
     .g-link { font-size: .9rem; font-weight: 600; text-decoration: none; display:inline-flex; align-items:center; gap:6px; }
-
     .g-badge {
       display:inline-flex; align-items:center; gap:6px;
       padding:5px 10px; border-radius:999px; border:1px solid var(--border); background: rgba(0,0,0,.04); font-size:.85rem;
     }
-
-    /* Panels */
     .review-panel { display: none; }
     .review-panel.active { display: block; }
 
-    #contact { background: var(--bg-section-alt); }
-    #contact .form{ max-width:760px; margin: 20px auto 0; display:grid; gap:12px; }
-    #contact input, #contact textarea{
-      padding:14px 16px; border-radius:12px; border:1px solid var(--border); background:var(--bg-input); color:var(--text-primary);
+    /* --- NEW CONTACT: CTA block (no form) --- */
+    #contact { background: var(--bg-section-alt); padding: 72px 20px; }
+    .contact-wrap {
+      max-width: 1100px; margin: 0 auto; display: grid; gap: 24px;
     }
-    #contact input:focus, #contact textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; border-color: var(--accent); }
-    #contact textarea{ min-height:120px; resize:vertical; }
+    @media (min-width: 900px){
+      .contact-wrap { grid-template-columns: 1.2fr 1fr; align-items: center; }
+    }
+    .contact-hero {
+      background: var(--bg-card); border:1px solid var(--border); border-radius: 20px; padding: 28px; position: relative; overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+    .contact-hero::before {
+      content:''; position:absolute; width: 160px; height:140%; left: -40px; top:-20%;
+      background-image: linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.03));
+      animation: rotBG 8s linear infinite;
+    }
+    @keyframes rotBG { from{ transform: rotate(0deg); } to{ transform: rotate(360deg); } }
+    .contact-hero::after {
+      content:''; position:absolute; inset:8px; border-radius:16px; background: var(--bg-card); box-shadow: inset 0 0 0 1px var(--border);
+    }
+    .contact-inner { position: relative; z-index: 1; }
+    .contact-inner h2 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 800; background:var(--gradient-text);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom: 10px;
+    }
+    .contact-inner p { color: var(--text-secondary); margin-bottom: 16px; }
+    .contact-actions { display:flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+    .cta-secondary {
+      display:inline-block; padding:12px 16px; border-radius:10px; border:1px solid var(--border); background: var(--bg-input);
+      color: var(--text-primary); text-decoration:none; font-weight: 600;
+    }
+
+    .contact-proof {
+      display: grid; gap: 14px;
+    }
+    .mini-cases {
+      display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;
+    }
+    .mini-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 14px;
+      box-shadow: var(--shadow-soft); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .mini-card:hover { transform: translateY(-4px); border-color: rgba(0,0,0,.15); box-shadow: var(--shadow-medium); }
+    .mini-head { display:flex; align-items:center; gap:10px; margin-bottom:6px; }
+    .dot { width:10px; height:10px; border-radius:50%; background:#111; }
+    .mini-title { font-weight:700; }
+    .mini-metrics { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+    .mini-badge {
+      display:inline-flex; align-items:center; gap:6px; padding:5px 8px; border-radius:999px;
+      border:1px solid var(--border); background: rgba(0,0,0,.04); font-size:.85rem;
+    }
 
     @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } .grid-background{ animation:none; } }
   </style>
@@ -497,23 +533,19 @@
     </div>
   </section>
 
-  <!-- NEW: What People Say (Google Reviews Tabs) -->
   <section id="testimonials" aria-labelledby="testimonials-title">
     <div class="section-header reveal">
       <h2 id="testimonials-title">What People Say</h2>
       <p>Pulled from Google reviews and client feedback.</p>
     </div>
 
-    <!-- Tabs -->
     <div class="review-tabs">
       <button class="review-tab-btn active" data-tab="panel-google">Google Reviews</button>
       <button class="review-tab-btn" data-tab="panel-clients">Client Stories</button>
     </div>
 
-    <!-- Panel: Google Reviews (static realistic examples; live API can replace later) -->
     <div id="panel-google" class="review-panel active">
       <div class="reviews-grid">
-        <!-- Review 1 -->
         <article class="g-review-card reveal">
           <div class="g-content">
             <div class="g-header">
@@ -540,7 +572,6 @@
           </div>
         </article>
 
-        <!-- Review 2 -->
         <article class="g-review-card reveal">
           <div class="g-content">
             <div class="g-header">
@@ -567,7 +598,6 @@
           </div>
         </article>
 
-        <!-- Review 3 -->
         <article class="g-review-card reveal">
           <div class="g-content">
             <div class="g-header">
@@ -593,37 +623,9 @@
             </a>
           </div>
         </article>
-
-        <!-- Review 4 -->
-        <article class="g-review-card reveal">
-          <div class="g-content">
-            <div class="g-header">
-              <div class="g-avatar" aria-hidden="true">KH</div>
-              <div>
-                <div class="g-name">Kevin H.</div>
-                <div class="g-meta">
-                  <span class="g-stars" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                  </span>
-                  <span>· 5 months ago</span>
-                </div>
-              </div>
-            </div>
-            <p class="g-quote">Super professional team. Our inbound calls shot up within weeks. Easy to work with and great communication.</p>
-            <a class="g-link" href="#" target="_blank" rel="noopener">
-              <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#111"/></svg>
-              View on Google →
-            </a>
-          </div>
-        </article>
       </div>
     </div>
 
-    <!-- Panel: Client Stories (optional second tab, static) -->
     <div id="panel-clients" class="review-panel">
       <div class="reviews-grid">
         <article class="g-review-card reveal">
@@ -652,35 +654,56 @@
             <a class="g-link" href="#contact">Start your strategy call →</a>
           </div>
         </article>
-        <article class="g-review-card reveal">
-          <div class="g-content">
-            <div class="g-header">
-              <div class="g-avatar" aria-hidden="true">MK</div>
-              <div>
-                <div class="g-name">Mina K.</div>
-                <div class="g-meta"><span class="g-badge">Verified client</span> <span>· Audit + CRO</span></div>
-              </div>
-            </div>
-            <p class="g-quote">Conversion rate jumped after they fixed our offer page. Now ads and SEO actually convert.</p>
-            <a class="g-link" href="#contact">Start your strategy call →</a>
-          </div>
-        </article>
       </div>
     </div>
   </section>
 
-  <section id="contact" aria-label="Book a call">
-    <div class="section-header">
-      <h2>Book Your Free Strategy Call</h2>
-      <p>Tell us a bit about your business and we’ll send over a few times.</p>
+  <!-- NEW CONTACT SECTION (no form; strong CTA + micro proof) -->
+  <section id="contact" aria-label="Contact us">
+    <div class="contact-wrap">
+      <div class="contact-hero reveal">
+        <div class="contact-inner">
+          <h2>Contact us today</h2>
+          <p>Ready to turn intent into booked revenue? Talk to a strategist and see how we can fill your calendar with qualified calls.</p>
+          <div class="contact-actions">
+            <!-- Replace mailto/tel with your real details -->
+            <a class="cta" href="mailto:hello@yourdomain.com">Email us now</a>
+            <a class="cta-secondary" href="tel:+10000000000">Call: +1 (000) 000-0000</a>
+            <a class="cta-secondary" href="#case-studies">See case studies</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-proof reveal">
+        <div class="mini-cases">
+          <div class="mini-card">
+            <div class="mini-head"><span class="dot"></span><span class="mini-title">Local Home Services</span></div>
+            <div class="mini-metrics">
+              <span class="mini-badge">📅 41 bookings / mo</span>
+              <span class="mini-badge">⬆️ 3.2x ROAS</span>
+            </div>
+            <p class="cs-desc" style="margin-top:6px;">FB Ads + GMB refresh compounded bookings month over month.</p>
+          </div>
+          <div class="mini-card">
+            <div class="mini-head"><span class="dot"></span><span class="mini-title">B2B SaaS</span></div>
+            <div class="mini-metrics">
+              <span class="mini-badge">🔎 +128% organic</span>
+              <span class="mini-badge">🚀 +64% CVR</span>
+            </div>
+            <p class="cs-desc" style="margin-top:6px;">SEO + CRO landing page turned trials into sales calls.</p>
+          </div>
+          <div class="mini-card">
+            <div class="mini-head"><span class="dot"></span><span class="mini-title">Medical Clinic</span></div>
+            <div class="mini-metrics">
+              <span class="mini-badge">📍 +212% map views</span>
+              <span class="mini-badge">📞 +78% calls</span>
+            </div>
+            <p class="cs-desc" style="margin-top:6px;">GMB + Local SEO overhaul drove weekly inbound appointments.</p>
+          </div>
+        </div>
+        <p class="cs-desc" style="margin-top:8px;">No long forms. No fluff. Just results. Reach out and we’ll share a quick plan tailored to your niche.</p>
+      </div>
     </div>
-    <form class="form" action="#" method="post">
-      <input name="name" placeholder="Your name" aria-label="Your name" required>
-      <input type="email" name="email" placeholder="Email" aria-label="Email" required>
-      <input name="website" placeholder="Website (optional)" aria-label="Website">
-      <textarea name="message" placeholder="What do you sell and who do you sell to?" aria-label="Message"></textarea>
-      <button class="cta" type="submit">Submit</button>
-    </form>
   </section>
 
   <script>
@@ -704,32 +727,6 @@
         reviewPanels.forEach(p=>p.classList.toggle('active', p.id === id));
       });
     });
-
-    // (Accordion guards from earlier versions; services now use cards)
-    const accordionItems = document.querySelectorAll('.accordion-item');
-    accordionItems.forEach(item => {
-      const header = item.querySelector('.accordion-header');
-      const content = item.querySelector('.accordion-content');
-      if(!header) return;
-      header.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        accordionItems.forEach(otherItem => {
-          otherItem.classList.remove('active');
-          const c = otherItem.querySelector('.accordion-content');
-          if (c) c.style.maxHeight = '0px';
-        });
-        if (!isActive) {
-          item.classList.add('active');
-          if (content) content.style.maxHeight = content.scrollHeight + 'px';
-        }
-      });
-    });
-
-    if (accordionItems.length > 0 && accordionItems[0].querySelector('.accordion-content')) {
-      accordionItems[0].classList.add('active');
-      const c0 = accordionItems[0].querySelector('.accordion-content');
-      if (c0) c0.style.maxHeight = c0.scrollHeight + 'px';
-    }
   </script>
 </body>
 </html>
