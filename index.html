@@ -252,8 +252,8 @@
       .service-details{max-width:360px; min-height: 280px;}
     }
     @media (prefers-reduced-motion:reduce){
-      .logo-card, .logo-card::before{animation:none !important}
-      .logo-card, .logo-card:hover, .logo-card:focus-visible{transform:none !important; transition:none !important}
+      *{animation:none !important;transition:none !important}
+      .grid-background{animation:none}
     }
 
     /* CASE STUDIES */
@@ -284,8 +284,10 @@
       width:100%;height:260px;background:var(--bg-card);position:relative;display:flex;place-content:center;place-items:center;overflow:hidden;
       border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow-soft)
     }
+    /* (UNCHANGED base) rotating band */
     .g-review-card::before{
-      content:'';position:absolute;width:120px;height:140%;background-image:linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.06));
+      content:'';position:absolute;width:120px;height:140%;
+      background-image:linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.06));
       animation:rotRing 6s linear infinite;transition:all .2s linear;filter:blur(.2px)
     }
     @keyframes rotRing{from{transform:rotate(0)}to{transform:rotate(360deg)}}
@@ -302,12 +304,30 @@
     .review-panel{display:none}
     .review-panel.active{display:block}
 
+    /* ========= ADDED: Google colors only on Google Reviews panel ========= */
+    #panel-google .g-review-card::before{
+      /* use a conic gradient with Google hues (blue, red, yellow) at subtle alpha */
+      background-image:conic-gradient(
+        from 0deg,
+        rgba(66,133,244,0.28) 0% 33%,
+        rgba(234,67,53,0.28) 33% 66%,
+        rgba(251,188,5,0.32) 66% 100%
+      );
+    }
+    /* ======================================================== */
+
     /* CONTACT */
     #contact{background:var(--bg-section-alt);padding:72px 20px}
     .contact-wrap{max-width:1100px;margin:0 auto;display:grid;gap:24px}
-    @media (min-width:900px){.contact-wrap{grid-template-columns:1.2fr 1fr;align-items:center}}
+    @media (min-width:900px){
+      /* WIDER left column ONLY (requested) */
+      .contact-wrap{grid-template-columns:1.6fr 1fr;align-items:center}
+    }
     .contact-hero{
-      background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:28px;position:relative;overflow:hidden;box-shadow:var(--shadow-soft)
+      background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
+      /* Bigger box: increased padding + min-height ONLY */
+      padding:40px;min-height:460px;
+      position:relative;overflow:hidden;box-shadow:var(--shadow-soft)
     }
     .contact-hero::before{
       content:'';position:absolute;width:160px;height:140%;left:-40px;top:-20%;
@@ -798,32 +818,21 @@
       </div>
 
       <div class="contact-proof reveal">
+        <!-- ADDED: short blurb with normal tone -->
+        <p class="cs-desc">Check out our results for clients who signed 2 weeks ago.</p>
+
         <div class="mini-cases">
+          <!-- KEEP ONLY ONE MINI-CARD (requested) -->
           <div class="mini-card">
             <div class="mini-head"><span class="dot"></span><span class="mini-title">Local Home Services</span></div>
             <div class="mini-metrics">
-              <span class="mini-badge">📅 41 bookings / mo</span>
-              <span class="mini-badge">⬆️ 3.2x ROAS</span>
+              <span class="mini-badge">📅 18 bookings / mo</span>
+              <span class="mini-badge">⬆️ 2.1× ROAS</span>
             </div>
-            <p class="cs-desc" style="margin-top:6px;">FB Ads + GBP refresh compounded bookings month over month.</p>
-          </div>
-          <div class="mini-card">
-            <div class="mini-head"><span class="dot"></span><span class="mini-title">B2B SaaS</span></div>
-            <div class="mini-metrics">
-              <span class="mini-badge">🔎 +128% organic</span>
-              <span class="mini-badge">🚀 +64% CVR</span>
-            </div>
-            <p class="cs-desc" style="margin-top:6px;">SEO + CRO landing page turned trials into sales calls.</p>
-          </div>
-          <div class="mini-card">
-            <div class="mini-head"><span class="dot"></span><span class="mini-title">Medical Clinic</span></div>
-            <div class="mini-metrics">
-              <span class="mini-badge">📍 +212% map views</span>
-              <span class="mini-badge">📞 +78% calls</span>
-            </div>
-            <p class="cs-desc" style="margin-top:6px;">GBP + Local SEO overhaul drove weekly inbound appointments.</p>
+            <p class="cs-desc" style="margin-top:6px;">GBP refresh + landing page cleanup increased weekly inbound calls.</p>
           </div>
         </div>
+
         <p class="cs-desc" style="margin-top:8px;">No long forms. No fluff. Just results. Reach out and we’ll share a quick plan tailored to your niche.</p>
       </div>
     </div>
