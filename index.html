@@ -154,20 +154,17 @@
       border:1px solid var(--border); box-shadow:var(--shadow-soft);
       display:grid;place-items:center; padding:16px; position:relative; overflow:hidden;
       transform-style:preserve-3d;
-      /* slow spin; paused by default (we start it via JS when visible) */
-      animation: spinY 12s linear infinite;
-      animation-play-state: paused;
+      animation: spinY 12s linear infinite;        /* slow spin */
+      animation-play-state: paused;                 /* we start it via IO */
       transition: box-shadow .35s ease, border-color .35s ease, transform .35s ease;
       outline:none;
     }
-    /* subtle halo behind */
     .logo-card::before{
       content:""; position:absolute; inset:-20%; border-radius:24px;
       background:radial-gradient(closest-side, rgba(0,0,0,.06), transparent 60%);
-      transform:translateZ(-1px); /* sits behind content in 3D */
+      transform:translateZ(-1px);
       animation: halo 16s linear infinite;
     }
-    /* hover/focus: lift and pause */
     .logo-card:hover,
     .logo-card:focus-visible{
       transform:translateY(-6px);
@@ -192,11 +189,8 @@
       .logo-card{width:180px;height:180px}
     }
     @media (prefers-reduced-motion:reduce){
-      .logo-card,
-      .logo-card::before{animation:none !important}
-      .logo-card,
-      .logo-card:hover,
-      .logo-card:focus-visible{transform:none !important; transition:none !important}
+      .logo-card, .logo-card::before{animation:none !important}
+      .logo-card, .logo-card:hover, .logo-card:focus-visible{transform:none !important; transition:none !important}
     }
 
     /* CASE STUDIES */
@@ -396,15 +390,9 @@
       <div class="service-item">
         <button class="logo-card" aria-label="Facebook Ads" tabindex="0">
           <div class="logo-wrap">
-            <img
-              class="logo-img"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/500px-Facebook_Logo_%282019%29.png"
-              alt="Facebook logo"
-              loading="lazy" decoding="async" width="500" height="500"
-              referrerpolicy="no-referrer"
-              onerror="this.onerror=null; this.replaceWith(document.getElementById('fb-fallback').content.cloneNode(true));"
-            />
-            <!-- fallback -->
+            <img class="logo-img" src="./facebook.png" alt="Facebook logo"
+                 loading="lazy" decoding="async"
+                 onerror="this.onerror=null; this.replaceWith(document.getElementById('fb-fallback').content.cloneNode(true));">
             <template id="fb-fallback">
               <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
                 <circle cx="24" cy="24" r="22" fill="#fff"></circle>
@@ -421,15 +409,9 @@
       <div class="service-item">
         <button class="logo-card" aria-label="Google My Business" tabindex="0">
           <div class="logo-wrap">
-            <img
-              class="logo-img"
-              src="https://images.squarespace-cdn.com/content/v1/524883b7e4b03fcb7c64e24c/1709418094526-3XB0I67EACITE361YA63/How+to+Optimize+GMB.jpg?format=1500w"
-              alt="Google My Business illustration"
-              loading="lazy" decoding="async" width="800" height="800"
-              referrerpolicy="no-referrer"
-              onerror="this.onerror=null; this.replaceWith(document.getElementById('gmb-fallback').content.cloneNode(true));"
-            />
-            <!-- fallback -->
+            <img class="logo-img" src="./gmb.png" alt="Google My Business"
+                 loading="lazy" decoding="async"
+                 onerror="this.onerror=null; this.replaceWith(document.getElementById('gmb-fallback').content.cloneNode(true));">
             <template id="gmb-fallback">
               <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
                 <path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#fff"></path>
@@ -446,11 +428,15 @@
       <div class="service-item">
         <button class="logo-card" aria-label="SEO" tabindex="0">
           <div class="logo-wrap">
-            <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
-              <circle cx="20" cy="20" r="12" fill="#ffffff"></circle>
-              <circle cx="20" cy="20" r="10" fill="#0a0a0a" opacity="0.08"></circle>
-              <path d="M29 29l10 10" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round"></path>
-            </svg>
+            <img class="logo-img" src="./seo.png" alt="SEO" loading="lazy" decoding="async"
+                 onerror="this.onerror=null; this.replaceWith(document.getElementById('seo-fallback').content.cloneNode(true));">
+            <template id="seo-fallback">
+              <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
+                <circle cx="20" cy="20" r="12" fill="#ffffff"></circle>
+                <circle cx="20" cy="20" r="10" fill="#0a0a0a" opacity="0.08"></circle>
+                <path d="M29 29l10 10" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round"></path>
+              </svg>
+            </template>
           </div>
         </button>
         <h3>SEO</h3>
@@ -461,11 +447,15 @@
       <div class="service-item">
         <button class="logo-card" aria-label="Website Development & Optimization" tabindex="0">
           <div class="logo-wrap">
-            <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
-              <rect x="6" y="10" width="36" height="28" rx="3" fill="#ffffff"></rect>
-              <rect x="6" y="10" width="36" height="6" fill="#0a0a0a" opacity="0.1"></rect>
-              <rect x="14" y="24" width="20" height="6" rx="3" fill="#0a0a0a" opacity="0.2"></rect>
-            </svg>
+            <img class="logo-img" src="./webdev.png" alt="Website development" loading="lazy" decoding="async"
+                 onerror="this.onerror=null; this.replaceWith(document.getElementById('webdev-fallback').content.cloneNode(true));">
+            <template id="webdev-fallback">
+              <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
+                <rect x="6" y="10" width="36" height="28" rx="3" fill="#ffffff"></rect>
+                <rect x="6" y="10" width="36" height="6" fill="#0a0a0a" opacity="0.1"></rect>
+                <rect x="14" y="24" width="20" height="6" rx="3" fill="#0a0a0a" opacity="0.2"></rect>
+              </svg>
+            </template>
           </div>
         </button>
         <h3>Website Dev & Optimization</h3>
@@ -729,7 +719,6 @@
     const spinIO = new IntersectionObserver((entries)=>{
       for (const e of entries){
         const running = e.isIntersecting;
-        // control animation-play-state for the card and its ::before via data attr
         e.target.style.animationPlayState = running ? 'running' : 'paused';
         e.target.dataset.inview = running ? '1' : '0';
       }
