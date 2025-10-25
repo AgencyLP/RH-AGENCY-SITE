@@ -208,18 +208,26 @@
     }
 
     /* Paragraph card under each service */
-    .service-details{
-      width:100%;
-      max-width:340px;
-      text-align:left;
-      background: var(--bg-card);
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:14px 16px;
-      box-shadow: var(--shadow-soft);
-      position:relative;
-      overflow:hidden;
-    }
+.service-details{
+  /* what you already had */
+  width:100%;
+  max-width:340px;
+  text-align:left;
+  background: var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  box-shadow: var(--shadow-soft);
+  position:relative;
+  overflow:hidden;
+
+  /* NEW: equalize heights */
+  min-height: 270px;             /* tweak between 260–300px to taste */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
     /* soft brand tint halo */
     .service-item[data-brand] .service-details::before{
       content:""; position:absolute; inset:0; z-index:0;
