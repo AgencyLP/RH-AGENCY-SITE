@@ -30,17 +30,16 @@
 
     *{margin:0;padding:0;box-sizing:border-box}
     html,body{height:100%}
-
     body{
       font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
       background:var(--bg-light); color:var(--text-primary);
       line-height:1.65; overflow-x:hidden;
     }
 
-    /* ===== Sticky Header + Deal Bar ===== */
+    /* ===== Sticky Header + Deal Bar (STAR, no tree) ===== */
     #site-header{
       position: sticky; top: 0; z-index: 1000;
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.85);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
@@ -48,9 +47,7 @@
       max-width:1100px; margin:0 auto; padding:12px 20px;
       display:flex; align-items:center; justify-content:space-between; gap:12px;
     }
-    .brand{
-      font-weight:900; letter-spacing:.04em; font-size:1.05rem;
-    }
+    .brand{ font-weight:900; letter-spacing:.04em; font-size:1.05rem; }
     .header-cta{
       display:inline-block; padding:8px 12px; border-radius:10px;
       background:var(--accent); color:#fff; text-decoration:none; font-weight:700;
@@ -65,6 +62,7 @@
       display:flex; align-items:center; justify-content:center; gap:10px;
       font-weight:700;
     }
+    .deal-icon{ display:inline-flex; width:16px; height:16px; }
     .deal-timer{
       font-variant-numeric: tabular-nums; letter-spacing:.02em;
       padding:4px 8px; border-radius:8px; background:rgba(0,0,0,.04);
@@ -167,7 +165,6 @@
     .step-item{display:flex;gap:24px;position:relative;padding-bottom:32px}
     .step-item::before{content:'';position:absolute;left:20px;top:40px;bottom:0;width:2px;background:var(--border);z-index:0}
     .step-item:last-child{padding-bottom:0}
-    .step-item:last-child::before{display:none}
     .step-number{
       width:40px;height:40px;flex-shrink:0;border-radius:50%;background:var(--accent);color:var(--accent-text);
       display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;box-shadow:0 4px 12px rgba(0,0,0,0.1)
@@ -176,24 +173,18 @@
     .step-content h3{font-size:1.5rem;font-weight:700;margin-bottom:8px}
     .step-content p{color:var(--text-secondary);font-size:1.05rem;line-height:1.7}
 
-    /* SERVICES (spinning logo cards with colored paragraph cards) */
+    /* SERVICES */
     #services{background:var(--bg-light)}
     .services-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px}
-    .service-item{
-      display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;
-      align-self:stretch;
-    }
+    .service-item{ display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center; align-self:stretch; }
 
     .logo-card{
       --tint:#0ea5e9;
       width:210px;height:210px;border-radius:16px;background:var(--bg-card);
       border:1px solid var(--border); box-shadow:var(--shadow-soft);
       display:grid;place-items:center; padding:16px; position:relative; overflow:hidden;
-      transform-style:preserve-3d;
-      animation: spinY 8s linear infinite;
-      animation-play-state: paused;
-      transition: box-shadow .35s ease, border-color .35s ease, transform .35s ease;
-      outline:none;
+      transform-style:preserve-3d; animation: spinY 8s linear infinite; animation-play-state: paused;
+      transition: box-shadow .35s ease, border-color .35s ease, transform .35s ease; outline:none;
     }
     .logo-card[data-brand="facebook"]{ --tint:#1877F2; }
     .logo-card[data-brand="gmb"]{ --tint:#34A853; }
@@ -205,95 +196,34 @@
       background:
         radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--tint) 14%, transparent) 0%, transparent 55%),
         radial-gradient(circle at 70% 70%, color-mix(in srgb, var(--tint) 10%, transparent) 0%, transparent 60%);
-      transform:translateZ(-1px);
-      animation: halo 12s linear infinite;
+      transform:translateZ(-1px); animation: halo 12s linear infinite;
     }
-    .logo-card:hover,
-    .logo-card:focus-visible{
-      transform:translateY(-6px);
-      box-shadow:var(--shadow-medium);
-      border-color:rgba(0,0,0,.15);
-      animation-play-state: paused;
-    }
-    .logo-card:hover::before,
-    .logo-card:focus-visible::before{ animation-play-state: paused; }
+    .logo-card:hover, .logo-card:focus-visible{ transform:translateY(-6px); box-shadow:var(--shadow-medium); border-color:rgba(0,0,0,.15); animation-play-state: paused; }
+    .logo-card:hover::before, .logo-card:focus-visible::before{ animation-play-state: paused; }
 
     @keyframes spinY { to { transform: rotateY(360deg); } }
     @keyframes halo { to { transform: translateZ(-1px) rotate(360deg); } }
 
     .logo-wrap{
       width:100%;height:100%;border-radius:12px;
-      background:
-        radial-gradient(100px 100px at 50% 40%, rgba(255,255,255,.85), transparent 70%),
-        var(--bg-input);
+      background: radial-gradient(100px 100px at 50% 40%, rgba(255,255,255,.85), transparent 70%), var(--bg-input);
       display:grid;place-items:center;overflow:hidden; box-shadow: inset 0 0 0 1px var(--border);
     }
-    .logo-img,
-    .logo-svg{
-      max-width:72%;
-      max-height:72%;
-      object-fit:contain;
-      display:block;
-      filter: saturate(1.6) contrast(1.1) brightness(1.1);
-      will-change: filter, transform;
-    }
-    .logo-card:hover .logo-img,
-    .logo-card:focus-visible .logo-img,
-    .logo-card:hover .logo-svg,
-    .logo-card:focus-visible .logo-svg{
-      filter: saturate(1.8) contrast(1.15) brightness(1.12);
-    }
+    .logo-img,.logo-svg{ max-width:72%; max-height:72%; object-fit:contain; display:block; filter:saturate(1.6) contrast(1.1) brightness(1.1); }
 
-    /* Paragraph card under each service — equal heights enforced */
-    .service-details{
-      width:100%;
-      max-width:340px;
-      text-align:left;
-      background: var(--bg-card);
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:14px 16px;
-      box-shadow: var(--shadow-soft);
-      position:relative;
-      overflow:hidden;
-
-      min-height: 300px;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-start;
-    }
-    .service-item[data-brand] .service-details::before{
-      content:""; position:absolute; inset:0; z-index:0;
-      background: radial-gradient(180px 120px at 70% -20%, color-mix(in srgb, var(--tint, #000) 10%, transparent) 0%, transparent 60%);
-      opacity:.9;
-    }
+    .service-details{ width:100%; max-width:340px; text-align:left; background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:14px 16px; box-shadow:var(--shadow-soft); position:relative; overflow:hidden; min-height:300px; display:flex; flex-direction:column; justify-content:flex-start; }
+    .service-item[data-brand] .service-details::before{ content:""; position:absolute; inset:0; z-index:0; background: radial-gradient(180px 120px at 70% -20%, color-mix(in srgb, var(--tint, #000) 10%, transparent) 0%, transparent 60%); opacity:.9; }
     .service-details > *{ position:relative; z-index:1; }
-    .service-details h3{
-      font-size:1.1rem; font-weight:800; margin:2px 0 6px;
-      text-align:center;
-    }
-    .service-details p{
-      color:var(--text-secondary);
-      font-size:.98rem;
-      line-height:1.65;
-    }
+    .service-details h3{ font-size:1.1rem; font-weight:800; margin:2px 0 6px; text-align:center; }
+    .service-details p{ color:var(--text-secondary); font-size:.98rem; line-height:1.65; }
 
-    @media (max-width:640px){
-      .logo-card{width:180px;height:180px}
-      .service-details{max-width:360px; min-height: 280px;}
-    }
-    @media (prefers-reduced-motion:reduce){
-      *{animation:none !important;transition:none !important}
-      .grid-background{animation:none}
-    }
+    @media (max-width:640px){ .logo-card{width:180px;height:180px} .service-details{max-width:360px; min-height:280px;} }
+    @media (prefers-reduced-motion:reduce){ *{animation:none !important;transition:none !important} .grid-background{animation:none} }
 
-    /* CASE STUDIES */
+    /* CASE STUDIES (unchanged list section) */
     #case-studies{background:var(--bg-section-alt)}
     .cs-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-    .cs-card{
-      background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:22px;
-      box-shadow:var(--shadow-soft);transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;position:relative;overflow:hidden
-    }
+    .cs-card{ background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:22px; box-shadow:var(--shadow-soft);transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;position:relative;overflow:hidden }
     .cs-card:hover{transform:translateY(-6px);border-color:rgba(0,0,0,.15);box-shadow:var(--shadow-medium)}
     .cs-header{display:flex;align-items:center;gap:12px;margin-bottom:10px}
     .cs-logo{width:40px;height:40px;border-radius:10px;background:rgba(0,0,0,.05);display:grid;place-items:center}
@@ -301,25 +231,15 @@
     .badge{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;font-size:.9rem;background:rgba(0,0,0,.04)}
     .cs-desc{color:var(--text-secondary)}
 
-    /* TESTIMONIALS */
+    /* TESTIMONIALS (google hue ring kept) */
     #testimonials{background:var(--bg-light)}
     .review-tabs{max-width:1100px;margin:0 auto 20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-    .review-tab-btn{
-      font-family:'Inter',sans-serif;font-size:1rem;font-weight:600;padding:10px 16px;border-radius:999px;border:1px solid var(--border);
-      background:var(--bg-card);color:var(--text-secondary);cursor:pointer;transition:background .25s ease,color .25s ease,border-color .25s ease
-    }
+    .review-tab-btn{ font-family:'Inter',sans-serif;font-size:1rem;font-weight:600;padding:10px 16px;border-radius:999px;border:1px solid var(--border); background:var(--bg-card);color:var(--text-secondary);cursor:pointer;transition:background .25s ease,color .25s ease,border-color .25s ease }
     .review-tab-btn:hover{background:var(--bg-input);color:var(--text-primary)}
     .review-tab-btn.active{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
     .reviews-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-    .g-review-card{
-      width:100%;height:260px;background:var(--bg-card);position:relative;display:flex;place-content:center;place-items:center;overflow:hidden;
-      border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow-soft)
-    }
-    .g-review-card::before{
-      content:'';position:absolute;width:120px;height:140%;
-      background-image:linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.06));
-      animation:rotRing 6s linear infinite;transition:all .2s linear;filter:blur(.2px)
-    }
+    .g-review-card{ width:100%;height:260px;background:var(--bg-card);position:relative;display:flex;place-content:center;place-items:center;overflow:hidden; border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow-soft) }
+    .g-review-card::before{ content:'';position:absolute;width:120px;height:140%; background-image:conic-gradient(from 0deg, rgba(66,133,244,0.28) 0% 33%, rgba(234,67,53,0.28) 33% 66%, rgba(251,188,5,0.32) 66% 100%); animation:rotRing 6s linear infinite;transition:all .2s linear;filter:blur(.2px) }
     @keyframes rotRing{from{transform:rotate(0)}to{transform:rotate(360deg)}}
     .g-review-card::after{content:'';position:absolute;inset:6px;border-radius:12px;background:var(--bg-card);box-shadow:inset 0 0 0 1px var(--border)}
     .g-content{position:relative;z-index:1;padding:16px;display:grid;gap:10px;text-align:left;width:100%}
@@ -334,26 +254,14 @@
     .review-panel{display:none}
     .review-panel.active{display:block}
 
-    /* Google hues on Google Reviews only */
-    #panel-google .g-review-card::before{
-      background-image:conic-gradient(
-        from 0deg,
-        rgba(66,133,244,0.28) 0% 33%,
-        rgba(234,67,53,0.28) 33% 66%,
-        rgba(251,188,5,0.32) 66% 100%
-      );
-    }
-
     /* CONTACT */
     #contact{background:var(--bg-section-alt);padding:72px 20px}
     .contact-wrap{max-width:1100px;margin:0 auto;display:grid;gap:24px}
-    @media (min-width:900px){
-      .contact-wrap{grid-template-columns:1.6fr 1fr;align-items:center}
-    }
+    @media (min-width:900px){ .contact-wrap{grid-template-columns:1.6fr 1fr;align-items:center} }
+
     .contact-hero{
       background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
-      padding:40px;min-height:460px;
-      position:relative;overflow:hidden;box-shadow:var(--shadow-soft)
+      padding:40px;min-height:460px; position:relative;overflow:hidden;box-shadow:var(--shadow-soft)
     }
     .contact-hero::before{
       content:'';position:absolute;width:160px;height:140%;left:-40px;top:-20%;
@@ -375,8 +283,27 @@
       color:var(--text-primary);text-decoration:none;font-weight:600
     }
 
-    .contact-proof{display:grid;gap:14px}
-    .mini-cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    /* Proof column with sticky card + arrow */
+    .contact-proof{display:grid;gap:14px; position:relative;}
+    .mini-cases{display:grid;grid-template-columns:1fr;gap:14px}
+    .proof-arrow{
+      display:none;
+    }
+    @media (min-width:900px){
+      .mini-cases{position:relative}
+      .proof-arrow{
+        display:block;
+        position:absolute; left:-34px; top:36px; width:28px; height:28px; opacity:.6;
+        animation: nudge 1.6s ease-in-out infinite;
+      }
+      @keyframes nudge{
+        0%,100%{ transform:translateX(0)}
+        50%{ transform:translateX(-4px)}
+      }
+      .mini-card.sticky{
+        position:sticky; top:96px;
+      }
+    }
 
     /* Standout recent case study styles */
     .recent-banner{
@@ -385,41 +312,44 @@
       background:linear-gradient(135deg, rgba(66,133,244,.08), rgba(251,188,5,.08));
       font-weight:700;font-size:.92rem;color:var(--text-primary)
     }
-    .recent-banner svg{flex:0 0 auto}
+    .recent-banner .star{ width:16px; height:16px; }
 
     .mini-card{
-      background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:14px;
+      background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:16px;
       box-shadow:var(--shadow-soft);transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
       position:relative;overflow:hidden
     }
-    /* SAFE gradient ring (no masking) */
     .mini-card.highlight{
-      position:relative; border-radius:16px; border:2px solid transparent;
+      border:2px solid transparent;
       background:
         linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
         conic-gradient(from 180deg,
-          rgba(66,133,244,.22),
-          rgba(234,67,53,.20),
-          rgba(251,188,5,.22),
-          rgba(66,133,244,.22)) border-box;
-      box-shadow:0 10px 24px rgba(0,0,0,.06), inset 0 0 0 1px rgba(0,0,0,.04);
-      padding:14px; overflow:hidden;
+          rgba(66,133,244,.28),
+          rgba(234,67,53,.26),
+          rgba(251,188,5,.30),
+          rgba(66,133,244,.28)) border-box;
+      box-shadow:0 12px 28px rgba(0,0,0,.10), inset 0 0 0 1px rgba(0,0,0,.04);
     }
-    .mini-card.highlight::after{
-      content:""; position:absolute; inset:10px; border-radius:12px;
-      box-shadow: inset 0 0 0 1px var(--border); pointer-events:none;
+    .mini-card.highlight.pulse{
+      animation: proofPulse 1.8s ease-out 1;
+    }
+    @keyframes proofPulse{
+      0%{ box-shadow:0 0 0 0 rgba(66,133,244,.25), 0 12px 28px rgba(0,0,0,.10) }
+      60%{ box-shadow:0 0 0 16px rgba(66,133,244,0), 0 12px 28px rgba(0,0,0,.10) }
+      100%{ box-shadow:0 0 0 0 rgba(66,133,244,0), 0 12px 28px rgba(0,0,0,.10) }
     }
 
-    .mini-card:hover{transform:translateY(-4px);border-color:rgba(0,0,0,.15);box-shadow:var(--shadow-medium)}
     .mini-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
     .dot{width:10px;height:10px;border-radius:50%;background:#111}
-    .mini-title{font-weight:700}
+    .mini-title{font-weight:800}
     .mini-metrics{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
     .mini-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border-radius:999px;border:1px solid var(--border);background:rgba(0,0,0,.04);font-size:.85rem}
 
     @media (prefers-reduced-motion:reduce){
       *{animation:none !important;transition:none !important}
       .grid-background{animation:none}
+      .proof-arrow{animation:none}
+      .mini-card.highlight.pulse{animation:none}
     }
   </style>
 </head>
@@ -433,8 +363,11 @@
     </div>
     <div class="deal-bar">
       <div class="deal-inner">
-        <span aria-hidden="true">🎄</span>
-        <span>Christmas deal: <strong>30% off</strong> — first 5 clients</span>
+        <!-- star icon -->
+        <svg class="deal-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 3l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 18.9 6.2 21l1.1-6.5L2.6 9.8l6.5-.9L12 3z"/>
+        </svg>
+        <span>Special November deal: <strong>30% off</strong> — first 5 clients</span>
         <span class="deal-timer" id="deal-timer" aria-live="polite">00d : 00h : 00m : 00s</span>
       </div>
     </div>
@@ -442,7 +375,7 @@
 
   <div class="grid-background" aria-hidden="true"></div>
 
-  <!-- HERO -->
+  <!-- ===== HERO (unchanged) ===== -->
   <section class="hero" aria-label="Hero">
     <div class="float" aria-hidden="true"></div>
     <div class="float" aria-hidden="true"></div>
@@ -463,7 +396,7 @@
     </div>
   </section>
 
-  <!-- PAIN -->
+  <!-- ===== PAIN (unchanged) ===== -->
   <section class="option2" aria-labelledby="pain-title">
     <div class="section-header reveal">
       <h2 id="pain-title">The Old Way Isn’t Working Anymore</h2>
@@ -502,7 +435,7 @@
     </div>
   </section>
 
-  <!-- SOLUTION -->
+  <!-- ===== SOLUTION (unchanged) ===== -->
   <section id="solution" aria-labelledby="solution-title">
     <div class="section-header reveal">
       <h2 id="solution-title">The Solution is a System</h2>
@@ -534,7 +467,7 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- ===== SERVICES (unchanged) ===== -->
   <section id="services" aria-labelledby="services-title">
     <div class="section-header reveal">
       <h2 id="services-title">What We Specialize In</h2>
@@ -546,12 +479,8 @@
       <div class="service-item" data-brand="facebook">
         <button class="logo-card" data-brand="facebook" aria-label="Facebook Ads" tabindex="0">
           <div class="logo-wrap">
-            <img
-              class="logo-img"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/500px-Facebook_Logo_%282019%29.png"
-              alt="Facebook logo" loading="lazy" decoding="async"
-              onerror="this.onerror=null; this.replaceWith(document.getElementById('fb-fallback').content.cloneNode(true));"
-            />
+            <img class="logo-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/500px-Facebook_Logo_%282019%29.png" alt="Facebook logo" loading="lazy" decoding="async"
+              onerror="this.onerror=null; this.replaceWith(document.getElementById('fb-fallback').content.cloneNode(true));"/>
             <template id="fb-fallback">
               <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
                 <circle cx="24" cy="24" r="22" fill="#1877F2"></circle>
@@ -570,12 +499,8 @@
       <div class="service-item" data-brand="gmb">
         <button class="logo-card" data-brand="gmb" aria-label="Google My Business" tabindex="0">
           <div class="logo-wrap">
-            <img
-              class="logo-img"
-              src="https://images.squarespace-cdn.com/content/v1/524883b7e4b03fcb7c64e24c/1709418094526-3XB0I67EACITE361YA63/How+to+Optimize+GMB.jpg?format=1500w"
-              alt="Google My Business illustration" loading="lazy" decoding="async"
-              onerror="this.onerror=null; this.replaceWith(document.getElementById('gmb-fallback').content.cloneNode(true));"
-            />
+            <img class="logo-img" src="https://images.squarespace-cdn.com/content/v1/524883b7e4b03fcb7c64e24c/1709418094526-3XB0I67EACITE361YA63/How+to+Optimize+GMB.jpg?format=1500w" alt="Google My Business illustration" loading="lazy" decoding="async"
+              onerror="this.onerror=null; this.replaceWith(document.getElementById('gmb-fallback').content.cloneNode(true));"/>
             <template id="gmb-fallback">
               <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
                 <path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#34A853"></path>
@@ -631,97 +556,7 @@
     </div>
   </section>
 
-  <!-- CASE STUDIES -->
-  <section id="case-studies" aria-labelledby="case-studies-title">
-    <div class="section-header reveal">
-      <h2 id="case-studies-title">Case Studies</h2>
-      <p>Real results from recent client campaigns.</p>
-    </div>
-
-    <div class="cs-grid">
-      <!-- Roofing Company — Texas, USA 🇺🇸 -->
-      <article class="cs-card reveal">
-        <div class="cs-header">
-          <div class="cs-logo" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 12l9-7 9 7v7a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2z" fill="#2563eb"/></svg>
-          </div>
-          <div><strong>Roofing — Texas, USA 🇺🇸</strong><br><small>Facebook Ads + GBP</small></div>
-        </div>
-        <div class="cs-metrics">
-          <span class="badge">📅 38 bookings / mo</span>
-          <span class="badge">⬆️ 3.0x ROAS</span>
-          <span class="badge">📞 +72% calls</span>
-        </div>
-        <p class="cs-desc">Storm-season offer + tight geo targeting. GBP optimization captured “roof repair near me” intent and boosted inbound calls.</p>
-      </article>
-
-      <!-- Roofing — Essex, UK 🇬🇧 -->
-      <article class="cs-card reveal">
-        <div class="cs-header">
-          <div class="cs-logo" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 12l9-7 9 7" fill="#111"/></svg>
-          </div>
-          <div><strong>Roofing — Essex, UK 🇬🇧</strong><br><small>SEO + GBP</small></div>
-        </div>
-        <div class="cs-metrics">
-          <span class="badge">🔎 +142% organic</span>
-          <span class="badge">📍 +190% map views</span>
-          <span class="badge">⭐ 4.8 rating</span>
-        </div>
-        <p class="cs-desc">Local city pages + review cadence lifted map-pack rankings across Chelmsford, Colchester, and Southend.</p>
-      </article>
-
-      <!-- Landscaper — Nottingham, UK 🇬🇧 -->
-      <article class="cs-card reveal">
-        <div class="cs-header">
-          <div class="cs-logo" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 18h16M6 18V8a6 6 0 1 1 12 0v10" fill="#16a34a"/></svg>
-          </div>
-          <div><strong>Landscaper — Nottingham, UK 🇬🇧</strong><br><small>Facebook Ads + CRO</small></div>
-        </div>
-        <div class="cs-metrics">
-          <span class="badge">🚀 +58% CVR</span>
-          <span class="badge">📸 +2.1x CTR</span>
-          <span class="badge">📅 27 quotes / mo</span>
-        </div>
-        <p class="cs-desc">Before/after creatives and a simple quote flow boosted click-through and turned more visits into booked site surveys.</p>
-      </article>
-
-      <!-- Landscaper — Melbourne, AUS 🇦🇺 -->
-      <article class="cs-card reveal">
-        <div class="cs-header">
-          <div class="cs-logo" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="8" cy="12" r="3" fill="#10b981"/><rect x="12" y="9" width="9" height="6" rx="3" fill="#10b981"/></svg>
-          </div>
-          <div><strong>Landscaper — Melbourne, AUS 🇦🇺</strong><br><small>GBP + SEO</small></div>
-        </div>
-        <div class="cs-metrics">
-          <span class="badge">📍 +168% map views</span>
-          <span class="badge">📞 +61% calls</span>
-          <span class="badge">🧭 +44% direction taps</span>
-        </div>
-        <p class="cs-desc">Service-area tuning, photo updates, and Q&A content increased discovery and local engagement across suburbs.</p>
-      </article>
-
-      <!-- Renovation — Singapore 🇸🇬 -->
-      <article class="cs-card reveal">
-        <div class="cs-header">
-          <div class="cs-logo" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="#ef4444"/><rect x="6" y="8" width="12" height="2" fill="#fff"/><rect x="8" y="12" width="8" height="2" fill="#fff"/></svg>
-          </div>
-          <div><strong>Renovation — Singapore 🇸🇬</strong><br><small>SEO + CRO</small></div>
-        </div>
-        <div class="cs-metrics">
-          <span class="badge">🔎 +124% organic</span>
-          <span class="badge">🗓️ +36% consults</span>
-          <span class="badge">💬 +29% SQLs</span>
-        </div>
-        <p class="cs-desc">High-intent topics (HDB, BTO, condo reno) and a faster, clearer booking page increased demo requests month over month.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
+  <!-- ===== TESTIMONIALS (unchanged) ===== -->
   <section id="testimonials" aria-labelledby="testimonials-title">
     <div class="section-header reveal">
       <h2 id="testimonials-title">What People Say</h2>
@@ -733,116 +568,20 @@
       <button class="review-tab-btn" data-tab="panel-clients">Client Stories</button>
     </div>
 
-    <!-- GOOGLE REVIEWS: exactly 4 cards -->
     <div id="panel-google" class="review-panel active">
       <div class="reviews-grid">
-        <article class="g-review-card reveal">
-          <div class="g-content">
-            <div class="g-header">
-              <div class="g-avatar" aria-hidden="true">AM</div>
-              <div>
-                <div class="g-name">Amanda M.</div>
-                <div class="g-meta">
-                  <span class="g-stars" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                  </span>
-                  <span>· 2 weeks ago</span>
-                </div>
-              </div>
-            </div>
-            <p class="g-quote">They rebuilt our funnel and the calendar started filling the same week. Calls are qualified, not time-wasters.</p>
-            <a class="g-link" href="#" target="_blank" rel="noopener" aria-label="View review on Google">
-              <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#111"/></svg>
-              View on Google →
-            </a>
-          </div>
-        </article>
+        <!-- four review cards (unchanged content) -->
+        <article class="g-review-card reveal"><div class="g-content"><div class="g-header"><div class="g-avatar" aria-hidden="true">AM</div><div><div class="g-name">Amanda M.</div><div class="g-meta"><span class="g-stars" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg></span><span>· 2 weeks ago</span></div></div></div><p class="g-quote">They rebuilt our funnel and the calendar started filling the same week. Calls are qualified, not time-wasters.</p><a class="g-link" href="#" target="_blank" rel="noopener" aria-label="View review on Google"><svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#111"/></svg>View on Google →</a></div></article>
 
-        <article class="g-review-card reveal">
-          <div class="g-content">
-            <div class="g-header">
-              <div class="g-avatar" aria-hidden="true">JT</div>
-              <div>
-                <div class="g-name">Jason T.</div>
-                <div class="g-meta">
-                  <span class="g-stars" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111" opacity="0.35"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                  </span>
-                  <span>· 1 month ago</span>
-                </div>
-              </div>
-            </div>
-            <p class="g-quote">We finally have consistency. GMB + SEO gave us weekly inbound and the ads scale on demand.</p>
-            <a class="g-link" href="#" target="_blank" rel="noopener">
-              <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#111"/></svg>
-              View on Google →
-            </a>
-          </div>
-        </article>
+        <article class="g-review-card reveal"><div class="g-content"><div class="g-header"><div class="g-avatar" aria-hidden="true">JT</div><div><div class="g-name">Jason T.</div><div class="g-meta"><span class="g-stars" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#111" opacity="0.35"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg></span><span>· 1 month ago</span></div></div></div><p class="g-quote">We finally have consistency. GMB + SEO gave us weekly inbound and the ads scale on demand.</p><a class="g-link" href="#" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#111"/></svg>View on Google →</a></div></article>
 
-        <article class="g-review-card reveal">
-          <div class="g-content">
-            <div class="g-header">
-              <div class="g-avatar" aria-hidden="true">MK</div>
-              <div>
-                <div class="g-name">Marcus K.</div>
-                <div class="g-meta">
-                  <span class="g-stars" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                  </span>
-                  <span>· 6 weeks ago</span>
-                </div>
-              </div>
-            </div>
-            <p class="g-quote">Tight offer, great creative, and they fixed our booking page. Leads cost less and quality is higher than before.</p>
-            <a class="g-link" href="#" target="_blank" rel="noopener">
-              <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#111"/></svg>
-              View on Google →
-            </a>
-          </div>
-        </article>
+        <article class="g-review-card reveal"><div class="g-content"><div class="g-header"><div class="g-avatar" aria-hidden="true">MK</div><div><div class="g-name">Marcus K.</div><div class="g-meta"><span class="g-stars" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg></span><span>· 6 weeks ago</span></div></div></div><p class="g-quote">Tight offer, great creative, and they fixed our booking page. Leads cost less and quality is higher than before.</p><a class="g-link" href="#" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#111"/></svg>View on Google →</a></div></article>
 
-        <article class="g-review-card reveal">
-          <div class="g-content">
-            <div class="g-header">
-              <div class="g-avatar" aria-hidden="true">SO</div>
-              <div>
-                <div class="g-name">Sophie O.</div>
-                <div class="g-meta">
-                  <span class="g-stars" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                  </span>
-                  <span>· 2 months ago</span>
-                </div>
-              </div>
-            </div>
-            <p class="g-quote">Clear strategy, frequent updates, and real results. We’re finally getting qualified calls every week.</p>
-            <a class="g-link" href="#" target="_blank" rel="noopener">
-              <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#111"/></svg>
-              View on Google →
-            </a>
-          </div>
-        </article>
+        <article class="g-review-card reveal"><div class="g-content"><div class="g-header"><div class="g-avatar" aria-hidden="true">SO</div><div><div class="g-name">Sophie O.</div><div class="g-meta"><span class="g-stars" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg></span><span>· 2 months ago</span></div></div></div><p class="g-quote">Clear strategy, frequent updates, and real results. We’re finally getting qualified calls every week.</p><a class="g-link" href="#" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#111"/></svg>View on Google →</a></div></article>
       </div>
     </div>
 
-    <!-- CLIENT STORIES -->
+    <!-- CLIENT STORIES (unchanged) -->
     <div id="panel-clients" class="review-panel">
       <div class="reviews-grid">
         <article class="g-review-card reveal">
@@ -875,7 +614,7 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- ===== CONTACT ===== -->
   <section id="contact" aria-label="Contact us">
     <div class="contact-wrap">
       <div class="contact-hero reveal">
@@ -883,8 +622,8 @@
           <h2>Contact us today</h2>
           <p>Ready to turn intent into booked revenue? Talk to a strategist and see how we can fill your calendar with qualified calls.</p>
           <div class="contact-actions">
-            <a class="cta" href="mailto:hello@yourdomain.com">Email us now</a>
-            <a class="cta-secondary" href="tel:+10000000000">Call: +1 (000) 000-0000</a>
+            <a class="cta" href="mailto:rhagency.team@gmail.com">Email us now</a>
+            <a class="cta-secondary" href="tel:+66983246313">Call: +66 98 324 6313</a>
             <a class="cta-secondary" href="#case-studies">See case studies</a>
           </div>
           <p class="contact-note">No long forms. No fluff. Just results. Reach out and we’ll share a quick plan tailored to your niche.</p>
@@ -892,16 +631,20 @@
       </div>
 
       <div class="contact-proof reveal">
+        <!-- banner + star -->
         <span class="recent-banner" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+          <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 18.9 6.2 21l1.1-6.5L2.6 9.8l6.5-.9L12 3z"/></svg>
           Recent results · signed 2 weeks ago
         </span>
 
+        <!-- subtle arrow pointing from contact box to proof (desktop only) -->
+        <svg class="proof-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 12h16M14 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
         <div class="mini-cases">
-          <!-- Single highlighted mini-card -->
-          <div class="mini-card highlight">
+          <!-- Single highlighted, sticky, pulsing once -->
+          <div class="mini-card highlight sticky" id="recent-card">
             <div class="mini-head"><span class="dot"></span><span class="mini-title">Roofing Contractor, San Antonio, USA</span></div>
             <div class="mini-metrics">
               <span class="mini-badge">📅 18 bookings / mo</span>
@@ -915,7 +658,7 @@
   </section>
 
   <script>
-    // Sticky sections: reveal on view
+    // reveal on view
     const reveals = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries)=>{
       for (const e of entries){
@@ -924,7 +667,7 @@
     }, { rootMargin: '0px 0px -100px 0px' });
     reveals.forEach(el=>io.observe(el));
 
-    // Tabs
+    // tabs
     const reviewTabBtns = document.querySelectorAll('.review-tab-btn');
     const reviewPanels = document.querySelectorAll('.review-panel');
     reviewTabBtns.forEach(btn=>{
@@ -936,7 +679,7 @@
       });
     });
 
-    // Spin logo cards only when in view
+    // spin logo cards only when in view
     const spinCards = document.querySelectorAll('.logo-card');
     const spinIO = new IntersectionObserver((entries)=>{
       for (const e of entries){
@@ -947,13 +690,14 @@
     }, {threshold: 0.25});
     spinCards.forEach(el => spinIO.observe(el));
 
-    // ===== Deal countdown (to Dec 25, 23:59 local time) =====
+    // ===== Deal countdown (to Nov 15, 23:59 local time) =====
     (function(){
       const el = document.getElementById('deal-timer');
       if(!el) return;
       const now = new Date();
-      const year = now.getMonth() === 11 && now.getDate() > 25 ? now.getFullYear()+1 : now.getFullYear();
-      const target = new Date(year, 11, 25, 23, 59, 0); // Dec is 11
+      const currentYear = now.getFullYear();
+      let target = new Date(currentYear, 10, 15, 23, 59, 0); // month index 10 = November
+      if (now > target) target = new Date(currentYear + 1, 10, 15, 23, 59, 0);
       const pad = n => String(n).padStart(2,'0');
 
       function tick(){
@@ -971,6 +715,21 @@
       }
       tick();
       const timer = setInterval(tick, 1000);
+    })();
+
+    // Trigger one-time pulse on recent proof when contact section enters view
+    (function(){
+      const card = document.getElementById('recent-card');
+      if(!card) return;
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if (e.isIntersecting){
+            card.classList.add('pulse');
+            obs.disconnect();
+          }
+        });
+      }, {threshold: 0.4});
+      obs.observe(card);
     })();
   </script>
 </body>
