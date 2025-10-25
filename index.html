@@ -37,6 +37,40 @@
       line-height:1.65; overflow-x:hidden;
     }
 
+    /* ===== Sticky Header + Deal Bar ===== */
+    #site-header{
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner{
+      max-width:1100px; margin:0 auto; padding:12px 20px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{
+      font-weight:900; letter-spacing:.04em; font-size:1.05rem;
+    }
+    .header-cta{
+      display:inline-block; padding:8px 12px; border-radius:10px;
+      background:var(--accent); color:#fff; text-decoration:none; font-weight:700;
+      box-shadow:0 6px 16px rgba(0,0,0,.12);
+    }
+    .deal-bar{
+      border-top:1px solid var(--border);
+      background: linear-gradient(90deg, rgba(66,133,244,.08), rgba(234,67,53,.08), rgba(251,188,5,.10));
+    }
+    .deal-inner{
+      max-width:1100px; margin:0 auto; padding:8px 20px;
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      font-weight:700;
+    }
+    .deal-timer{
+      font-variant-numeric: tabular-nums; letter-spacing:.02em;
+      padding:4px 8px; border-radius:8px; background:rgba(0,0,0,.04);
+      border:1px solid var(--border);
+    }
+
     /* soft moving grid */
     .grid-background{
       position:fixed; inset:0; z-index:-1;
@@ -358,28 +392,22 @@
       box-shadow:var(--shadow-soft);transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
       position:relative;overflow:hidden
     }
-    /* NEW highlight look: subtle gradient border ring */
+    /* SAFE gradient ring (no masking) */
     .mini-card.highlight{
-      padding:16px;                 /* small bump for ring */
-      border:transparent;
+      position:relative; border-radius:16px; border:2px solid transparent;
       background:
+        linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
         conic-gradient(from 180deg,
           rgba(66,133,244,.22),
           rgba(234,67,53,.20),
           rgba(251,188,5,.22),
           rgba(66,133,244,.22)) border-box;
-      -webkit-mask:
-        linear-gradient(#000 0 0) padding-box,
-        linear-gradient(#000 0 0) border-box;
-      -webkit-mask-composite: xor;
-              mask-composite: exclude;
-      border-radius:16px;
       box-shadow:0 10px 24px rgba(0,0,0,.06), inset 0 0 0 1px rgba(0,0,0,.04);
+      padding:14px; overflow:hidden;
     }
     .mini-card.highlight::after{
       content:""; position:absolute; inset:10px; border-radius:12px;
-      box-shadow: inset 0 0 0 1px var(--border);
-      pointer-events:none;
+      box-shadow: inset 0 0 0 1px var(--border); pointer-events:none;
     }
 
     .mini-card:hover{transform:translateY(-4px);border-color:rgba(0,0,0,.15);box-shadow:var(--shadow-medium)}
@@ -396,6 +424,22 @@
   </style>
 </head>
 <body>
+
+  <!-- Sticky header -->
+  <header id="site-header" aria-label="Site header">
+    <div class="header-inner">
+      <div class="brand">RH AGENCY</div>
+      <a class="header-cta" href="#contact">Book call</a>
+    </div>
+    <div class="deal-bar">
+      <div class="deal-inner">
+        <span aria-hidden="true">🎄</span>
+        <span>Christmas deal: <strong>30% off</strong> — first 5 clients</span>
+        <span class="deal-timer" id="deal-timer" aria-live="polite">00d : 00h : 00m : 00s</span>
+      </div>
+    </div>
+  </header>
+
   <div class="grid-background" aria-hidden="true"></div>
 
   <!-- HERO -->
@@ -843,13 +887,11 @@
             <a class="cta-secondary" href="tel:+10000000000">Call: +1 (000) 000-0000</a>
             <a class="cta-secondary" href="#case-studies">See case studies</a>
           </div>
-          <!-- MOVED INTO CONTACT BOX -->
           <p class="contact-note">No long forms. No fluff. Just results. Reach out and we’ll share a quick plan tailored to your niche.</p>
         </div>
       </div>
 
       <div class="contact-proof reveal">
-        <!-- NEW banner to introduce the recent case study -->
         <span class="recent-banner" aria-hidden="true">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
             <path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -860,7 +902,7 @@
         <div class="mini-cases">
           <!-- Single highlighted mini-card -->
           <div class="mini-card highlight">
-            <div class="mini-head"><span class="dot"></span><span class="mini-title">Roofing Contractor,San Antonio,USA</span></div>
+            <div class="mini-head"><span class="dot"></span><span class="mini-title">Roofing Contractor, San Antonio, USA</span></div>
             <div class="mini-metrics">
               <span class="mini-badge">📅 18 bookings / mo</span>
               <span class="mini-badge">⬆️ 2.1× ROAS</span>
@@ -873,7 +915,7 @@
   </section>
 
   <script>
-    // reveal on view
+    // Sticky sections: reveal on view
     const reveals = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries)=>{
       for (const e of entries){
@@ -882,7 +924,7 @@
     }, { rootMargin: '0px 0px -100px 0px' });
     reveals.forEach(el=>io.observe(el));
 
-    // tabs
+    // Tabs
     const reviewTabBtns = document.querySelectorAll('.review-tab-btn');
     const reviewPanels = document.querySelectorAll('.review-panel');
     reviewTabBtns.forEach(btn=>{
@@ -894,7 +936,7 @@
       });
     });
 
-    // spin logo cards only when in view
+    // Spin logo cards only when in view
     const spinCards = document.querySelectorAll('.logo-card');
     const spinIO = new IntersectionObserver((entries)=>{
       for (const e of entries){
@@ -904,6 +946,32 @@
       }
     }, {threshold: 0.25});
     spinCards.forEach(el => spinIO.observe(el));
+
+    // ===== Deal countdown (to Dec 25, 23:59 local time) =====
+    (function(){
+      const el = document.getElementById('deal-timer');
+      if(!el) return;
+      const now = new Date();
+      const year = now.getMonth() === 11 && now.getDate() > 25 ? now.getFullYear()+1 : now.getFullYear();
+      const target = new Date(year, 11, 25, 23, 59, 0); // Dec is 11
+      const pad = n => String(n).padStart(2,'0');
+
+      function tick(){
+        const t = target - new Date();
+        if (t <= 0){
+          el.textContent = 'Deal ended';
+          clearInterval(timer);
+          return;
+        }
+        const d = Math.floor(t/86400000);
+        const h = Math.floor((t%86400000)/3600000);
+        const m = Math.floor((t%3600000)/60000);
+        const s = Math.floor((t%60000)/1000);
+        el.textContent = `${pad(d)}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
+      }
+      tick();
+      const timer = setInterval(tick, 1000);
+    })();
   </script>
 </body>
 </html>
