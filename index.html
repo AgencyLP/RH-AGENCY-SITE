@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RH AGENCY / EXPERT MARKETING </title>
+  <title>RH AGENCY / EXPERT MARKETING</title>
   <meta name="description" content="Premium, pay-per-result appointment setting for agencies—guaranteed high-intent calls to your calendar." />
   <meta property="og:title" content="Your SMMA – Premium Lead Generation" />
   <meta property="og:description" content="We deliver qualified, high-intent appointments straight to your calendar." />
@@ -145,7 +145,11 @@
     /* SERVICES (spinning logo cards with colored paragraph cards) */
     #services{background:var(--bg-light)}
     .services-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px}
-    .service-item{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+    .service-item{
+      display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;
+      /* make every column the same visual height and keep boxes aligned */
+      align-self:stretch;
+    }
 
     .logo-card{
       --tint:#0ea5e9;
@@ -153,7 +157,7 @@
       border:1px solid var(--border); box-shadow:var(--shadow-soft);
       display:grid;place-items:center; padding:16px; position:relative; overflow:hidden;
       transform-style:preserve-3d;
-      animation: spinY 8s linear infinite; /* slightly faster */
+      animation: spinY 8s linear infinite;   /* slightly faster */
       animation-play-state: paused;
       transition: box-shadow .35s ease, border-color .35s ease, transform .35s ease;
       outline:none;
@@ -207,7 +211,7 @@
       filter: saturate(1.8) contrast(1.15) brightness(1.12);
     }
 
-    /* Paragraph card under each service (equal heights) */
+    /* Paragraph card under each service — equal heights enforced */
     .service-details{
       width:100%;
       max-width:340px;
@@ -219,7 +223,9 @@
       box-shadow: var(--shadow-soft);
       position:relative;
       overflow:hidden;
-      min-height: 270px;   /* equalize height across all four */
+
+      /* equalize heights */
+      min-height: 300px;        /* adjust this value if you add more/less copy */
       display:flex;
       flex-direction:column;
       justify-content:flex-start;
@@ -243,7 +249,7 @@
 
     @media (max-width:640px){
       .logo-card{width:180px;height:180px}
-      .service-details{max-width:360px}
+      .service-details{max-width:360px; min-height: 280px;}
     }
     @media (prefers-reduced-motion:reduce){
       .logo-card, .logo-card::before{animation:none !important}
@@ -540,84 +546,84 @@
     </div>
 
     <div class="cs-grid">
-      <!-- 1: Roofing — Texas 🇺🇸 -->
+      <!-- Roofing Company — Texas, USA 🇺🇸 -->
       <article class="cs-card reveal">
         <div class="cs-header">
           <div class="cs-logo" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1877F2"/><path d="M14 7h-1.2A2.8 2.8 0 0 0 10 9.8V11H8v2h2v4h2v-4h1.8l.2-2H12V9.8c0-.44.36-.8.8-.8H14z" fill="#fff"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 12l9-7 9 7v7a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2z" fill="#2563eb"/></svg>
           </div>
-          <div><strong>Roofing Company — Texas 🇺🇸</strong><br><small>Facebook Ads + GBP</small></div>
+          <div><strong>Roofing — Texas, USA 🇺🇸</strong><br><small>Facebook Ads + GBP</small></div>
         </div>
         <div class="cs-metrics">
           <span class="badge">📅 38 bookings / mo</span>
-          <span class="badge">⬇️ -35% CPL</span>
-          <span class="badge">📈 2.7x ROAS</span>
+          <span class="badge">⬆️ 3.0x ROAS</span>
+          <span class="badge">📞 +72% calls</span>
         </div>
-        <p class="cs-desc">New creative angles + lead form routing. Map-pack coverage captured emergency & storm-damage intent.</p>
+        <p class="cs-desc">Storm-season offer + tight geo targeting. GBP optimization captured “roof repair near me” intent and boosted inbound calls.</p>
       </article>
 
-      <!-- 2: Roofing — Essex 🇬🇧 -->
+      <!-- Roofing — Essex, UK 🇬🇧 -->
       <article class="cs-card reveal">
         <div class="cs-header">
           <div class="cs-logo" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 22s-7-5.7-7-11a7 7 0 1 1 14 0c0 5.3-7 11-7 11z" fill="#34A853"/><circle cx="12" cy="11" r="3.5" fill="#fff"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 12l9-7 9 7" fill="#111"/></svg>
           </div>
-          <div><strong>Roofing — Essex, UK 🇬🇧</strong><br><small>GBP + Local SEO</small></div>
+          <div><strong>Roofing — Essex, UK 🇬🇧</strong><br><small>SEO + GBP</small></div>
         </div>
         <div class="cs-metrics">
-          <span class="badge">📍 +189% map views</span>
-          <span class="badge">📞 +54% calls</span>
+          <span class="badge">🔎 +142% organic</span>
+          <span class="badge">📍 +190% map views</span>
           <span class="badge">⭐ 4.8 rating</span>
         </div>
-        <p class="cs-desc">Listings overhaul, service-area pages, and review cadence pushed them into the top 3 for core queries.</p>
+        <p class="cs-desc">Local city pages + review cadence lifted map-pack rankings across Chelmsford, Colchester, and Southend.</p>
       </article>
 
-      <!-- 3: Landscaper — Nottingham 🇬🇧 -->
+      <!-- Landscaper — Nottingham, UK 🇬🇧 -->
       <article class="cs-card reveal">
         <div class="cs-header">
           <div class="cs-logo" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="#111"/><rect x="6" y="8" width="12" height="2" fill="#fff"/><rect x="8" y="12" width="8" height="2" fill="#fff"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 18h16M6 18V8a6 6 0 1 1 12 0v10" fill="#16a34a"/></svg>
           </div>
-          <div><strong>Landscaper — Nottingham, UK 🇬🇧</strong><br><small>Facebook Ads + SEO</small></div>
+          <div><strong>Landscaper — Nottingham, UK 🇬🇧</strong><br><small>Facebook Ads + CRO</small></div>
         </div>
         <div class="cs-metrics">
-          <span class="badge">🔎 +112% organic</span>
-          <span class="badge">📬 27 inbound / mo</span>
-          <span class="badge">⬇️ -28% CPC</span>
+          <span class="badge">🚀 +58% CVR</span>
+          <span class="badge">📸 +2.1x CTR</span>
+          <span class="badge">📅 27 quotes / mo</span>
         </div>
-        <p class="cs-desc">Seasonal creatives + long-form project pages built authority and filled the calendar through summer.</p>
+        <p class="cs-desc">Before/after creatives and a simple quote flow boosted click-through and turned more visits into booked site surveys.</p>
       </article>
 
-      <!-- 4: Landscaper — Melbourne 🇦🇺 -->
+      <!-- Landscaper — Melbourne, AUS 🇦🇺 -->
       <article class="cs-card reveal">
         <div class="cs-header">
           <div class="cs-logo" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 22s-7-5.7-7-11a7 7 0 1 1 14 0c0 5.3-7 11-7 11z" fill="#34A853"/><circle cx="12" cy="11" r="3.5" fill="#fff"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="8" cy="12" r="3" fill="#10b981"/><rect x="12" y="9" width="9" height="6" rx="3" fill="#10b981"/></svg>
           </div>
-          <div><strong>Landscaper — Melbourne, AUS 🇦🇺</strong><br><small>GBP + Facebook Ads</small></div>
+          <div><strong>Landscaper — Melbourne, AUS 🇦🇺</strong><br><small>GBP + SEO</small></div>
         </div>
         <div class="cs-metrics">
-          <span class="badge">🏆 Top 3 Map Pack</span>
-          <span class="badge">✉️ +61% enquiries</span>
-          <span class="badge">⬇️ -42% CPL</span>
+          <span class="badge">📍 +168% map views</span>
+          <span class="badge">📞 +61% calls</span>
+          <span class="badge">🧭 +44% direction taps</span>
         </div>
-        <p class="cs-desc">Photo updates, services schema, and neighbourhood-targeted ads drove consistent patio & turf leads.</p>
+        <p class="cs-desc">Service-area tuning, photo updates, and Q&A content increased discovery and local engagement across suburbs.</p>
       </article>
 
-      <!-- 5: Renovation — Singapore 🇸🇬 -->
+      <!-- Renovation — Singapore 🇸🇬 -->
       <article class="cs-card reveal">
         <div class="cs-header">
           <div class="cs-logo" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="#111"/><rect x="6" y="8" width="12" height="2" fill="#fff"/><rect x="8" y="12" width="8" height="2" fill="#fff"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="#ef4444"/><rect x="6" y="8" width="12" height="2" fill="#fff"/><rect x="8" y="12" width="8" height="2" fill="#fff"/></svg>
           </div>
-          <div><strong>Renovation Company — Singapore 🇸🇬</strong><br><small>SEO + CRO Website</small></div>
+          <div><strong>Renovation — Singapore 🇸🇬</strong><br><small>SEO + CRO</small></div>
         </div>
         <div class="cs-metrics">
-          <span class="badge">🔎 +86% organic</span>
-          <span class="badge">📝 +49% form submits</span>
-          <span class="badge">⚡ 1.3s LCP</span>
+          <span class="badge">🔎 +124% organic</span>
+          <span class="badge">🗓️ +36% consults</span>
+          <span class="badge">💬 +29% SQLs</span>
         </div>
-        <p class="cs-desc">New service hubs and faster pages reduced bounce and doubled walkthrough requests for HDB projects.</p>
+        <p class="cs-desc">High-intent topics (HDB, BTO, condo reno) and a faster, clearer booking page increased demo requests month over month.</p>
       </article>
     </div>
   </section>
@@ -634,7 +640,7 @@
       <button class="review-tab-btn" data-tab="panel-clients">Client Stories</button>
     </div>
 
-    <!-- GOOGLE REVIEWS (now 5) -->
+    <!-- GOOGLE REVIEWS: exactly 4 cards -->
     <div id="panel-google" class="review-panel active">
       <div class="reviews-grid">
         <article class="g-review-card reveal">
@@ -689,7 +695,6 @@
           </div>
         </article>
 
-        <!-- New review 3 -->
         <article class="g-review-card reveal">
           <div class="g-content">
             <div class="g-header">
@@ -708,12 +713,14 @@
                 </div>
               </div>
             </div>
-            <p class="g-quote">Transparent reporting, weekly tweaks, and actual results. Our inbound pipeline is finally predictable.</p>
-            <a class="g-link" href="#" target="_blank" rel="noopener">View on Google →</a>
+            <p class="g-quote">Tight offer, great creative, and they fixed our booking page. Leads cost less and quality is higher than before.</p>
+            <a class="g-link" href="#" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#111"/></svg>
+              View on Google →
+            </a>
           </div>
         </article>
 
-        <!-- New review 4 -->
         <article class="g-review-card reveal">
           <div class="g-content">
             <div class="g-header">
@@ -726,44 +733,23 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111" opacity="0.35"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
                   </span>
                   <span>· 2 months ago</span>
                 </div>
               </div>
             </div>
-            <p class="g-quote">The team fixed our GBP, cleaned up our pages, and the phones started ringing. Simple as that.</p>
-            <a class="g-link" href="#" target="_blank" rel="noopener">View on Google →</a>
-          </div>
-        </article>
-
-        <!-- Existing review 5 -->
-        <article class="g-review-card reveal">
-          <div class="g-content">
-            <div class="g-header">
-              <div class="g-avatar" aria-hidden="true">RS</div>
-              <div>
-                <div class="g-name">Riya S.</div>
-                <div class="g-meta">
-                  <span class="g-stars" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.2 3 1.2-6.8-5-4.9 6.9-1z"/></svg>
-                  </span>
-                  <span>· 3 months ago</span>
-                </div>
-              </div>
-            </div>
-            <p class="g-quote">They don’t just run ads — they fixed our pages. CVR nearly doubled and sales calls are actually qualified.</p>
-            <a class="g-link" href="#" target="_blank" rel="noopener">View on Google →</a>
+            <p class="g-quote">Clear strategy, frequent updates, and real results. We’re finally getting qualified calls every week.</p>
+            <a class="g-link" href="#" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#111"/></svg>
+              View on Google →
+            </a>
           </div>
         </article>
       </div>
     </div>
 
-    <!-- CLIENT STORIES (expanded copy) -->
+    <!-- CLIENT STORIES (more detailed, still 2 cards) -->
     <div id="panel-clients" class="review-panel">
       <div class="reviews-grid">
         <article class="g-review-card reveal">
@@ -775,11 +761,10 @@
                 <div class="g-meta"><span class="g-badge">Verified client</span> <span>· Retainer</span></div>
               </div>
             </div>
-            <p class="g-quote">Within 30 days we went from sporadic leads to a steady flow of booked consultations. They rebuilt our pages, aligned the offer with our best customers, and handled the ad testing week by week. Our calendar is predictable and my team can focus on closing.</p>
+            <p class="g-quote">Within two weeks our calendar stabilized. They refined our offer, launched creative that actually matched the audience, and rebuilt our booking flow. Show-up rate went up and the calls are worth taking.</p>
             <a class="g-link" href="#contact">Start your strategy call →</a>
           </div>
         </article>
-
         <article class="g-review-card reveal">
           <div class="g-content">
             <div class="g-header">
@@ -789,7 +774,7 @@
                 <div class="g-meta"><span class="g-badge">Verified client</span> <span>· Project</span></div>
               </div>
             </div>
-            <p class="g-quote">We brought them in to fix our Google Business Profile and landing pages. They cleaned up categories, added service areas, and shipped a faster page with clearer CTAs. Calls went up, CPL dropped, and we finally know what’s working from their weekly reports.</p>
+            <p class="g-quote">They rebuilt GBP, added local content, and cleaned up our landing pages. Cost-per-lead dropped, calls went up, and our team finally has a steady pipeline instead of spikes.</p>
             <a class="g-link" href="#contact">Start your strategy call →</a>
           </div>
         </article>
@@ -820,7 +805,7 @@
               <span class="mini-badge">📅 41 bookings / mo</span>
               <span class="mini-badge">⬆️ 3.2x ROAS</span>
             </div>
-            <p class="cs-desc" style="margin-top:6px;">FB Ads + GMB refresh compounded bookings month over month.</p>
+            <p class="cs-desc" style="margin-top:6px;">FB Ads + GBP refresh compounded bookings month over month.</p>
           </div>
           <div class="mini-card">
             <div class="mini-head"><span class="dot"></span><span class="mini-title">B2B SaaS</span></div>
@@ -836,7 +821,7 @@
               <span class="mini-badge">📍 +212% map views</span>
               <span class="mini-badge">📞 +78% calls</span>
             </div>
-            <p class="cs-desc" style="margin-top:6px;">GMB + Local SEO overhaul drove weekly inbound appointments.</p>
+            <p class="cs-desc" style="margin-top:6px;">GBP + Local SEO overhaul drove weekly inbound appointments.</p>
           </div>
         </div>
         <p class="cs-desc" style="margin-top:8px;">No long forms. No fluff. Just results. Reach out and we’ll share a quick plan tailored to your niche.</p>
