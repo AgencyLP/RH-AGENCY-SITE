@@ -142,7 +142,7 @@
     .step-content h3{font-size:1.5rem;font-weight:700;margin-bottom:8px}
     .step-content p{color:var(--text-secondary);font-size:1.05rem;line-height:1.7}
 
-    /* SERVICES (spinning logo cards, neutral style) */
+    /* SERVICES (spinning logo cards with color) */
     #services{background:var(--bg-light)}
     .services-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px}
     .service-item{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
@@ -150,20 +150,29 @@
     .service-item p{color:var(--text-secondary);max-width:320px}
 
     .logo-card{
+      --tint:#0ea5e9; /* default tint */
       width:210px;height:210px;border-radius:16px;background:var(--bg-card);
       border:1px solid var(--border); box-shadow:var(--shadow-soft);
       display:grid;place-items:center; padding:16px; position:relative; overflow:hidden;
       transform-style:preserve-3d;
-      animation: spinY 8s linear infinite;   /* faster spin (was 12s) */
+      animation: spinY 8s linear infinite;   /* faster spin */
       animation-play-state: paused;
       transition: box-shadow .35s ease, border-color .35s ease, transform .35s ease;
       outline:none;
     }
+    /* per-card brand tint */
+    .logo-card[data-brand="facebook"]{ --tint:#1877F2; }
+    .logo-card[data-brand="gmb"]{ --tint:#34A853; }
+    .logo-card[data-brand="seo"]{ --tint:#f59e0b; }
+    .logo-card[data-brand="web"]{ --tint:#6366f1; }
+
     .logo-card::before{
       content:""; position:absolute; inset:-20%; border-radius:24px;
-      background:radial-gradient(closest-side, rgba(0,0,0,.06), transparent 60%);
+      background:
+        radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--tint) 14%, transparent) 0%, transparent 55%),
+        radial-gradient(circle at 70% 70%, color-mix(in srgb, var(--tint) 10%, transparent) 0%, transparent 60%);
       transform:translateZ(-1px);
-      animation: halo 12s linear infinite;    /* faster halo (was 16s) */
+      animation: halo 12s linear infinite;
     }
     .logo-card:hover,
     .logo-card:focus-visible{
@@ -179,24 +188,28 @@
     @keyframes halo { to { transform: translateZ(-1px) rotate(360deg); } }
 
     .logo-wrap{
-      width:100%;height:100%;border-radius:12px;background:var(--bg-input);
+      width:100%;height:100%;border-radius:12px;
+      background:
+        radial-gradient(100px 100px at 50% 40%, rgba(255,255,255,.8), transparent 70%),
+        var(--bg-input);
       display:grid;place-items:center;overflow:hidden; box-shadow: inset 0 0 0 1px var(--border);
     }
+
     /* POP THE LOGO COLORS */
     .logo-img,
     .logo-svg{
-      max-width:70%;
-      max-height:70%;
+      max-width:72%;
+      max-height:72%;
       object-fit:contain;
       display:block;
-      filter: saturate(1.28) contrast(1.07) brightness(1.08);
+      filter: saturate(1.6) contrast(1.1) brightness(1.1);
       will-change: filter, transform;
     }
     .logo-card:hover .logo-img,
     .logo-card:focus-visible .logo-img,
     .logo-card:hover .logo-svg,
     .logo-card:focus-visible .logo-svg{
-      filter: saturate(1.38) contrast(1.1) brightness(1.1);
+      filter: saturate(1.8) contrast(1.15) brightness(1.12);
     }
 
     @media (max-width:640px){
@@ -402,15 +415,18 @@
     <div class="services-grid reveal">
       <!-- Facebook Ads -->
       <div class="service-item">
-        <button class="logo-card" aria-label="Facebook Ads" tabindex="0">
+        <button class="logo-card" data-brand="facebook" aria-label="Facebook Ads" tabindex="0">
           <div class="logo-wrap">
-            <img class="logo-img" src="./facebook.png" alt="Facebook logo"
-                 loading="lazy" decoding="async"
-                 onerror="this.onerror=null; this.replaceWith(document.getElementById('fb-fallback').content.cloneNode(true));">
+            <img
+              class="logo-img"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/500px-Facebook_Logo_%282019%29.png"
+              alt="Facebook logo" loading="lazy" decoding="async"
+              onerror="this.onerror=null; this.replaceWith(document.getElementById('fb-fallback').content.cloneNode(true));"
+            />
             <template id="fb-fallback">
               <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
-                <circle cx="24" cy="24" r="22" fill="#fff"></circle>
-                <path d="M29 16h-3a4 4 0 0 0-4 4v3h-3v4h3v9h5v-9h3.2l.8-4H27v-2.5c0-.8.6-1.5 1.4-1.5H29z" fill="#191f1f" opacity=".8"></path>
+                <circle cx="24" cy="24" r="22" fill="#1877F2"></circle>
+                <path d="M29 16h-3a4 4 0 0 0-4 4v3h-3v4h3v9h5v-9h3.2l.8-4H27v-2.5c0-.8.6-1.5 1.4-1.5H29z" fill="#fff"></path>
               </svg>
             </template>
           </div>
@@ -421,15 +437,18 @@
 
       <!-- Google My Business -->
       <div class="service-item">
-        <button class="logo-card" aria-label="Google My Business" tabindex="0">
+        <button class="logo-card" data-brand="gmb" aria-label="Google My Business" tabindex="0">
           <div class="logo-wrap">
-            <img class="logo-img" src="./gmb.png" alt="Google My Business"
-                 loading="lazy" decoding="async"
-                 onerror="this.onerror=null; this.replaceWith(document.getElementById('gmb-fallback').content.cloneNode(true));">
+            <img
+              class="logo-img"
+              src="https://images.squarespace-cdn.com/content/v1/524883b7e4b03fcb7c64e24c/1709418094526-3XB0I67EACITE361YA63/How+to+Optimize+GMB.jpg?format=1500w"
+              alt="Google My Business illustration" loading="lazy" decoding="async"
+              onerror="this.onerror=null; this.replaceWith(document.getElementById('gmb-fallback').content.cloneNode(true));"
+            />
             <template id="gmb-fallback">
               <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
-                <path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#fff"></path>
-                <circle cx="24" cy="23" r="8" fill="#191f1f" opacity=".8"></circle>
+                <path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#34A853"></path>
+                <circle cx="24" cy="23" r="8" fill="#fff"></circle>
               </svg>
             </template>
           </div>
@@ -440,18 +459,19 @@
 
       <!-- SEO -->
       <div class="service-item">
-        <button class="logo-card" aria-label="SEO" tabindex="0">
+        <button class="logo-card" data-brand="seo" aria-label="SEO" tabindex="0">
           <div class="logo-wrap">
-            <img class="logo-img" src="./seo.png" alt="SEO"
-                 loading="lazy" decoding="async"
-                 onerror="this.onerror=null; this.replaceWith(document.getElementById('seo-fallback').content.cloneNode(true));">
-            <template id="seo-fallback">
-              <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
-                <circle cx="20" cy="20" r="12" fill="#ffffff"></circle>
-                <circle cx="20" cy="20" r="10" fill="#0a0a0a" opacity="0.08"></circle>
-                <path d="M29 29l10 10" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round"></path>
-              </svg>
-            </template>
+            <!-- colorful inline SVG so it always shows -->
+            <svg class="logo-svg" viewBox="0 0 64 64" aria-hidden="true">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#22c55e"/>
+                </linearGradient>
+              </defs>
+              <circle cx="28" cy="28" r="16" fill="url(#g1)"/>
+              <circle cx="28" cy="28" r="12" fill="#fff" opacity=".9"/>
+              <rect x="40" y="40" width="16" height="6" rx="3" transform="rotate(45 48 43)" fill="#111"/>
+            </svg>
           </div>
         </button>
         <h3>SEO</h3>
@@ -460,18 +480,13 @@
 
       <!-- Website Dev & Optimization -->
       <div class="service-item">
-        <button class="logo-card" aria-label="Website Development & Optimization" tabindex="0">
+        <button class="logo-card" data-brand="web" aria-label="Website Development & Optimization" tabindex="0">
           <div class="logo-wrap">
-            <img class="logo-img" src="./webdev.png" alt="Website development"
-                 loading="lazy" decoding="async"
-                 onerror="this.onerror=null; this.replaceWith(document.getElementById('webdev-fallback').content.cloneNode(true));">
-            <template id="webdev-fallback">
-              <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
-                <rect x="6" y="10" width="36" height="28" rx="3" fill="#ffffff"></rect>
-                <rect x="6" y="10" width="36" height="6" fill="#0a0a0a" opacity="0.1"></rect>
-                <rect x="14" y="24" width="20" height="6" rx="3" fill="#0a0a0a" opacity="0.2"></rect>
-              </svg>
-            </template>
+            <svg class="logo-svg" viewBox="0 0 64 64" aria-hidden="true">
+              <rect x="6" y="12" width="52" height="36" rx="4" fill="#6366f1"/>
+              <rect x="6" y="12" width="52" height="8" fill="#312e81"/>
+              <rect x="18" y="30" width="28" height="8" rx="4" fill="#ffffff"/>
+            </svg>
           </div>
         </button>
         <h3>Website Dev & Optimization</h3>
@@ -508,7 +523,7 @@
           <div class="cs-logo" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="#111"/><rect x="6" y="8" width="12" height="2" fill="#fff"/><rect x="8" y="12" width="8" height="2" fill="#fff"/></svg>
           </div>
-          <div><strong>B2B SaaS</strong><br><small>SEO + CRO Landing</small></div>
+        <div><strong>B2B SaaS</strong><br><small>SEO + CRO Landing</small></div>
         </div>
         <div class="cs-metrics">
           <span class="badge">🔎 +128% organic</span>
