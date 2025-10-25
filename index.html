@@ -153,7 +153,7 @@
       border:1px solid var(--border); box-shadow:var(--shadow-soft);
       display:grid;place-items:center; padding:16px; position:relative; overflow:hidden;
       transform-style:preserve-3d;
-      animation: spinY 8s linear infinite;
+      animation: spinY 8s linear infinite;  /* faster spin */
       animation-play-state: paused;
       transition: box-shadow .35s ease, border-color .35s ease, transform .35s ease;
       outline:none;
@@ -166,8 +166,8 @@
     .logo-card::before{
       content:""; position:absolute; inset:-20%; border-radius:24px;
       background:
-        radial-gradient(circle at 30% 30%, rgba(14,165,233,.14) 0%, transparent 55%),
-        radial-gradient(circle at 70% 70%, rgba(14,165,233,.10) 0%, transparent 60%);
+        radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--tint) 14%, transparent) 0%, transparent 55%),
+        radial-gradient(circle at 70% 70%, color-mix(in srgb, var(--tint) 10%, transparent) 0%, transparent 60%);
       transform:translateZ(-1px);
       animation: halo 12s linear infinite;
     }
@@ -216,12 +216,17 @@
       .logo-card, .logo-card:hover, .logo-card:focus-visible{transform:none !important; transition:none !important}
     }
 
-    /* NEW: service details (your change) */
-    .service-details{width:100%;max-width:320px;text-align:left;margin-top:4px}
-    .service-details h3{ text-align:center;font-size:1.15rem;font-weight:700;margin-bottom:12px }
-    .service-bullets{ list-style:none;padding-left:0;display:grid;gap:8px;color:var(--text-secondary);font-size:.95rem }
-    .service-bullets li{ display:flex;align-items:flex-start;gap:8px }
-    .service-bullets li::before{ content:'✓';color:#4ade80;font-weight:800;font-size:.9rem;line-height:1.6;flex-shrink:0 }
+    /* SERVICE DETAILS (improved text layout) */
+    .service-details { width:100%; max-width:320px; text-align:left; margin-top:4px; }
+    .service-details h3 { text-align:center; font-size:1.15rem; font-weight:700; margin-bottom:12px; }
+    .service-bullets {
+      list-style:none; padding-left:0; display:grid; gap:8px;
+      color:var(--text-secondary); font-size:.95rem;
+    }
+    .service-bullets li { display:flex; align-items:flex-start; gap:8px; }
+    .service-bullets li::before {
+      content:'✓'; color:#4ade80; font-weight:800; font-size:.9rem; line-height:1.6; flex-shrink:0;
+    }
 
     /* CASE STUDIES */
     #case-studies{background:var(--bg-section-alt)}
@@ -328,9 +333,21 @@
       <p class="subtitle">We deliver qualified, high-intent appointments directly to your calendar. No more cold outreach, no more wasted ad spend. Just real results.</p>
 
       <ul class="benefits" role="list">
-        <li class="pill"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Guaranteed Appointments</li>
-        <li class="pill"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Pay-Per-Result Model</li>
-        <li class="pill"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No Contracts</li>
+        <li class="pill">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>Guaranteed Appointments
+        </li>
+        <li class="pill">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>Pay-Per-Result Model
+        </li>
+        <li class="pill">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>No Contracts
+        </li>
       </ul>
 
       <a class="cta" href="#contact">Book Your Free Strategy Call</a>
@@ -420,26 +437,17 @@
       <div class="service-item">
         <button class="logo-card" data-brand="facebook" aria-label="Facebook Ads" tabindex="0">
           <div class="logo-wrap">
-            <img
-              class="logo-img"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/500px-Facebook_Logo_%282019%29.png"
-              alt="Facebook logo" loading="lazy" decoding="async"
-              onerror="this.onerror=null; this.replaceWith(document.getElementById('fb-fallback').content.cloneNode(true));"
-            />
-            <template id="fb-fallback">
-              <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
-                <circle cx="24" cy="24" r="22" fill="#1877F2"></circle>
-                <path d="M29 16h-3a4 4 0 0 0-4 4v3h-3v4h3v9h5v-9h3.2l.8-4H27v-2.5c0-.8.6-1.5 1.4-1.5H29z" fill="#fff"></path>
-              </svg>
-            </template>
+            <img class="logo-img"
+                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/500px-Facebook_Logo_%282019%29.png"
+                 alt="Facebook logo" loading="lazy" decoding="async" />
           </div>
         </button>
         <div class="service-details">
           <h3>Facebook Ads</h3>
           <ul class="service-bullets" role="list">
-            <li><strong>Precision Targeting</strong> to find clients ready to buy, not just browse.</li>
-            <li><strong>Compelling Creative</strong> that stops the scroll and drives action.</li>
-            <li><strong>Sustainable CAC</strong> for a predictable, scalable flow of new leads.</li>
+            <li><strong>Find real buyers</strong> with tested audiences and lookalikes.</li>
+            <li><strong>Creatives that convert</strong>—thumb-stopping visuals, tight hooks, clear CTAs.</li>
+            <li><strong>Scale with control</strong> via structured testing and budget rules.</li>
           </ul>
         </div>
       </div>
@@ -448,26 +456,17 @@
       <div class="service-item">
         <button class="logo-card" data-brand="gmb" aria-label="Google My Business" tabindex="0">
           <div class="logo-wrap">
-            <img
-              class="logo-img"
-              src="https://images.squarespace-cdn.com/content/v1/524883b7e4b03fcb7c64e24c/1709418094526-3XB0I67EACITE361YA63/How+to+Optimize+GMB.jpg?format=1500w"
-              alt="Google My Business illustration" loading="lazy" decoding="async"
-              onerror="this.onerror=null; this.replaceWith(document.getElementById('gmb-fallback').content.cloneNode(true));"
-            />
-            <template id="gmb-fallback">
-              <svg class="logo-svg" viewBox="0 0 48 48" aria-hidden="true">
-                <path d="M24 44s-13-10.6-13-21A13 13 0 0 1 37 23c0 10.4-13 21-13 21z" fill="#34A853"></path>
-                <circle cx="24" cy="23" r="8" fill="#fff"></circle>
-              </svg>
-            </template>
+            <img class="logo-img"
+                 src="https://images.squarespace-cdn.com/content/v1/524883b7e4b03fcb7c64e24c/1709418094526-3XB0I67EACITE361YA63/How+to+Optimize+GMB.jpg?format=1500w"
+                 alt="Google My Business illustration" loading="lazy" decoding="async" />
           </div>
         </button>
         <div class="service-details">
           <h3>Google Business Profile</h3>
           <ul class="service-bullets" role="list">
-            <li><strong>Dominate Local Search</strong> and be the first choice for “near me” queries.</li>
-            <li><strong>Free Lead Funnel</strong> turning map views into high-value calls and directions.</li>
-            <li><strong>Review Management</strong> to build social proof and convert searchers into clients.</li>
+            <li><strong>Own “near me” intent</strong> with a fully optimized listing.</li>
+            <li><strong>Reviews that build trust</strong> using a simple request cadence.</li>
+            <li><strong>Track calls & directions</strong> so every win is measurable.</li>
           </ul>
         </div>
       </div>
@@ -491,14 +490,14 @@
         <div class="service-details">
           <h3>SEO</h3>
           <ul class="service-bullets" role="list">
-            <li><strong>Buyer-Intent Keywords</strong> that attract qualified traffic ready to convert.</li>
-            <li><strong>Authority Building</strong> to become the go-to expert in your niche.</li>
-            <li><strong>Compounding Growth</strong> as your leads grow month over month, automatically.</li>
+            <li><strong>Buyer-intent keywords</strong> that bring sales-ready traffic.</li>
+            <li><strong>On-page & technical fixes</strong> that move rankings quickly.</li>
+            <li><strong>Authority content</strong> for steady, compounding growth.</li>
           </ul>
         </div>
       </div>
 
-      <!-- Website & CRO -->
+      <!-- Website Dev & Optimization -->
       <div class="service-item">
         <button class="logo-card" data-brand="web" aria-label="Website Development & Optimization" tabindex="0">
           <div class="logo-wrap">
@@ -512,9 +511,9 @@
         <div class="service-details">
           <h3>Website & CRO</h3>
           <ul class="service-bullets" role="list">
-            <li><strong>Blazing-Fast Speed</strong> to stop losing leads to slow, clunky pages.</li>
-            <li><strong>Conversion-First Design</strong> that turns casual clicks into booked calls.</li>
-            <li><strong>Frictionless Booking</strong> makes it effortless for prospects to get on your calendar.</li>
+            <li><strong>Lightning-fast pages</strong> that keep prospects from bouncing.</li>
+            <li><strong>Conversion-first layouts</strong> with proof, clarity, and urgency.</li>
+            <li><strong>1-click booking</strong> that turns traffic into calendar events.</li>
           </ul>
         </div>
       </div>
