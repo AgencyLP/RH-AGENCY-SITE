@@ -133,6 +133,7 @@
     .step-item{display:flex;gap:24px;position:relative;padding-bottom:32px}
     .step-item::before{content:'';position:absolute;left:20px;top:40px;bottom:0;width:2px;background:var(--border);z-index:0}
     .step-item:last-child{padding-bottom:0}
+    .step-item:last-child::before{display:none}
     .step-number{
       width:40px;height:40px;flex-shrink:0;border-radius:50%;background:var(--accent);color:var(--accent-text);
       display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;box-shadow:0 4px 12px rgba(0,0,0,0.1)
@@ -143,16 +144,8 @@
 
     /* SERVICES (spinning logo cards with colored paragraph cards) */
     #services{background:var(--bg-light)}
-    .services-grid{
-      max-width:1100px;margin:0 auto;display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px;
-      /* NEW: equal height across columns */
-      align-items:stretch;
-    }
-    .service-item{
-      display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
-      gap:14px;text-align:center;height:100%;
-    }
+    .services-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px}
+    .service-item{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
 
     .logo-card{
       --tint:#0ea5e9;
@@ -160,7 +153,7 @@
       border:1px solid var(--border); box-shadow:var(--shadow-soft);
       display:grid;place-items:center; padding:16px; position:relative; overflow:hidden;
       transform-style:preserve-3d;
-      animation: spinY 8s linear infinite;
+      animation: spinY 8s linear infinite;   /* slightly faster */
       animation-play-state: paused;
       transition: box-shadow .35s ease, border-color .35s ease, transform .35s ease;
       outline:none;
@@ -227,8 +220,10 @@
       position:relative;
       overflow:hidden;
 
-      /* equalize internal block height */
-      min-height:270px;
+      /* IMPORTANT: let JS set exact height */
+      height:auto;
+
+      /* optional for inner layout */
       display:flex;
       flex-direction:column;
       justify-content:flex-start;
@@ -302,6 +297,7 @@
     .g-quote{color:var(--text-secondary);line-height:1.6;max-height:96px;overflow:hidden}
     .g-link{font-size:.9rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
     .g-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;border:1px solid var(--border);background:rgba(0,0,0,.04);font-size:.85rem}
+
     .review-panel{display:none}
     .review-panel.active{display:block}
 
@@ -801,6 +797,23 @@
       }
     }, {threshold: 0.25});
     spinCards.forEach(el => spinIO.observe(el));
+
+    // ===== Equalize service text heights EXACTLY =====
+    function equalizeServiceHeights(){
+      const boxes = document.querySelectorAll('.service-details');
+      if (!boxes.length) return;
+      boxes.forEach(b => b.style.height = 'auto');    // reset
+      let max = 0;
+      boxes.forEach(b => { max = Math.max(max, b.offsetHeight); });
+      boxes.forEach(b => b.style.height = max + 'px'); // set equal
+    }
+    window.addEventListener('DOMContentLoaded', equalizeServiceHeights);
+    window.addEventListener('load', equalizeServiceHeights);
+    let _ehTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(_ehTimer);
+      _ehTimer = setTimeout(equalizeServiceHeights, 120);
+    });
   </script>
 </body>
 </html>
