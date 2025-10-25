@@ -42,7 +42,7 @@
 
     /* ===== Sticky Header (mobile-optimized) ===== */
     #site-header{
-      position:sticky; top:0; z-index:1000;
+      position:sticky; top:0; z-index:10000; /* ↑ ensure it stays above everything */
       background:rgba(255,255,255,.9);
       backdrop-filter:blur(10px);
       border-bottom:1px solid var(--border);
@@ -81,12 +81,21 @@
       font-variant-numeric:tabular-nums; letter-spacing:.02em;
       padding:4px 8px; border-radius:8px; background:rgba(0,0,0,.04);
       border:1px solid var(--border);
+      white-space:nowrap; /* keep timer on one line on small screens */
     }
     @media (max-width:640px){
       .brand{font-size:1rem}
       .header-cta{font-size:.95rem; padding:7px 10px}
       .deal-inner{padding:8px 12px; gap:8px}
       .deal-timer{font-size:.92rem}
+    }
+    /* extra tightening for small phones */
+    @media (max-width:480px){
+      .header-inner{padding:8px 12px}
+      .header-cta{font-size:.9rem; padding:6px 10px}
+      .deal-inner{padding:6px 10px; gap:6px}
+      .deal-icon{display:none} /* save horizontal space */
+      .deal-timer{font-size:.88rem; padding:3px 6px}
     }
 
     /* soft moving grid */
@@ -324,24 +333,47 @@
       background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:16px;
       box-shadow:var(--shadow-soft);position:relative;overflow:hidden
     }
+
+    /* === SAFE FALLBACK for highlight (always visible) === */
     .mini-card.highlight{
-      border:transparent;
+      position:relative;
+      border:2px solid transparent;
       background:
+        linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
         conic-gradient(from 180deg,
           rgba(66,133,244,.22),
           rgba(234,67,53,.20),
           rgba(251,188,5,.22),
           rgba(66,133,244,.22)) border-box;
-      -webkit-mask:
-        linear-gradient(#000 0 0) padding-box,
-        linear-gradient(#000 0 0) border-box;
-      -webkit-mask-composite: xor; mask-composite: exclude;
+      border-radius:16px;
       box-shadow:0 10px 24px rgba(0,0,0,.06), inset 0 0 0 1px rgba(0,0,0,.04);
     }
     .mini-card.highlight::after{
       content:""; position:absolute; inset:10px; border-radius:12px;
       box-shadow: inset 0 0 0 1px var(--border); pointer-events:none;
+      z-index:0;
     }
+    .mini-card.highlight > *{ position:relative; z-index:1; } /* keep content above any effects */
+
+    /* === UPGRADE to masked border where fully supported === */
+    @supports ((-webkit-mask-composite: xor) or (mask-composite: exclude)) {
+      .mini-card.highlight{
+        border:transparent;
+        background:
+          conic-gradient(from 180deg,
+            rgba(66,133,244,.22),
+            rgba(234,67,53,.20),
+            rgba(251,188,5,.22),
+            rgba(66,133,244,.22)) border-box;
+        -webkit-mask:
+          linear-gradient(#000 0 0) padding-box,
+          linear-gradient(#000 0 0) border-box;
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        box-shadow:0 10px 24px rgba(0,0,0,.06), inset 0 0 0 1px rgba(0,0,0,.04);
+      }
+    }
+
     .mini-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
     .dot{width:10px;height:10px;border-radius:50%;background:#111}
     .mini-title{font-weight:800}
