@@ -77,17 +77,12 @@
       font-weight:700; text-align:center;
     }
     .deal-icon{ width:18px; height:18px; display:inline-flex }
-    .deal-timer{
-      font-variant-numeric:tabular-nums; letter-spacing:.02em;
-      padding:4px 8px; border-radius:8px; background:rgba(0,0,0,.04);
-      border:1px solid var(--border);
-      white-space:nowrap;
-    }
+    /* Removed .deal-timer CSS as it is no longer needed */
+    
     @media (max-width:640px){
       .brand{font-size:1rem}
       .header-cta{font-size:.95rem; padding:7px 10px}
       .deal-inner{padding:8px 12px; gap:8px}
-      .deal-timer{font-size:.92rem}
     }
     /* extra tightening for small phones */
     @media (max-width:480px){
@@ -95,7 +90,6 @@
       .header-cta{font-size:.9rem; padding:6px 10px}
       .deal-inner{padding:6px 10px; gap:6px}
       .deal-icon{display:none}
-      .deal-timer{font-size:.88rem; padding:3px 6px}
     }
 
     /* soft moving grid */
@@ -397,8 +391,7 @@
         <svg class="deal-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M12 3l2.9 5.9 6.5.9-4.7 4.5 1.1 6.5L12 18.9 6.2 20.8l1.1-6.5L2.6 9.8l6.5-.9L12 3z"></path>
         </svg>
-        <span class="deal-copy">Special November Deal — 30% off for the first 5 clients.</span>
-        <span class="deal-timer" id="deal-timer" aria-live="polite">Ends in — : — : — : —</span>
+        <span class="deal-copy">Special Deal — 30% off for the first 5 clients. Offer ends this year.</span>
       </div>
     </div>
   </header>
@@ -863,31 +856,6 @@
   </section>
 
   <script>
-    // ===== Countdown to Nov 15 (local time) =====
-    (function(){
-      const now = new Date();
-      const target = new Date(now.getFullYear(), 10, 15, 23, 59, 59);
-      const el = document.getElementById('deal-timer');
-
-      function pad(n){ return String(n).padStart(2,'0'); }
-      function tick(){
-        const diff = target - new Date();
-        if (diff <= 0){
-          el.textContent = "Deal ended";
-          clearInterval(tmr); return;
-        }
-        const d = Math.floor(diff/86400000);
-        const h = Math.floor((diff%86400000)/3600000);
-        const m = Math.floor((diff%3600000)/60000);
-        const s = Math.floor((diff%60000)/1000);
-        el.textContent = `Ends in ${d}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
-      }
-      
-      // FIXED: 'tmr' is now defined BEFORE tick() runs.
-      const tmr = setInterval(tick, 1000);
-      tick();
-    })();
-
     // reveal on view
     const reveals = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries)=>{
