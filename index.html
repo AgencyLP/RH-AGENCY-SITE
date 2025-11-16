@@ -385,7 +385,6 @@
   </style>
 </head>
 <body>
-  <!-- Sticky Header -->
   <header id="site-header" role="banner">
     <div class="header-inner">
       <div class="brand">
@@ -406,7 +405,6 @@
 
   <div class="grid-background" aria-hidden="true"></div>
 
-  <!-- HERO -->
   <section class="hero" aria-label="Hero">
     <div class="float" aria-hidden="true"></div>
     <div class="float" aria-hidden="true"></div>
@@ -436,7 +434,6 @@
     </div>
   </section>
 
-  <!-- PAIN -->
   <section class="option2" aria-labelledby="pain-title">
     <div class="section-header reveal">
       <h2 id="pain-title">The Old Way Isn’t Working Anymore</h2>
@@ -475,7 +472,6 @@
     </div>
   </section>
 
-  <!-- SOLUTION -->
   <section id="solution" aria-labelledby="solution-title">
     <div class="section-header reveal">
       <h2 id="solution-title">The Solution is a System</h2>
@@ -507,7 +503,6 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section id="services" aria-labelledby="services-title">
     <div class="section-header reveal">
       <h2 id="services-title">What We Specialize In</h2>
@@ -515,7 +510,6 @@
     </div>
 
     <div class="services-grid reveal">
-      <!-- Facebook Ads -->
       <div class="service-item" data-brand="facebook">
         <button class="logo-card" data-brand="facebook" aria-label="Facebook Ads" tabindex="0">
           <div class="logo-wrap">
@@ -539,7 +533,6 @@
         </div>
       </div>
 
-      <!-- Google My Business -->
       <div class="service-item" data-brand="gmb">
         <button class="logo-card" data-brand="gmb" aria-label="Google My Business" tabindex="0">
           <div class="logo-wrap">
@@ -563,7 +556,6 @@
         </div>
       </div>
 
-      <!-- SEO -->
       <div class="service-item" data-brand="seo">
         <button class="logo-card" data-brand="seo" aria-label="SEO" tabindex="0">
           <div class="logo-wrap">
@@ -585,7 +577,6 @@
         </div>
       </div>
 
-      <!-- Website Dev & Optimization -->
       <div class="service-item" data-brand="web">
         <button class="logo-card" data-brand="web" aria-label="Website Development & Optimization" tabindex="0">
           <div class="logo-wrap">
@@ -604,7 +595,6 @@
     </div>
   </section>
 
-  <!-- CASE STUDIES -->
   <section id="case-studies" aria-labelledby="case-studies-title">
     <div class="section-header reveal">
       <h2 id="case-studies-title">Case Studies</h2>
@@ -612,7 +602,6 @@
     </div>
 
     <div class="cs-grid">
-      <!-- Example case -->
       <article class="cs-card reveal">
         <div class="cs-header">
           <div class="cs-logo" aria-hidden="true">
@@ -675,7 +664,6 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
   <section id="testimonials" aria-labelledby="testimonials-title">
     <div class="section-header reveal">
       <h2 id="testimonials-title">What People Say</h2>
@@ -687,7 +675,6 @@
       <button class="review-tab-btn" data-tab="panel-clients">Client Stories</button>
     </div>
 
-    <!-- GOOGLE REVIEWS -->
     <div id="panel-google" class="review-panel active">
       <div class="reviews-grid">
         <article class="g-review-card reveal">
@@ -796,7 +783,6 @@
       </div>
     </div>
 
-    <!-- CLIENT STORIES -->
     <div id="panel-clients" class="review-panel">
       <div class="reviews-grid">
         <article class="g-review-card reveal">
@@ -829,7 +815,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact" aria-label="Contact us">
     <div class="contact-wrap">
       <div class="contact-hero reveal">
@@ -843,7 +828,6 @@
           </div>
           <p class="contact-note">No long forms. No fluff. Just results. Reach out and we’ll share a quick plan tailored to your niche.</p>
         </div>
-        <!-- Arrow -->
         <svg class="case-arrow" viewBox="0 0 120 120" aria-hidden="true">
           <defs>
             <linearGradient id="arrowGrad" x1="0" y1="0" x2="1" y2="1">
@@ -898,8 +882,10 @@
         const s = Math.floor((diff%60000)/1000);
         el.textContent = `Ends in ${d}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
       }
-      tick();
+      
+      // FIXED: 'tmr' is now defined BEFORE tick() runs.
       const tmr = setInterval(tick, 1000);
+      tick();
     })();
 
     // reveal on view
