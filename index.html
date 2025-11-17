@@ -10,6 +10,8 @@
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Calendly styles -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
   <style>
     :root{
@@ -808,6 +810,7 @@
     </div>
   </section>
 
+  <!-- UPDATED CONTACT / CTA SECTION -->
   <section id="contact" aria-label="Contact us">
     <div class="contact-wrap">
       <div class="contact-hero reveal">
@@ -815,8 +818,11 @@
           <h2>Contact us today</h2>
           <p>Ready to turn intent into booked revenue? Talk to a strategist and see how we can fill your calendar with qualified calls.</p>
           <div class="contact-actions">
-            <a class="cta" href="mailto:rhagency.team@gmail.com">Email us now</a>
-            <a class="cta-secondary" href="tel:+66983246313">Call: +66 983246313</a>
+            <!-- CALL FIRST, BLACK BUTTON -->
+            <a class="cta" href="tel:+66983246313">Call: +66 983246313</a>
+            <!-- EMAIL SECOND, GREY BUTTON -->
+            <a class="cta-secondary" href="mailto:rhagency.team@gmail.com">Email us now</a>
+            <!-- CASE STUDIES LINK STILL THERE -->
             <a class="cta-secondary" href="#case-studies">See case studies</a>
           </div>
           <p class="contact-note">No long forms. No fluff. Just results. Reach out and we’ll share a quick plan tailored to your niche.</p>
@@ -851,9 +857,17 @@
             <p class="cs-desc" style="margin-top:6px;">GBP refresh + landing page cleanup increased weekly inbound calls.</p>
           </div>
         </div>
+
+        <!-- INLINE CALENDLY WIDGET -->
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/rhagency07/free-business-strategy-call"
+             style="min-width:320px;height:700px;"></div>
       </div>
     </div>
   </section>
+
+  <!-- Calendly script -->
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <script>
     // reveal on view
