@@ -286,47 +286,171 @@
     .review-panel{display:none}
     .review-panel.active{display:block}
 
-    /* CONTACT */
+    /* CONTACT – NEW LAYOUT */
     #contact{background:var(--bg-section-alt);padding:72px 20px}
-    .contact-wrap{max-width:1100px;margin:0 auto;display:grid;gap:24px}
-    @media (min-width:900px){.contact-wrap{grid-template-columns:1.6fr 1fr;align-items:flex-start}}
+    .contact-wrap{
+      max-width:1100px;
+      margin:0 auto;
+      display:grid;
+      gap:24px;
+    }
+    @media (min-width:900px){
+      .contact-wrap{
+        grid-template-columns: minmax(0,2.1fr) minmax(0,1.1fr); /* Calendly big, contact box side */
+        align-items:flex-start;
+      }
+    }
+
+    /* LEFT: MAIN CALENDLY AREA */
+    .contact-main{
+      background:var(--bg-card);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:28px 24px 32px;
+      box-shadow:var(--shadow-soft);
+      position:relative;
+      overflow:hidden;
+    }
+    .contact-main::before{
+      content:'';
+      position:absolute;
+      inset:8px;
+      border-radius:16px;
+      box-shadow:inset 0 0 0 1px var(--border);
+      pointer-events:none;
+    }
+    .contact-main-inner{
+      position:relative;
+      z-index:1;
+    }
+    .calendly-header{
+      text-align:center;
+      margin-bottom:18px;
+    }
+    .calendly-header h2{
+      font-size:clamp(1.9rem,3vw,2.4rem);
+      font-weight:800;
+      background:var(--gradient-text);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      margin-bottom:6px;
+    }
+    .calendly-header p{
+      color:var(--text-secondary);
+      font-size:1rem;
+      max-width:420px;
+      margin:0 auto;
+    }
+    .calendly-note{
+      text-align:center;
+      color:var(--text-secondary);
+      font-size:.9rem;
+      margin-top:10px;
+    }
+    .contact-main-proof{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:8px;
+      margin:16px 0 18px;
+      font-size:.9rem;
+      color:var(--text-secondary);
+    }
+    .contact-main-proof span{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:5px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.02);
+    }
+
+    /* Calendly widget full width column */
+    .contact-main .calendly-inline-widget{
+      width:100%;
+      min-width:100% !important;
+      height:720px;
+    }
+    @media (max-width:640px){
+      .contact-main{
+        padding:22px 16px 26px;
+      }
+      .contact-main .calendly-inline-widget{
+        height:680px;
+      }
+    }
+
+    /* RIGHT: CONTACT BOX + MINI CASE */
+    .contact-side{
+      display:grid;
+      gap:16px;
+    }
+
     .contact-hero{
       background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
-      padding:40px;min-height:460px; position:relative;overflow:hidden;box-shadow:var(--shadow-soft)
+      padding:26px 22px;position:relative;overflow:hidden;box-shadow:var(--shadow-soft)
     }
     .contact-hero::before{
-      content:'';position:absolute;width:160px;height:140%;left:-40px;top:-20%;
-      background-image:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.03));animation:rotBG 8s linear infinite
+      content:'';position:absolute;width:140px;height:140%;left:-40px;top:-20%;
+      background-image:linear-gradient(180deg,rgba(0,0,0,.10),rgba(0,0,0,.02));
+      animation:rotBG 8s linear infinite
     }
     @keyframes rotBG{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-    .contact-hero::after{content:'';position:absolute;inset:8px;border-radius:16px;background:var(--bg-card);box-shadow:inset 0 0 0 1px var(--border)}
-    .contact-inner{position:relative;z-index:1}
-    .contact-inner h2{
-      font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;background:var(--gradient-text);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px
+    .contact-hero::after{
+      content:'';position:absolute;inset:8px;border-radius:16px;background:var(--bg-card);box-shadow:inset 0 0 0 1px var(--border)
     }
-    .contact-inner p{color:var(--text-secondary);margin-bottom:14px}
-    .contact-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .contact-inner{
+      position:relative;z-index:1
+    }
+    .contact-inner h3{
+      font-size:1.2rem;
+      font-weight:800;
+      margin-bottom:6px;
+    }
+    .contact-inner p{
+      color:var(--text-secondary);
+      font-size:.95rem;
+      margin-bottom:12px;
+    }
+    .contact-actions{
+      display:flex;flex-wrap:wrap;gap:8px;margin-top:6px
+    }
     .cta-secondary{
-      display:inline-block;padding:12px 16px;border-radius:10px;border:1px solid var(--border);background:var(--bg-input);
-      color:var(--text-primary);text-decoration:none;font-weight:600
+      display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--bg-input);
+      color:var(--text-primary);text-decoration:none;font-weight:600;font-size:.95rem;
     }
-    .contact-note{margin-top:14px;color:var(--text-secondary);font-size:.98rem}
+    .contact-note{margin-top:10px;color:var(--text-secondary);font-size:.9rem}
 
-    .contact-proof{display:grid;gap:16px; position:relative;}
+    .case-arrow{
+      position:absolute; right:-6px; top:18%;
+      transform:translateY(-50%); width:78px; height:78px; pointer-events:none;
+      animation:bounce 2.2s ease-in-out infinite;
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,.12));
+    }
+    @keyframes bounce{
+      0%,100%{ transform:translateY(-50%) translateX(0) }
+      50%{ transform:translateY(-50%) translateX(-6px) }
+    }
+    @media (max-width:900px){
+      .case-arrow{ display:none; }
+    }
+
+    .contact-proof{
+      display:grid;gap:10px;
+    }
     .recent-banner{
       display:inline-flex;align-items:center;gap:8px;align-self:start;
       padding:6px 10px;border-radius:999px;border:1px solid var(--border);
       background:linear-gradient(135deg, rgba(66,133,244,.08), rgba(251,188,5,.08));
-      font-weight:700;font-size:.92rem;color:var(--text-primary)
+      font-weight:700;font-size:.9rem;color:var(--text-primary)
     }
     .recent-banner svg{flex:0 0 auto}
-    .mini-cases{display:grid;grid-template-columns:1fr;gap:14px}
+    .mini-cases{display:grid;grid-template-columns:1fr;gap:10px}
     .mini-card{
-      background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:16px;
+      background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:14px;
       box-shadow:var(--shadow-soft);position:relative;overflow:hidden
     }
-
     .mini-card.highlight{
       position:relative;
       border-radius:16px;
@@ -345,47 +469,24 @@
       mask: none !important;
     }
     .mini-card.highlight::after{
-      content:""; position:absolute; inset:10px; border-radius:12px;
+      content:""; position:absolute; inset:9px; border-radius:12px;
       box-shadow: inset 0 0 0 1px var(--border); pointer-events:none;
       z-index:0;
     }
     .mini-card.highlight > *{ position:relative; z-index:1; }
 
-    .mini-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+    .mini-head{display:flex;align-items:center;gap:10px;margin-bottom:4px}
     .dot{width:10px;height:10px;border-radius:50%;background:#111}
-    .mini-title{font-weight:800}
-    .mini-metrics{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
-    .mini-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border-radius:999px;border:1px solid var(--border);background:rgba(0,0,0,.04);font-size:.85rem}
+    .mini-title{font-weight:800;font-size:.96rem}
+    .mini-metrics{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+    .mini-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;border:1px solid var(--border);background:rgba(0,0,0,.04);font-size:.8rem}
+    .cs-desc{color:var(--text-secondary);font-size:.9rem}
 
-    .case-arrow{
-      position:absolute; right:-6px; top:40%;
-      transform:translateY(-50%); width:90px; height:90px; pointer-events:none;
-      animation:bounce 2.2s ease-in-out infinite;
-      filter: drop-shadow(0 6px 14px rgba(0,0,0,.12));
-    }
-    @keyframes bounce{
-      0%,100%{ transform:translateY(-50%) translateX(0) }
-      50%{ transform:translateY(-50%) translateX(-6px) }
-    }
-    @media (max-width:900px){
-      .case-arrow{ right:8px; top:auto; bottom:-10px; transform:none; width:72px; height:72px; }
-    }
-
-    /* Calendly intro above widget */
-    .calendly-intro{
-      text-align:center;
-      margin:18px 0 10px;
-    }
-    .calendly-intro h3{
-      font-size:1.25rem;
-      font-weight:800;
-      margin-bottom:4px;
-    }
-    .calendly-intro p{
-      color:var(--text-secondary);
-      font-size:.98rem;
-      max-width:360px;
-      margin:0 auto;
+    /* small screen stacking */
+    @media (max-width:899px){
+      .contact-side{
+        order:-1; /* show contact box before Calendly on mobile if you want – remove this line if not */
+      }
     }
 
     @media (prefers-reduced-motion:reduce){
@@ -824,66 +925,74 @@
     </div>
   </section>
 
-  <!-- UPDATED CONTACT / CTA SECTION -->
+  <!-- NEW CONTACT / CTA SECTION -->
   <section id="contact" aria-label="Contact us">
     <div class="contact-wrap">
-      <!-- LEFT SIDE -->
-      <div class="contact-hero reveal">
-        <div class="contact-inner">
-          <h2>Contact Us</h2>
-          <p>Ready to increase your booked jobs and scale predictably? Reach out or pick a time below.</p>
-          <div class="contact-actions">
-            <!-- CALL FIRST, BLACK -->
-            <a class="cta" href="tel:+66983246313">Call: +66 983246313</a>
-            <!-- EMAIL SECOND -->
-            <a class="cta-secondary" href="mailto:rhagency.team@gmail.com">Email Us</a>
-            <!-- CASE STUDIES -->
-            <a class="cta-secondary" href="#case-studies">Case Studies</a>
+      <!-- LEFT: BIG CALENDLY BLOCK -->
+      <div class="contact-main reveal">
+        <div class="contact-main-inner">
+          <div class="calendly-header">
+            <h2>Book Your Free Strategy Call</h2>
+            <p>Choose a time that works for you. We’ll review your niche and walk you through a simple plan to increase qualified bookings.</p>
           </div>
-          <p class="contact-note">Fast replies. No long forms. No fluff.</p>
+
+          <div class="contact-main-proof">
+            <span>📅 15–30 minute call</span>
+            <span>✅ No hard pitch, just a clear plan</span>
+          </div>
+
+          <div class="calendly-inline-widget"
+               data-url="https://calendly.com/rhagency07/free-business-strategy-call"
+               style="min-width:320px;height:720px;"></div>
+
+          <p class="calendly-note">If you don’t see a time that works, use the contact options on the right and we’ll arrange something manually.</p>
         </div>
-        <svg class="case-arrow" viewBox="0 0 120 120" aria-hidden="true">
-          <defs>
-            <linearGradient id="arrowGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#4285F4"/><stop offset="1" stop-color="#FBBB05"/>
-            </linearGradient>
-          </defs>
-          <path d="M10,20 C40,40 70,30 95,55" fill="none" stroke="url(#arrowGrad)" stroke-width="6" stroke-linecap="round"/>
-          <polygon points="88,50 110,60 92,68" fill="url(#arrowGrad)"/>
-          <circle cx="30" cy="26" r="3" fill="#EA4335"/>
-          <circle cx="52" cy="38" r="3" fill="#34A853"/>
-          <path d="M75 25l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="#FBBB05"/>
-        </svg>
       </div>
 
-      <!-- RIGHT SIDE -->
-      <div class="contact-proof reveal">
-        <span class="recent-banner" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.9 5.9 6.5.9-4.7 4.5 1.1 6.5L12 18.9 6.2 20.8l1.1-6.5L2.6 9.8l6.5-.9L12 3z"/></svg>
-          Recent results · signed 2 weeks ago
-        </span>
-
-        <div class="mini-cases">
-          <div class="mini-card highlight">
-            <div class="mini-head"><span class="dot"></span><span class="mini-title">Roofing Contractor · San Antonio, USA</span></div>
-            <div class="mini-metrics">
-              <span class="mini-badge">📅 18 bookings / mo</span>
-              <span class="mini-badge">⬆️ 2.1× ROAS</span>
+      <!-- RIGHT: CONTACT + PROOF -->
+      <div class="contact-side">
+        <div class="contact-hero reveal">
+          <div class="contact-inner">
+            <h3>Prefer to talk first?</h3>
+            <p>Reach out directly and we’ll answer questions, share recent results, and point you to the best next step.</p>
+            <div class="contact-actions">
+              <a class="cta" href="tel:+66983246313">Call: +66 983246313</a>
+              <a class="cta-secondary" href="mailto:rhagency.team@gmail.com">Email Us</a>
+              <a class="cta-secondary" href="#case-studies">View Case Studies</a>
             </div>
-            <p class="cs-desc" style="margin-top:6px;">GBP refresh + landing page cleanup increased weekly inbound calls.</p>
+            <p class="contact-note">Fast responses during business hours.</p>
+          </div>
+          <svg class="case-arrow" viewBox="0 0 120 120" aria-hidden="true">
+            <defs>
+              <linearGradient id="arrowGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#4285F4"/><stop offset="1" stop-color="#FBBB05"/>
+              </linearGradient>
+            </defs>
+            <path d="M10,20 C40,40 70,30 95,55" fill="none" stroke="url(#arrowGrad)" stroke-width="6" stroke-linecap="round"/>
+            <polygon points="88,50 110,60 92,68" fill="url(#arrowGrad)"/>
+            <circle cx="30" cy="26" r="3" fill="#EA4335"/>
+            <circle cx="52" cy="38" r="3" fill="#34A853"/>
+            <path d="M75 25l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="#FBBB05"/>
+          </svg>
+        </div>
+
+        <div class="contact-proof reveal">
+          <span class="recent-banner" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.9 5.9 6.5.9-4.7 4.5 1.1 6.5L12 18.9 6.2 20.8l1.1-6.5L2.6 9.8l6.5-.9L12 3z"/></svg>
+            Recent results · signed 2 weeks ago
+          </span>
+
+          <div class="mini-cases">
+            <div class="mini-card highlight">
+              <div class="mini-head"><span class="dot"></span><span class="mini-title">Roofing Contractor · San Antonio, USA</span></div>
+              <div class="mini-metrics">
+                <span class="mini-badge">📅 18 bookings / mo</span>
+                <span class="mini-badge">⬆️ 2.1× ROAS</span>
+              </div>
+              <p class="cs-desc" style="margin-top:6px;">GBP refresh + landing page cleanup increased weekly inbound calls.</p>
+            </div>
           </div>
         </div>
-
-        <!-- CALENDLY INTRO -->
-        <div class="calendly-intro">
-          <h3>Book a Free Strategy Call</h3>
-          <p>Choose a time that works for you. We’ll review your niche and map out a clear plan to grow your bookings.</p>
-        </div>
-
-        <!-- INLINE CALENDLY WIDGET -->
-        <div class="calendly-inline-widget"
-             data-url="https://calendly.com/rhagency07/free-business-strategy-call"
-             style="min-width:320px;height:700px;"></div>
       </div>
     </div>
   </section>
