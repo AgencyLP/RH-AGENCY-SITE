@@ -483,12 +483,12 @@
     .cs-desc{color:var(--text-secondary);font-size:.9rem}
 
     /* small screen stacking */
-    @media (max-width:899px){
-      .contact-side{
-        order:-1; /* show contact box before Calendly on mobile if you want – remove this line if not */
-      }
-    }
-
+  @media (max-width:899px){
+  .contact-side{
+    order:0; /* keep default stacking – Calendly first, then contact box */
+  }
+}    
+    
     @media (prefers-reduced-motion:reduce){
       *{animation:none !important;transition:none !important}
       .grid-background{animation:none}
