@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MXEEK5CMCK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- ✅ Google Analytics (GA4) — paste this right after <head>
+       IMPORTANT: replace G-XXXXXXXXXX with your real Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX'); // ✅ your GA4 Measurement ID
+  </script>
 
-  gtag('config', 'G-MXEEK5CMCK');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>RH AGENCY / EXPERT MARKETING</title>
@@ -305,12 +306,11 @@
     }
     @media (min-width:900px){
       .contact-wrap{
-        grid-template-columns: minmax(0,2.1fr) minmax(0,1.1fr); /* Calendly big, contact box side */
+        grid-template-columns: minmax(0,2.1fr) minmax(0,1.1fr);
         align-items:flex-start;
       }
     }
 
-    /* LEFT: MAIN CALENDLY AREA */
     .contact-main{
       background:var(--bg-card);
       border:1px solid var(--border);
@@ -375,7 +375,6 @@
       background:rgba(0,0,0,.02);
     }
 
-    /* Calendly widget full width column */
     .contact-main .calendly-inline-widget{
       width:100%;
       min-width:100% !important;
@@ -390,7 +389,6 @@
       }
     }
 
-    /* RIGHT: CONTACT BOX + MINI CASE */
     .contact-side{
       display:grid;
       gap:16px;
@@ -491,12 +489,11 @@
     .mini-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;border:1px solid var(--border);background:rgba(0,0,0,.04);font-size:.8rem}
     .cs-desc{color:var(--text-secondary);font-size:.9rem}
 
-    /* small screen stacking */
-  @media (max-width:899px){
-  .contact-side{
-    order:0; /* keep default stacking – Calendly first, then contact box */
-  }
-}    
+    @media (max-width:899px){
+      .contact-side{
+        order:0;
+      }
+    }    
     
     @media (prefers-reduced-motion:reduce){
       *{animation:none !important;transition:none !important}
@@ -756,7 +753,7 @@
           <div class="cs-logo" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 18h16M6 18V8a6 6 0 1 1 12 0v10" fill="#16a34a"/></svg>
           </div>
-        <div><strong>Landscaper — Nottingham, UK 🇬🇧</strong><br><small>Facebook Ads + CRO</small></div>
+          <div><strong>Landscaper — Nottingham, UK 🇬🇧</strong><br><small>Facebook Ads + CRO</small></div>
         </div>
         <div class="cs-metrics">
           <span class="badge">🚀 +58% CVR</span>
@@ -934,10 +931,8 @@
     </div>
   </section>
 
-  <!-- NEW CONTACT / CTA SECTION -->
   <section id="contact" aria-label="Contact us">
     <div class="contact-wrap">
-      <!-- LEFT: BIG CALENDLY BLOCK -->
       <div class="contact-main reveal">
         <div class="contact-main-inner">
           <div class="calendly-header">
@@ -958,7 +953,6 @@
         </div>
       </div>
 
-      <!-- RIGHT: CONTACT + PROOF -->
       <div class="contact-side">
         <div class="contact-hero reveal">
           <div class="contact-inner">
@@ -1041,6 +1035,23 @@
       }
     }, {threshold: 0.25});
     spinCards.forEach(el => spinIO.observe(el));
+
+    // ✅ Track Calendly events into GA4 (so "booked call" can be a conversion)
+    function isCalendlyEvent(e) {
+      return e.origin === "https://calendly.com" && e.data && typeof e.data.event === "string" && e.data.event.indexOf("calendly.") === 0;
+    }
+
+    window.addEventListener("message", function (e) {
+      if (!isCalendlyEvent(e)) return;
+      if (typeof gtag !== "function") return;
+
+      // Example: "calendly.event_scheduled" -> GA4 event "calendly_event_scheduled"
+      const gaEventName = e.data.event.replace("calendly.", "calendly_").replace(".", "_");
+
+      gtag("event", gaEventName, {
+        calendly_event: e.data.event
+      });
+    });
   </script>
 </body>
 </html>
