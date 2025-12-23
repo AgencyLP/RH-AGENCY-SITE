@@ -115,8 +115,16 @@
     }
     .deal-with-card svg { color: #ef4444; flex-shrink: 0; }
 
-    /* ===== Reason Section ===== */
-    .reason-section { max-width: 900px; margin: 0 auto; border-top: 1px solid var(--border); }
+    /* ===== Reason Section (BIGGER TITLE) ===== */
+    .reason-section { max-width: 1000px; margin: 0 auto; border-top: 1px solid var(--border); }
+    .reason-section h2 { 
+      font-size: clamp(2.5rem, 8vw, 4.5rem); /* Increased size */
+      font-weight: 950; 
+      line-height: 1; 
+      letter-spacing: -0.04em; 
+      margin-bottom: 40px; 
+      text-transform: uppercase;
+    }
     .real-marketing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 12px; margin: 40px 0; }
     .real-marketing-item {
       display: flex; gap: 12px; padding: 14px; border-radius: 10px; align-items: center;
@@ -197,7 +205,7 @@
 
   <section class="reason-section">
     <div class="reveal">
-      <h2>WHY THE OLD WAY IS FAILING YOUR BUSINESS?</h2>
+      <h2>WHY THE<br>OLD WAY IS FAILING YOUR BUSINESS?</h2>
       <div class="reason-body">
         <p style="font-size: 1.5rem; font-weight: 700; margin: 20px 0;">“75% of new clients for home-service businesses now come from digital channels.”</p>
         <div class="real-marketing-grid">
