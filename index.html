@@ -25,7 +25,7 @@
       --accent:#0a0a0a;
       --border:rgba(0,0,0,0.08);
       --gradient-text:linear-gradient(135deg,#111 0%,#444 100%);
-      --highlight: #fef08a; /* Yellow marker color */
+      --highlight: #fef08a; 
     }
 
     *{margin:0;padding:0;box-sizing:border-box}
@@ -57,7 +57,6 @@
       box-shadow:0 4px 12px rgba(0,0,0,.1);
     }
 
-    /* Background Moving Grid */
     .grid-background{
       position:fixed; inset:0; z-index:-1;
       background-image: linear-gradient(rgba(0,0,0,.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.02) 1px, transparent 1px);
@@ -67,9 +66,9 @@
 
     section{padding:40px 20px 80px}
 
-    /* MARKER HIGHLIGHT EFFECT */
+    /* Visual Markers */
     .mark {
-      background: linear-gradient(104deg, rgba(254,240,138,0) 0.9%, rgba(254,240,138,1) 2.4%, rgba(254,240,138,0.5) 5.8%, rgba(254,240,138,0.1) 93%, rgba(254,240,138,0.7) 96%, rgba(254,240,138,0) 98%), linear-gradient(183deg, rgba(254,240,138,0) 0%, rgba(254,240,138,0.3) 7.9%, rgba(254,240,138,0) 15%);
+      background: linear-gradient(104deg, rgba(254,240,138,0) 0.9%, rgba(254,240,138,1) 2.4%, rgba(254,240,138,0.5) 5.8%, rgba(254,240,138,0.1) 93%, rgba(254,240,138,0.7) 96%, rgba(254,240,138,0) 98%);
       padding: 0.2em 0.4em; border-radius: 0.8em 0.3em;
     }
 
@@ -98,16 +97,17 @@
       display: flex; gap: 12px; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.03);
       transition: 0.3s;
     }
-    .deal-with-card:hover { transform: translateY(-3px); border-color: #ef4444; }
     .deal-with-card svg { color: #ef4444; flex-shrink: 0; }
     .deal-with-card span { font-weight: 700; font-size: 1.05rem; }
 
-    /* CTA BUTTON EFFECTS */
-    .letter-cta-wrap { text-align: center; margin: 60px 0; }
+    /* CTA BUTTON SHARED STYLES */
+    .cta-container { text-align: center; margin: 60px 0; }
     .cta-light-grey {
       position: relative; display: inline-block; background: #f2f2f2; color: #000; padding: 22px 50px;
-      border-radius: 14px; text-decoration: none; font-weight: 900; font-size: 1.3rem;
+      border-radius: 14px; text-decoration: none; font-weight: 900; font-size: 1.2rem;
       border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 6px 0 #ddd; transition: 0.2s;
+      overflow: hidden; text-transform: uppercase; letter-spacing: 0.02em;
+      animation: pulseBtn 3s infinite;
     }
     .cta-light-grey:active { box-shadow: 0 2px 0 #ddd; transform: translateY(4px); }
     .cta-light-grey::before {
@@ -116,23 +116,26 @@
       animation: shimmer 3s infinite;
     }
     @keyframes shimmer { 0% { left: -100%; } 30% { left: 100%; } 100% { left: 100%; } }
-    .cta-undertext { display: block; margin-top: 18px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+    @keyframes pulseBtn {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+    .cta-subtext { display: block; margin-top: 18px; font-weight: 600; color: var(--text-secondary); text-transform: none; font-size: 0.95rem; opacity: 0.8; }
 
     /* ===== WHY THE OLD WAY FAILS ===== */
     .reason-section { max-width: 900px; margin: 0 auto; border-top: 1px solid var(--border); }
     .reason-header h2 { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 900; margin-bottom: 40px; }
-    
     .real-marketing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 12px; margin: 40px 0; }
     .real-marketing-item {
       display: flex; gap: 12px; padding: 14px; border-radius: 10px; align-items: center;
       font-weight: 600; font-size: 1.1rem; border-left: 4px solid #22c55e; background: #f8fafc;
     }
-    .real-marketing-item svg { color: #22c55e; flex-shrink: 0; }
 
     /* ===== DARK SECTION (FULL WIDTH) ===== */
     .full-width-dark-section { 
       width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;
-      background: #000; color: #fff; padding: 100px 20px;
+      background: #000; color: #fff; padding: 100px 20px 40px; /* Reduced bottom padding to bring CTA closer */
     }
     .full-width-inner { max-width: 900px; margin: 0 auto; }
     .full-width-inner h2 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; margin-bottom: 40px; color: #fff; }
@@ -145,6 +148,9 @@
     .lead-type.active { border-color: #fff; box-shadow: 0 0 30px rgba(255,255,255,0.1); transform: scale(1.05); }
     .lead-type strong { display: block; font-size: 1.4rem; margin-bottom: 10px; color: #fff; }
     .lead-type span { color: #ccc !important; font-size: 1.1rem; }
+
+    /* Bottom CTA Section */
+    .bottom-cta-section { padding: 40px 20px 100px; text-align: center; }
 
     /* Reveal */
     .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
@@ -195,11 +201,11 @@
 
         <p>Knocking doors, cold calling, buying shared leads, referrals… <span class="mark">Those methods are expensive, time-consuming, and inconsistent.</span></p>
         
-        <p>What you need is a <strong>predictable system</strong> that fills your pipeline while you're in the field closing jobs. In the next few minutes, you're going to see exactly how that works.</p>
+        <p>What you need is a <strong>predictable system</strong> that fills your pipeline while you're in the field closing jobs.</p>
 
-        <div class="letter-cta-wrap">
+        <div class="cta-container">
           <a href="#book" class="cta-light-grey">SHOW ME HOW THIS WORKS</a>
-          <span class="cta-undertext">See the system that books 40+ appointments</span>
+          <span class="cta-subtext">See the system that books 40+ appointments</span>
         </div>
       </div>
     </div>
@@ -245,7 +251,7 @@
           </div>
           <div class="lead-type reveal">
             <strong>2. The "Nurture" Prospect</strong>
-            <span>Interested but needs follow-up.</span>
+            <span>Interested but need follow-up.</span>
           </div>
           <div class="lead-type reveal">
             <strong>3. The "Tire-Kicker"</strong>
@@ -253,10 +259,19 @@
           </div>
         </div>
         
-        <p style="margin-top: 60px;">Most agencies dump all three into your lap and call them "leads." <span style="border-bottom: 2px solid #fff;">You waste time chasing ghost leads</span> while the real opportunities slip through because no one followed up fast enough.</p>
+        <p style="margin-top: 60px;">Most agencies dump all three types into your lap and call them "leads." <span style="border-bottom: 2px solid #fff;">You waste time chasing ghost leads</span> while the real opportunities slip through.</p>
         
         <p>Competitors that are crushing it have figured this out. <strong>They're closing the jobs you should be closing.</strong></p>
      </div>
+  </section>
+
+  <section class="bottom-cta-section" id="book">
+    <div class="reveal">
+        <div class="cta-container">
+            <a href="#contact-bottom" class="cta-light-grey">I'M TIRED OF LOSING JOBS TO COMPETITORS</a>
+            <span class="cta-subtext">Show me how to stay booked solid</span>
+        </div>
+    </div>
   </section>
 
   <script>
