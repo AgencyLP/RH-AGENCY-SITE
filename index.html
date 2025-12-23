@@ -45,7 +45,6 @@
     }
     @keyframes gridMove{0%{transform:translate(0,0)}100%{transform:translate(40px,40px)}}
 
-    /* FIXED: Headings closer to the edge */
     section{padding:25px 20px 100px}
     .letter-section { max-width: 800px; margin: 0 auto; }
     .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
@@ -192,7 +191,7 @@
     .mini-review-tag { background: #fdfdfd; padding: 10px 18px; border-radius: 100px; border: 1px solid var(--border); font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
     .mini-review-tag span { color: #fbbc05; font-size: 1.1rem; }
 
-    /* ===== FAQ Styles ===== */
+    /* ===== FAQ Styles (NEW) ===== */
     .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; margin-top: 60px; text-align: left; }
     .faq-item { border-bottom: 1px solid var(--border); padding-bottom: 30px; }
     .faq-item h4 { font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px; line-height: 1.3; }
@@ -219,6 +218,37 @@
     @media (min-width: 992px) { .booking-sidebar-card { text-align: left; } }
     .booking-sidebar-card h3 { font-size: 1.2rem; margin-bottom: 10px; font-weight: 800; }
     .booking-sidebar-card p { font-size: 0.95rem; color: #555; margin-bottom: 15px; }
+
+    /* BOXED CONTACT STYLES */
+    .cta-side-boxed {
+        display: block;
+        text-align: center;
+        background: #fff;
+        color: #000;
+        padding: 14px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 800;
+        margin-bottom: 12px;
+        border: 2px solid #000;
+        transition: 0.2s;
+        box-shadow: 4px 4px 0px rgba(0,0,0,1);
+    }
+    .cta-side-boxed:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px rgba(0,0,0,1);
+    }
+    .cta-secondary-side-boxed {
+        display: block;
+        text-align: center;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: #f8f8f8;
+        color: var(--text-primary);
+        text-decoration: none;
+        font-weight: 600;
+    }
 
     .calendly-header{ text-align:center; margin-bottom:40px; }
     .calendly-header h2{ font-size:clamp(1.9rem,3vw,2.6rem); font-weight:900; background:var(--gradient-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:12px; }
@@ -350,7 +380,7 @@
             </div>
 
             <div style="margin-top: 60px; text-align: center;">
-                <p style="font-style: italic; color: #444;">We were building something closer to…</p>
+                <p style="font-size: 1.4rem; font-style: italic;">We were building something closer to…</p>
                 <h3 style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 950; margin-top: 10px;"><span class="mark">Premium Appointment Delivery</span></h3>
             </div>
             
@@ -379,6 +409,7 @@
         <div style="text-align: left; max-width: 800px; margin: 40px auto;">
             <p style="font-size: 1.25rem; margin-bottom: 20px;">After more than <strong>34 weeks of testing and optimization</strong>… The results speak for themselves.</p>
             <p style="font-size: 1.25rem;">A completely done-for-you system working nonstop, sorting the serious homeowners from the time-wasters.</p>
+            
             <p style="font-size: 1.8rem; font-weight: 900; text-align: center; margin-top: 40px; color: #fff;">
               Sounds unreal? 
               <span style="background: #fde047; color: #000; padding: 0.1em 0.5em; border-radius: 4px; display: inline-block; margin-left: 8px;">But it exists!</span>
@@ -419,12 +450,53 @@
         <p class="letter-intro" style="margin-bottom: 8px;">In six simple steps…</p>
         <h2 style="font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 900; margin-bottom: 60px; letter-spacing: -0.03em;">HERE’S HOW WE DO IT!</h2>
 
-        <div class="step-item"><div class="step-number">1</div><div class="step-content"><h3>We Gather Info About Your Business</h3><p>We hop on a quick call to understand your market and build a custom plan.</p></div></div>
-        <div class="step-item"><div class="step-number">2</div><div class="step-content"><h3>Create Tailored Ad Variations</h3><p>We craft photos and videos that speak directly to local homeowners needing your specific services.</p></div></div>
-        <div class="step-item"><div class="step-number">3</div><div class="step-content"><h3>Run Targeted Local Ads</h3><p>Campaigns are launched and optimized to flood your pipeline with interest.</p></div></div>
-        <div class="step-item"><div class="step-number">4</div><div class="step-content"><h3>Activate The AI Qualification Flow</h3><p>Our system responds instantly to every lead, qualifying every lead as they come in.</p></div></div>
-        <div class="step-item"><div class="step-number">5</div><div class="step-content"><h3>Filter Out Low-Intent Leads</h3><p>Tire-kickers and shoppers get screened out automatically by the AI.</p></div></div>
-        <div class="step-item"><div class="step-number">6</div><div class="step-content"><h3>Deliver Qualified Homeowners</h3><p>High-intent appointments land directly on your calendar. You show up and close.</p></div></div>
+        <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <h3>We Gather Info About Your Business</h3>
+                <p>We hop on a quick call to understand your services, your market, and your goals. Then we build a custom plan designed to hit your specific targets.</p>
+            </div>
+        </div>
+
+        <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <h3>We Create Multiple Ad Variations Tailored To Your Services</h3>
+                <p>We don’t use generic templates. We craft ads (photos and videos) that speak directly to homeowners in your area who need your specific services.</p>
+            </div>
+        </div>
+
+        <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <h3>We Run Targeted Homeowner Ads In Your Service Area</h3>
+                <p>Once the ads are ready, we launch campaigns optimized for your local market. Our goal is to flood your pipeline with qualified homeowners.</p>
+            </div>
+        </div>
+
+        <div class="step-item">
+            <div class="step-number">4</div>
+            <div class="step-content">
+                <h3>We Activate The AI Qualification Flow</h3>
+                <p>As leads come in, our AI system takes over. It responds instantly, asks qualifying questions, and filters out anyone who isn't serious.</p>
+            </div>
+        </div>
+
+        <div class="step-item">
+            <div class="step-number">5</div>
+            <div class="step-content">
+                <h3>We Filter Out Low-Intent Leads</h3>
+                <p>Tire-kickers, price-shoppers, and time-wasters get screened out automatically. You only see the leads worth your time.</p>
+            </div>
+        </div>
+
+        <div class="step-item">
+            <div class="step-number">6</div>
+            <div class="step-content">
+                <h3>We Deliver Highly Qualified Homeowners To You</h3>
+                <p>High-intent appointments land directly on your calendar. You show up, quote the job, and close.</p>
+            </div>
+        </div>
 
         <p style="text-align: center; font-weight: 700; margin-top: 60px; font-size: 1.3rem;">Every step is designed to squeeze maximum ROI while eliminating wasted budget.</p>
 
@@ -440,9 +512,15 @@
         <p style="text-transform: uppercase; font-weight: 800; letter-spacing: 0.1em; color: #bbb; margin-bottom: 10px; font-size: 1.1rem;">That’s Not All…</p>
         <h2 style="font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.05; margin-bottom: 50px;">WE HAVE A RISK-FREE GUARANTEE!</h2>
         <div style="background: #111; border: 1px solid #333; padding: 40px; border-radius: 24px; margin: 40px 0; text-align: left;">
-            <p style="font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; color: #fff;">The Home Owner Conversion Loop™ runs on a <span style="color: #fde047; border-bottom: 2px solid #fde047;">pay-per-basis model</span>.</p>
-            <p style="font-size: 1.3rem; margin-bottom: 25px; color: #ddd;">If we don't hit the appointment quota we agreed on, <strong>you keep the leads and owe us nothing.</strong></p>
-            <p style="font-size: 1.3rem; color: #ddd;">You only pay if we deliver the results we initially agreed on.</p>
+            <p style="font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; color: #fff; line-height: 1.4;">
+               The Home Owner Conversion Loop™ runs on a <span style="color: #fde047; border-bottom: 2px solid #fde047;">pay-per-basis model</span>.
+            </p>
+            <p style="font-size: 1.3rem; margin-bottom: 25px; color: #ddd; line-height: 1.5;">
+               Meaning if we don't hit the appointment quota we agreed on, <strong style="color: #fff;">you keep the leads and owe us nothing.</strong>
+            </p>
+            <p style="font-size: 1.3rem; color: #ddd; line-height: 1.5;">
+               You only pay if we deliver the results we initially agreed on.
+            </p>
         </div>
         <div class="cta-container reveal">
             <a href="#book" class="cta-white">TRY IT RISK FREE</a>
@@ -455,16 +533,53 @@
     <div class="reveal">
         <p class="letter-intro" style="margin-bottom: 8px;">Don’t take it from us…</p>
         <h2 style="font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 900; margin-bottom: 40px;">SEE WHAT OTHERS HAD TO SAY</h2>
+
         <div class="case-study-grid">
-            <div class="case-study-card"><h3>Apex Roofing</h3><span class="stat-line">52 Qualified Leads / 30 Days</span><p>"Within a month, we had more quotes on the calendar than we could handle."</p></div>
-            <div class="case-study-card"><h3>Green Horizon</h3><span class="stat-line">41 Quotes / 45 Days</span><p>"The pay-per-appointment model gave us the confidence to start. ROI has tripled."</p></div>
-            <div class="case-study-card"><h3>Elite Reno</h3><span class="stat-line">$85k Pipeline in 3 Weeks</span><p>"Seeing appointments land while we were on-site was incredible. Truly automated."</p></div>
+            <div class="case-study-card">
+                <span class="location">London, UK</span>
+                <h3>Apex Roofing Solutions</h3>
+                <span class="stat-line">52 Qualified Leads in 30 Days</span>
+                <p>"Before RH Agency, we were buying shared leads that went nowhere. Within a month, we had more quotes on the calendar than we could handle."</p>
+            </div>
+            <div class="case-study-card">
+                <span class="location">Sydney, AUS</span>
+                <h3>Green Horizon Landscapes</h3>
+                <span class="stat-line">41 Booked Quotes in 45 Days</span>
+                <p>"The pay-per-appointment model gave us the confidence to start. ROI has tripled since switching to this automated system."</p>
+            </div>
+            <div class="case-study-card">
+                <span class="location">Texas, USA</span>
+                <h3>Elite Home Renovations</h3>
+                <span class="stat-line">$85k Pipeline in 3 Weeks</span>
+                <p>"Seeing appointments land while we were on-site was incredible. 28 high-intent homeowners delivered in the first 21 days."</p>
+            </div>
+            <div class="case-study-card">
+                <span class="location">Manchester, UK</span>
+                <h3>Precision Paving</h3>
+                <span class="stat-line">38 Leads in 30 Days</span>
+                <p>"The AI qualification filtered out all the price shoppers. We're only talking to people who are actually ready to start."</p>
+            </div>
+            <div class="case-study-card">
+                <span class="location">Melbourne, AUS</span>
+                <h3>Coastal Solar & Roofing</h3>
+                <span class="stat-line">29 Appointments in 1 Month</span>
+                <p>"Finally a system that doesn't waste our time. Every homeowner was already vetted before we arrived."</p>
+            </div>
+            <div class="case-study-card">
+                <span class="location">Florida, USA</span>
+                <h3>Sunstate Kitchen Pros</h3>
+                <span class="stat-line">$120k Closed Revenue</span>
+                <p>"Our sales team is actually happy now. This system squeezed every drop of interest out of our local area."</p>
+            </div>
         </div>
+
         <div class="mini-reviews-container">
             <div class="mini-review-tag"><span>★★★★★</span> "Best lead system"</div>
             <div class="mini-review-tag"><span>★★★★★</span> "Fixed our pipeline"</div>
-            <div class="mini-review-tag"><span>★★★★★</span> "ROI is insane"</div>
+            <div class="mini-review-tag"><span>★★★★★</span> "AI follow-up is legit"</div>
+            <div class="mini-review-tag"><span>★★★★★</span> "Highly recommend"</div>
         </div>
+
         <div class="cta-container reveal" style="margin-top: 60px;">
             <a href="#book" class="cta-light-grey">COUNT ME IN</a>
             <span class="cta-subtext-dark">I want to be your next success story</span>
@@ -475,12 +590,102 @@
   <section class="reason-section" style="border-top: 1px solid var(--border); padding-top: 80px;">
     <div class="reveal">
         <p class="letter-intro" style="margin-bottom: 8px;">Got Questions?</p>
-        <h2 style="font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 950; margin-bottom: 60px;">WE’VE GOT ANSWERS</h2>
+        <h2 style="font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 950; margin-bottom: 60px; letter-spacing: -0.03em;">WE’VE GOT ANSWERS</h2>
+
         <div class="faq-grid">
-            <div class="faq-item"><h4>Who's this for?</h4><p>Home service businesses wanting consistent, high-quality appointments without word-of-mouth reliance.</p></div>
-            <div class="faq-item"><h4>What's the investment?</h4><p>One-time setup, then monthly fee based on results. No appointments = no monthly fee.</p></div>
-            <div class="faq-item"><h4>How fast?</h4><p>Typically 7-14 days once live. Some see results sooner with strong social proof.</p></div>
-            <div class="faq-item"><h4>Do I pay for ads?</h4><p>Yes. Meta still charges you directly for the spend we manage.</p></div>
+            <div class="faq-item">
+                <h4>Who's this for?</h4>
+                <p>Home service businesses that offer roofing, landscaping, remodeling, kitchens, bathrooms, flooring, or general home improvement, who want consistent, high-quality appointments without relying on word-of-mouth or slow organic outreach.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What's the investment?</h4>
+                <p>There’s a small one-time build to get the system running (refundable if we don't deliver results), then a monthly fee (depending on your goals and potential growth). If we don't hit the agreed number of appointments, you don't pay the monthly fee.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What happens after the setup?</h4>
+                <p>We transition into ongoing optimisation: Scaling winning ads, testing new audiences, improving messaging, and increasing appointment volume.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Do we have to hop on a call?</h4>
+                <p>Yes. The call is mandatory, but it’s quick and chill. We use it to understand your area, what jobs you want more of, and make sure we can deliver before moving forward.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>How fast can this start?</h4>
+                <p>Most businesses start seeing qualified appointments within 7-14 days once The AI Homeowner Conversion Loop™ goes live. Some even sooner if they have strong social proof.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What if you don’t deliver?</h4>
+                <p>We run a performance-first model. If we don’t deliver within the agreed timeframe, you don’t pay, and we work for free until the pipeline starts filling.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Do I have to pay for ads?</h4>
+                <p>Yes. We keep ad spend small and controlled, but Meta still charges you directly.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>I already work with an agency?</h4>
+                <p>Absolutely. Many clients use us in addition to their current team because we focus specifically on appointment generation. Our system basically pays for itself.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Is there any sort of guarantee?</h4>
+                <p>Yeah. If we don’t deliver the agreed number of qualified leads, you don’t pay.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Can I pause the service?</h4>
+                <p>Yes. You can pause campaigns anytime if you go on holiday or get fully booked, and restart when you’re ready.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>How many appointments?</h4>
+                <p>Realistically, most clients see 10-30 qualified appointments/month, depending on niche and city. Some companies get 40+ appointments/month.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>How quickly will you learn?</h4>
+                <p>Within 48 hours. We’ve worked with enough niches to understand your customer psychology very fast.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Do you need access to my CRM?</h4>
+                <p>If you want us to fully automate booking, then yes. We need access to your preferred calendar or CRM platform.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>How involved do I need to be?</h4>
+                <p>Minimal. You just approve the content, show up to the booked appointments, and give us feedback on lead quality. We handle everything else.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What platforms do you support?</h4>
+                <ul>
+                    <li>Facebook & Instagram</li>
+                    <li>TikTok & Email outreach</li>
+                    <li>Calendly, GoHighLevel, Notion, etc.</li>
+                </ul>
+            </div>
+
+            <div class="faq-item">
+                <h4>Work with existing team?</h4>
+                <p>Yes. We integrate smoothly with internal teams and simply handle the appointment generation function.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Communication throughout?</h4>
+                <p>Yes. You get weekly updates and direct chat access for questions or tweaks.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Change offer mid-campaign?</h4>
+                <p>We adjust our messaging and targeting quickly. There’s no penalty for refining your offer.</p>
+            </div>
         </div>
     </div>
   </section>
@@ -505,18 +710,18 @@
                 <div class="booking-sidebar-card">
                     <h3>Direct Contact</h3>
                     <p>Want to talk now? Reach out directly and we’ll answer any questions about the pay-per-basis deal.</p>
-                    <a href="tel:+66983246313" class="cta-side">Call: +66 983246313</a>
-                    <a href="mailto:rhagency.team@gmail.com" class="cta-secondary-side">Email Us</a>
-                    <p style="margin-top:15px; font-size:.85rem; color:var(--text-secondary);">Fast responses during business hours.</p>
+                    <a href="tel:+14849788656" class="cta-side-boxed">Call: ‪+1 (484) 978‑8656‬</a>
+                    <a href="mailto:rhagency.team@gmail.com" class="cta-secondary-side-boxed">Email Us</a>
+                    <p style="margin-top:15px; font-size:.85rem; color:var(--text-secondary); text-align: center;">Fast responses during business hours.</p>
                 </div>
                 
                 <div class="booking-sidebar-card">
                     <strong style="display:block; margin-bottom:12px; font-size:0.8rem; text-transform:uppercase; color:#888; letter-spacing:0.05em;">What we discuss</strong>
                     <ul style="list-style:none; padding:0; font-size:0.95rem; color:#555; line-height: 1.8;">
-                        <li>✓ Service area analysis</li>
-                        <li>✓ Competition review</li>
-                        <li>✓ Appointment quota build</li>
-                        <li>✓ Pay-per-basis setup</li>
+                        <li>✓ Your service area & jobs</li>
+                        <li>✓ Appointment quotas</li>
+                        <li>✓ Pay-per-basis terms</li>
+                        <li>✓ Go-live timeline</li>
                     </ul>
                 </div>
             </div>
