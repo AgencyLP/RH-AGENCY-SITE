@@ -37,7 +37,7 @@
       line-height:1.6; overflow-x:hidden;
     }
 
-    /* ===== Background Grid ===== */
+    /* ===== Layout Components ===== */
     .grid-background{
       position:fixed; inset:0; z-index:-1;
       background-image: linear-gradient(rgba(0,0,0,.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.02) 1px, transparent 1px);
@@ -98,7 +98,7 @@
     .letter-intro { font-size: 1.3rem; font-weight: 800; margin-bottom: 32px; color: var(--text-primary); }
     .letter-body p { font-size: 1.2rem; margin-bottom: 28px; color: #333; line-height: 1.6; }
 
-    /* ===== CTA Buttons & Alignment ===== */
+    /* ===== CTA Buttons & Centering ===== */
     .cta-container { text-align: center; margin: 60px 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
     
     .cta-light-grey, .cta-white {
@@ -154,36 +154,52 @@
     .intent-table { width: 100%; border-collapse: collapse; margin: 40px 0; text-align: left; }
     .intent-table th { padding: 15px; background: #f8fafc; font-size: 0.9rem; color: #666; }
     .intent-table td { padding: 20px 15px; border-bottom: 1px solid var(--border); font-size: 1.1rem; color: #333; }
+    
     .scenario-box { margin-top: 60px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
     .scenario-card { padding: 30px; border: 1px solid var(--border); border-radius: 20px; background: #fff; }
     .scenario-card.winner { border: 2px solid #000; background: #fdfdfd; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
     .scenario-card .result { font-size: 1.6rem; font-weight: 900; color: #000; display: block; margin-bottom: 10px; }
 
-    /* ===== Booking Section Layout ===== */
-    .book-wrap { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; margin-top: 60px; }
-    .book-info-side { background: #fdfdfd; border: 1px solid var(--border); padding: 30px; border-radius: 24px; }
-    .book-info-side h3 { font-size: 1.3rem; margin-bottom: 20px; }
-    .book-info-side p { font-size: 0.95rem; color: #555; margin-bottom: 20px; }
-    
-    @media (max-width: 900px) {
-      .book-wrap { grid-template-columns: 1fr; }
+    /* ===== Steps Styles ===== */
+    .step-item { display: flex; gap: 24px; margin-bottom: 40px; text-align: left; }
+    .step-number { 
+        flex-shrink: 0; width: 40px; height: 40px; background: #000; color: #fff; 
+        display: grid; place-items: center; border-radius: 50%; font-weight: 800; font-size: 1.2rem;
+    }
+    .step-content h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
+
+    /* ===== Testimonials Styles ===== */
+    .case-study-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+    .case-study-card { 
+        background: #fff; border: 1px solid var(--border); padding: 30px; border-radius: 24px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.02); text-align: left;
+    }
+    .case-study-card .location { font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.05em; display: block; margin-bottom: 10px; }
+    .case-study-card h3 { font-size: 1.4rem; margin-bottom: 15px; line-height: 1.3; }
+    .case-study-card .stat-line { display: block; font-size: 1.1rem; font-weight: 700; color: #000; margin-bottom: 8px; border-left: 3px solid #22c55e; padding-left: 12px; }
+    .case-study-card p { font-size: 1rem; color: #555; line-height: 1.5; }
+
+    .mini-reviews-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 50px; padding-top: 40px; border-top: 1px solid var(--border); }
+    .mini-review-tag { background: #fdfdfd; padding: 10px 18px; border-radius: 100px; border: 1px solid var(--border); font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+    .mini-review-tag span { color: #fbbc05; font-size: 1.1rem; }
+
+    /* ===== FAQ Styles ===== */
+    .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; margin-top: 60px; text-align: left; }
+    .faq-item { border-bottom: 1px solid var(--border); padding-bottom: 30px; }
+    .faq-item h4 { font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px; line-height: 1.3; }
+    .faq-item p { font-size: 1rem; color: #555; line-height: 1.6; }
+
+    /* ===== Booking Section Layout (Merged) ===== */
+    .contact-wrap { max-width: 1100px; margin: 0 auto; display: grid; gap: 24px; }
+    @media (min-width: 900px){ .contact-wrap { grid-template-columns: 2fr 1fr; align-items: flex-start; } }
+    .contact-main { background: #fff; border: 1px solid var(--border); border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
+    .contact-side { display: grid; gap: 16px; }
+    .contact-hero-card { background: #fff; border: 1px solid var(--border); padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+
+    @media (max-width: 600px) {
       .math-grid { flex-direction: column; gap: 30px; }
       .real-marketing-grid { grid-template-columns: 1fr; }
     }
-
-    /* ===== Steps & FAQ ===== */
-    .step-item { display: flex; gap: 24px; margin-bottom: 40px; text-align: left; }
-    .step-number { flex-shrink: 0; width: 40px; height: 40px; background: #000; color: #fff; display: grid; place-items: center; border-radius: 50%; font-weight: 800; }
-    .step-content h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
-    .case-study-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-    .case-study-card { background: #fff; border: 1px solid var(--border); padding: 30px; border-radius: 24px; text-align: left; }
-    .case-study-card .stat-line { display: block; font-size: 1.1rem; font-weight: 700; color: #000; margin-bottom: 8px; border-left: 3px solid #22c55e; padding-left: 12px; }
-    .mini-reviews-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 50px; padding-top: 40px; border-top: 1px solid var(--border); }
-    .mini-review-tag { background: #fdfdfd; padding: 10px 18px; border-radius: 100px; border: 1px solid var(--border); font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
-    .mini-review-tag span { color: #fbbc05; }
-    .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; margin-top: 60px; text-align: left; }
-    .faq-item { border-bottom: 1px solid var(--border); padding-bottom: 30px; }
-    .faq-item h4 { font-size: 1.2rem; font-weight: 800; margin-bottom: 12px; }
   </style>
 </head>
 <body>
@@ -212,6 +228,7 @@
         <p><strong>Stop running ads</strong> if you want to book more appointments. I know this sounds backwards. Especially coming from a marketing team that should be pushing you to spend more.</p>
         <p>But after testing a new system with 32 home service companies… <span class="mark">We discovered something that flips lead generation on its head.</span></p>
         <p>Now, if you're tired of the feast-and-famine cycle, working 70-hour weeks one month, then scrambling for jobs the next… <strong>Keep reading.</strong></p>
+        
         <div class="deal-with-grid">
           <div class="deal-with-card"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg><span>Payroll stress & inconsistent revenue</span></div>
           <div class="deal-with-card"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg><span>Wasting money on shared leads</span></div>
@@ -243,18 +260,9 @@
         <h2>YOUR MARKETING IS FAILING BECAUSE YOU'RE MISSING THE CRITICAL STEP</h2>
         <p>The problem isn't the ads. <span style="color: #ef4444; font-weight: 800; border-bottom: 2px solid #ef4444;">It's what happens after someone clicks.</span></p>
         <div class="lead-breakdown">
-          <div class="lead-type reveal">
-            <strong>1. The "Hot" Prospect</strong>
-            <span>Ready to book immediately. They need a quote and they need it now.</span>
-          </div>
-          <div class="lead-type reveal">
-            <strong>2. The "Nurture" Prospect</strong>
-            <span>Interested but need follow-up. They have questions and are comparing prices.</span>
-          </div>
-          <div class="lead-type reveal" style="border-color: rgba(239, 68, 68, 0.4);">
-            <strong style="color: #ef4444;">3. The "Tire-Kicker"</strong>
-            <span>Just browsing, not serious. They will ghost you the moment you pick up the phone.</span>
-          </div>
+          <div class="lead-type reveal"><strong>1. The "Hot" Prospect</strong><span>Ready to book immediately. They need a quote and they need it now.</span></div>
+          <div class="lead-type reveal"><strong>2. The "Nurture" Prospect</strong><span>Interested but need follow-up. They are comparing prices.</span></div>
+          <div class="lead-type reveal" style="border-color: rgba(239, 68, 68, 0.4);"><strong style="color: #ef4444;">3. The "Tire-Kicker"</strong><span>Just browsing. They will ghost you the moment you pick up the phone.</span></div>
         </div>
         <div class="cta-container">
             <a href="#book" class="cta-white">I'M TIRED OF LOSING JOBS TO COMPETITORS</a>
@@ -275,8 +283,8 @@
         <table class="intent-table">
             <thead><tr><th>Category</th><th>Intent Level</th><th>Est. Leads</th></tr></thead>
             <tbody>
-                <tr><td><strong>High-intent</strong></td><td>Ready to book [0-15%]</td><td><strong>≈ 0-6 leads</strong></td></tr>
-                <tr><td><strong>Medium-intent</strong></td><td>Need follow-up [20-30%]</td><td><strong>≈ 9-13 leads</strong></td></tr>
+                <tr><td><strong>High-intent leads</strong></td><td>Ready to book [0-15%]</td><td><strong>≈ 0-6 leads</strong></td></tr>
+                <tr><td><strong>Medium-intent leads</strong></td><td>Need follow-up [20-30%]</td><td><strong>≈ 9-13 leads</strong></td></tr>
                 <tr><td><strong>Tire kickers</strong></td><td>Ghost after contact [40-60%]</td><td><strong>≈ 18-26 leads</strong></td></tr>
             </tbody>
         </table>
@@ -321,7 +329,7 @@
         <div class="lead-breakdown">
           <div class="lead-type reveal" style="border-color: rgba(255,255,255,0.2); background: #0a0a0a;">
             <strong style="color: #fff; font-size: 1.6rem;">Human Creativity</strong>
-            <span style="color: #bbb !important;">Handles the ads. AI can't write compelling copy that converts cold traffic. We do that part.</span>
+            <span style="color: #bbb !important;">Handles the ads. AI can't write compelling copy that converts cold traffic.</span>
           </div>
           <div class="lead-type reveal active" style="border-color: #fff; background: #111;">
             <strong style="color: #fff; font-size: 1.6rem;">AI Automation</strong>
@@ -333,8 +341,7 @@
             <p style="font-size: 1.25rem; margin-bottom: 20px;">After more than <strong>34 weeks of testing and optimization</strong>… The results speak for themselves.</p>
             <p style="font-size: 1.25rem;">A completely done-for-you system working nonstop, sorting the serious homeowners from the time-wasters.</p>
             <p style="font-size: 1.8rem; font-weight: 900; text-align: center; margin-top: 40px; color: #fff;">
-              Sounds unreal? 
-              <span style="background: #fde047; color: #000; padding: 0.1em 0.5em; border-radius: 4px; display: inline-block; margin-left: 8px;">But it exists!</span>
+              Sounds unreal? <span style="background: #fde047; color: #000; padding: 0.1em 0.5em; border-radius: 4px; display: inline-block; margin-left: 8px;">But it exists!</span>
             </p>
         </div>
 
@@ -352,8 +359,8 @@
         <div class="real-marketing-grid">
           <div class="real-marketing-item"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>It attracts interested homeowners through targeted ads</div>
           <div class="real-marketing-item"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>It qualifies them accurately using AI and filters out low-intent leads</div>
-          <div class="real-marketing-item"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>It follows up consistently. Medium-intent leads get nurtured until they're ready to book.</div>
-          <div class="real-marketing-item"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>It sends ONLY serious homeowners who are qualified and ready to schedule.</div>
+          <div class="real-marketing-item"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>It follows up consistently until they're ready to book.</div>
+          <div class="real-marketing-item"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>It sends ONLY serious homeowners to your calendar.</div>
         </div>
         <div style="margin-top: 60px; text-align: center;">
             <p style="text-transform: uppercase; font-size: 1.1rem; font-weight: 800; letter-spacing: 0.1em; color: var(--text-secondary);">AND THE BEST OF ALL…</p>
@@ -369,14 +376,14 @@
 
   <section class="letter-section" style="padding-top: 60px;">
     <div class="reveal">
-        <p class="letter-intro" style="margin-bottom: 8px;">In six simple steps…</p>
-        <h2 style="font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 900; margin-bottom: 60px; letter-spacing: -0.03em;">HERE’S HOW WE DO IT!</h2>
-        <div class="step-item"><div class="step-number">1</div><div class="step-content"><h3>We Gather Info About Your Business</h3><p>We hop on a quick call to understand your market and build a custom plan.</p></div></div>
-        <div class="step-item"><div class="step-number">2</div><div class="step-content"><h3>We Create Multiple Ad Variations</h3><p>We craft ads that speak directly to local homeowners needing your specific services.</p></div></div>
-        <div class="step-item"><div class="step-number">3</div><div class="step-content"><h3>We Run Targeted Local Ads</h3><p>Campaigns are launched and optimized specifically for your local service area.</p></div></div>
-        <div class="step-item"><div class="step-number">4</div><div class="step-content"><h3>We Activate The AI Qualification Flow</h3><p>Our system responds instantly, qualifying every lead as they come in.</p></div></div>
-        <div class="step-item"><div class="step-number">5</div><div class="step-content"><h3>We Filter Out Low-Intent Leads</h3><p>Tire-kickers and shoppers get screened out automatically by the AI.</p></div></div>
-        <div class="step-item"><div class="step-number">6</div><div class="step-content"><h3>We Deliver High-Intent Appointments</h3><p>Qualified appointments land on your calendar. You show up, quote, and close.</p></div></div>
+        <p class="letter-intro">In six simple steps…</p>
+        <h2 style="font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 900; margin-bottom: 60px;">HERE’S HOW WE DO IT!</h2>
+        <div class="step-item"><div class="step-number">1</div><div class="step-content"><h3>We Gather Info About Your Business</h3><p>We hop on a call to understand your market and build a custom plan.</p></div></div>
+        <div class="step-item"><div class="step-number">2</div><div class="step-content"><h3>Create Tailored Ad Variations</h3><p>We craft photos and videos that speak directly to your ideal local homeowners.</p></div></div>
+        <div class="step-item"><div class="step-number">3</div><div class="step-content"><h3>Run Targeted Service Area Ads</h3><p>Campaigns are launched and optimized to flood your pipeline with interest.</p></div></div>
+        <div class="step-item"><div class="step-number">4</div><div class="step-content"><h3>Activate The AI Qualification Flow</h3><p>Our system responds instantly to every lead, asking qualifying questions 24/7.</p></div></div>
+        <div class="step-item"><div class="step-number">5</div><div class="step-content"><h3>Filter Out Low-Intent Leads</h3><p>Tire-kickers and price shoppers are screened out automatically by the AI.</p></div></div>
+        <div class="step-item"><div class="step-number">6</div><div class="step-content"><h3>Deliver Qualified Homeowners</h3><p>High-intent appointments land directly on your calendar. You show up and close.</p></div></div>
         <div class="cta-container reveal">
             <a href="#book" class="cta-light-grey">YES, I NEED THIS NOW</a>
             <span class="cta-subtext-dark">Because it’ll fix my pipeline for good</span>
@@ -386,12 +393,11 @@
 
   <section class="full-width-dark-section">
       <div class="full-width-inner reveal">
-        <p style="text-transform: uppercase; font-weight: 800; letter-spacing: 0.1em; color: #bbb; margin-bottom: 10px; font-size: 1.1rem;">That’s Not All…</p>
-        <h2 style="font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.05; margin-bottom: 50px;">WE HAVE A RISK-FREE GUARANTEE!</h2>
-        <div style="background: #111; border: 1px solid #333; padding: 40px; border-radius: 24px; margin: 40px 0; text-align: left;">
-            <p style="font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; color: #fff;">The Home Owner Conversion Loop™ runs on a <span style="color: #fde047; border-bottom: 2px solid #fde047;">pay-per-basis model</span>.</p>
-            <p style="font-size: 1.3rem; margin-bottom: 25px; color: #ddd;">Meaning if we don't hit the appointment quota we agreed on, <strong>you keep the leads and owe us nothing.</strong></p>
-            <p style="font-size: 1.3rem; color: #ddd;">You only pay if we deliver the results we initially agreed on.</p>
+        <p style="text-transform: uppercase; font-weight: 800; color: #bbb; font-size: 1.1rem;">That’s Not All…</p>
+        <h2 style="font-size: clamp(2.2rem, 6vw, 4rem); margin-bottom: 50px;">WE HAVE A RISK-FREE GUARANTEE!</h2>
+        <div style="background: #111; border: 1px solid #333; padding: 40px; border-radius: 24px; text-align: left;">
+            <p style="font-size: 1.4rem; font-weight: 700; margin-bottom: 25px;">The Loop runs on a <span style="color: #fde047; border-bottom: 2px solid #fde047;">pay-per-basis model</span>.</p>
+            <p>If we don't hit the appointment quota we agreed on, <strong>you keep the leads and owe us nothing.</strong> You only pay if we deliver.</p>
         </div>
         <div class="cta-container reveal">
             <a href="#book" class="cta-white">TRY IT RISK FREE</a>
@@ -400,61 +406,65 @@
       </div>
   </section>
 
-  <section class="letter-section" style="padding-top: 80px;">
+  <section class="letter-section">
     <div class="reveal">
         <h2 style="font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 900; margin-bottom: 40px;">SEE WHAT OTHERS HAD TO SAY</h2>
         <div class="case-study-grid">
-            <div class="case-study-card"><h3>Apex Roofing</h3><span class="stat-line">52 Leads in 30 Days</span><p>"Within a month, we had more quotes on the calendar than we could handle."</p></div>
-            <div class="case-study-card"><h3>Elite Renovations</h3><span class="stat-line">$85k Pipeline in 3 Weeks</span><p>"Seeing appointments land while we were on-site was incredible."</p></div>
-            <div class="case-study-card"><h3>Sunstate Kitchen Pros</h3><span class="stat-line">$120k Closed Revenue</span><p>"Our team is actually happy now. No more chasing dead ends."</p></div>
+            <div class="case-study-card"><span class="location">UK</span><h3>Apex Roofing</h3><span class="stat-line">52 Leads / 30 Days</span><p>"More quotes than we could handle. AI follow-up is a game changer."</p></div>
+            <div class="case-study-card"><span class="location">AUS</span><h3>Green Horizon</h3><span class="stat-line">41 Quotes / 45 Days</span><p>"Booked out 3 weeks in advance. ROI has tripled."</p></div>
+            <div class="case-study-card"><span class="location">USA</span><h3>Elite Reno</h3><span class="stat-line">$85k Pipeline</span><p>"Appointments land while we're on-site. Truly automated."</p></div>
         </div>
         <div class="mini-reviews-container">
-            <div class="mini-review-tag"><span>★★★★★</span> "Fixed our pipeline"</div>
-            <div class="mini-review-tag"><span>★★★★★</span> "ROI is insane"</div>
-            <div class="mini-review-tag"><span>★★★★★</span> "Best lead system"</div>
+            <div class="mini-review-tag"><span>★★★★★</span> Best system</div>
+            <div class="mini-review-tag"><span>★★★★★</span> Fixed pipeline</div>
+            <div class="mini-review-tag"><span>★★★★★</span> ROI is insane</div>
+        </div>
+        <div class="cta-container reveal">
+            <a href="#book" class="cta-light-grey">COUNT ME IN</a>
+            <span class="cta-subtext-dark">I want to be your next success story</span>
         </div>
     </div>
   </section>
 
-  <section class="reason-section" style="border-top: 1px solid var(--border); padding-top: 80px;">
+  <section class="reason-section">
     <div class="reveal">
         <h2 style="font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 950; margin-bottom: 60px;">WE’VE GOT ANSWERS</h2>
         <div class="faq-grid">
-            <div class="faq-item"><h4>Who's this for?</h4><p>Home service businesses wanting consistent, high-quality appointments without relying on word-of-mouth.</p></div>
-            <div class="faq-item"><h4>What's the investment?</h4><p>A small build fee, then a monthly performance-based fee. If we don't hit the numbers, you don't pay.</p></div>
-            <div class="faq-item"><h4>How fast?</h4><p>Most see qualified appointments within 7-14 days once The Loop goes live.</p></div>
-            <div class="faq-item"><h4>What platforms?</h4><p>Facebook, Instagram, TikTok, Email, and integration with your CRM/Calendar.</p></div>
+            <div class="faq-item"><h4>Who's this for?</h4><p>Roofing, landscaping, remodeling companies wanting high-quality automated bookings.</p></div>
+            <div class="faq-item"><h4>What's the investment?</h4><p>One-time setup, then monthly performance fee. No results = no monthly fee.</p></div>
+            <div class="faq-item"><h4>How fast?</h4><p>Typically 7-14 days to see the first qualified appointments.</p></div>
+            <div class="faq-item"><h4>Do I pay for ads?</h4><p>Yes, Meta charges you directly for the spend we manage.</p></div>
         </div>
     </div>
   </section>
 
-  <section id="book" style="background:var(--bg-section-alt); padding: 100px 20px;">
+  <section id="book" style="background:var(--bg-section-alt); padding: 100px 20px; border-top: 1px solid var(--border);">
     <div class="reveal" style="max-width:1100px; margin:0 auto;">
       <div style="text-align:center; margin-bottom: 50px;">
-        <h2 style="font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 950; background:var(--gradient-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">The Final Step To Fixing Your Pipeline</h2>
-        <p style="font-size: 1.2rem; color: #555; max-width: 600px; margin: 20px auto;">Choose a time for your strategy call below. We'll show you exactly how the AI Homeowner Loop can work for your specific business.</p>
+        <h2 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 950; background:var(--gradient-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Book Your Strategy Call</h2>
+        <p style="font-size: 1.1rem; color: #555;">Choose a time below. We’ll walk you through the Loop and set your appointment quota.</p>
       </div>
 
-      <div class="book-wrap">
-        <div style="background:#fff; border: 1px solid var(--border); border-radius: 24px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+      <div class="contact-wrap">
+        <div class="contact-main">
           <div class="calendly-inline-widget" data-url="https://calendly.com/rhagency07/free-business-strategy-call" style="min-width:320px;height:700px;"></div>
         </div>
 
-        <div class="book-info-side">
-          <h3>Prefer direct contact?</h3>
-          <p>Reach out to us if you can't find a time that works or if you have specific questions before booking.</p>
-          <div style="display:grid; gap: 10px; margin-bottom: 30px;">
-            <a href="tel:+66983246313" style="text-decoration:none; color:#000; font-weight:700; border: 1px solid #ddd; padding: 12px; border-radius: 12px; display:block; text-align:center;">Call: +66 983246313</a>
-            <a href="mailto:rhagency.team@gmail.com" style="text-decoration:none; color:#000; font-weight:700; border: 1px solid #ddd; padding: 12px; border-radius: 12px; display:block; text-align:center;">Email Us</a>
+        <div class="contact-side">
+          <div class="contact-hero-card">
+            <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Need immediate help?</h3>
+            <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">Reach out directly for direct questions about the pay-per-basis model.</p>
+            <a href="tel:+66983246313" style="display:block; text-decoration:none; color:#000; font-weight:700; border:1px solid #ddd; padding:12px; border-radius:12px; margin-bottom:10px; text-align:center;">Call: +66 983246313</a>
+            <a href="mailto:rhagency.team@gmail.com" style="display:block; text-decoration:none; color:#000; font-weight:700; border:1px solid #ddd; padding:12px; border-radius:12px; text-align:center;">Email Us</a>
           </div>
-          <hr style="border:0; border-top:1px solid #eee; margin-bottom: 25px;">
-          <h4 style="font-size: 1rem; margin-bottom: 10px;">What happens on this call:</h4>
-          <ul style="list-style:none; font-size: 0.9rem; color: #555;">
-            <li style="margin-bottom:10px;">✓ Review your current local market</li>
-            <li style="margin-bottom:10px;">✓ Analyze your competition's ads</li>
-            <li style="margin-bottom:10px;">✓ Build your custom conversion loop</li>
-            <li style="margin-bottom:10px;">✓ Determine your appointment quota</li>
-          </ul>
+          <div style="padding: 20px;">
+            <p style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: #888;">What's next?</p>
+            <ul style="list-style:none; padding:0; margin-top:10px; font-size: 0.9rem; color:#555;">
+                <li style="margin-bottom:8px;">✓ 15-min discovery call</li>
+                <li style="margin-bottom:8px;">✓ Market opportunity analysis</li>
+                <li style="margin-bottom:8px;">✓ Custom ad strategy build</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -468,13 +478,17 @@
     }, { threshold: 0.1 });
     reveals.forEach(el=>io.observe(el));
 
-    // Calendly GA4 Tracking Logic
+    const leadTypes = document.querySelectorAll('.lead-type');
+    const leadIo = new IntersectionObserver((entries)=>{
+      entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('active'); } });
+    }, { threshold: 0.5 });
+    leadTypes.forEach(el=>leadIo.observe(el));
+
+    // Calendly GA4 Tracking
     window.addEventListener("message", function (e) {
       if (e.origin === "https://calendly.com" && e.data && e.data.event && e.data.event.indexOf("calendly.") === 0) {
         const gaEventName = e.data.event.replace("calendly.", "calendly_").replace(".", "_");
-        if (typeof gtag === "function") {
-          gtag("event", gaEventName, { calendly_event: e.data.event });
-        }
+        if (typeof gtag === "function") { gtag("event", gaEventName, { calendly_event: e.data.event }); }
       }
     });
   </script>
