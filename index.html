@@ -186,36 +186,74 @@
       font-weight: 600;
     }
     
-    /* LIGHT GREY CTA BUTTON */
+    /* UPGRADED LIGHT GREY CTA BUTTON */
     .letter-cta-wrap {
       text-align: center;
-      margin-top: 56px;
+      margin-top: 64px;
     }
     .cta-light-grey {
+      position: relative;
       display: inline-block;
-      background: #f4f4f4;
-      color: #333;
-      padding: 18px 36px;
+      background: #f0f0f0;
+      color: #111;
+      padding: 20px 48px;
       border-radius: 12px;
       text-decoration: none;
-      font-weight: 800;
-      font-size: 1.2rem;
-      border: 1px solid rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      font-weight: 900;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 1px solid rgba(0,0,0,0.12);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+      overflow: hidden;
+      animation: pulseBtn 3s infinite;
     }
+
+    /* Shimmer Effect */
+    .cta-light-grey::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent
+      );
+      transition: all 0.6s;
+      animation: shimmer 4s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { left: -100%; }
+      30% { left: 100%; }
+      100% { left: 100%; }
+    }
+
+    @keyframes pulseBtn {
+      0% { transform: scale(1); box-shadow: 0 4px 0 rgba(0,0,0,0.1); }
+      50% { transform: scale(1.03); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+      100% { transform: scale(1); box-shadow: 0 4px 0 rgba(0,0,0,0.1); }
+    }
+
     .cta-light-grey:hover {
-      background: #ededed;
+      background: #ffffff;
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
       border-color: rgba(0,0,0,0.2);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     }
+
     .cta-undertext {
       display: block;
-      margin-top: 12px;
-      font-size: 0.95rem;
+      margin-top: 16px;
+      font-size: 1rem;
       color: var(--text-secondary);
       font-style: italic;
+      opacity: 0.8;
     }
 
     /* generic cards */
@@ -633,7 +671,7 @@
         <p>And in the next few minutes, you're going to see exactly how that system works.</p>
 
         <div class="letter-cta-wrap">
-          <a href="#contact" class="cta-light-grey">show me how this works</a>
+          <a href="#contact" class="cta-light-grey">SHOW ME HOW THIS WORKS</a>
           <span class="cta-undertext">I want to see the system that books 40+ appointments</span>
         </div>
       </div>
