@@ -96,23 +96,29 @@
     .letter-intro { font-size: 1.3rem; font-weight: 800; margin-bottom: 32px; color: var(--text-primary); }
     .letter-body p { font-size: 1.2rem; margin-bottom: 28px; color: #333; line-height: 1.6; }
 
-    /* ===== CTA Buttons ===== */
-    @keyframes pulseBtn { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
-    @keyframes shimmer { 0% { left: -100%; } 30%, 100% { left: 100%; } }
-
-    .cta-container { text-align: center; margin: 60px 0; }
+    /* ===== CTA Buttons & Alignment ===== */
+    .cta-container { text-align: center; margin: 60px 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    
     .cta-light-grey, .cta-white {
       position: relative; display: inline-block; padding: 22px 50px;
       border-radius: 14px; text-decoration: none; font-weight: 900; font-size: 1.2rem;
       overflow: hidden; text-transform: uppercase; animation: pulseBtn 3s infinite; transition: 0.3s;
+      width: fit-content;
     }
     .cta-light-grey { background: #f2f2f2; color: #000; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 6px 0 #ddd; }
     .cta-white { background: #fff; color: #000; border: none; box-shadow: 0 8px 25px rgba(255,255,255,0.2); font-size: 1.3rem; }
+    
+    @keyframes pulseBtn { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+    @keyframes shimmer { 0% { left: -100%; } 30%, 100% { left: 100%; } }
+
     .cta-light-grey::before, .cta-white::before {
       content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
       background: linear-gradient(120deg, transparent, rgba(255,255,255,0.8), transparent);
       animation: shimmer 3s infinite;
     }
+
+    .cta-subtext-dark { display: block; margin-top: 20px; font-weight: 700; color: #000; font-size: 1.2rem; text-align: center; }
+    .cta-subtext-white { display: block; margin-top: 20px; font-weight: 700; color: #fff; font-size: 1.2rem; text-align: center; }
 
     /* ===== Grids & Cards ===== */
     .deal-with-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin: 40px 0; }
@@ -141,7 +147,7 @@
     .full-width-inner p { font-size: 1.25rem; margin-bottom: 30px; line-height: 1.7; color: #fff; }
 
     .lead-breakdown { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin: 60px 0; text-align: left; }
-    .lead-type { background: #111; border: 1px solid #333; padding: 35px; border-radius: 24px; transition: 0.5s; position: relative; }
+    .lead-type { background: #111; border: 1px solid #333; padding: 35px; border-radius: 24px; transition: 0.5s; }
     .lead-type.active { border-color: #fff; box-shadow: 0 0 40px rgba(255,255,255,0.1); }
     .lead-type strong { display: block; font-size: 1.5rem; color: #fff; margin-bottom: 12px; font-weight: 800; }
     .lead-type span { color: #bbb !important; font-size: 1.1rem; line-height: 1.5; }
@@ -214,7 +220,6 @@
           <div class="real-marketing-item"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>Full pipeline control</div>
           <div class="real-marketing-item"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>Zero tire-kickers</div>
         </div>
-        <p>That's how every business should operate in 2025. <span class="mark">So why isn't yours?</span></p>
       </div>
     </div>
   </section>
@@ -246,7 +251,7 @@
 
         <div class="cta-container">
             <a href="#book" class="cta-white">I'M TIRED OF LOSING JOBS TO COMPETITORS</a>
-            <span class="cta-subtext-white" style="display: block; margin-top: 20px; font-weight: 700; color: #fff; font-size: 1.2rem;">Show me how to stay booked solid 24/7</span>
+            <span class="cta-subtext-white">Show me how to stay booked solid 24/7</span>
         </div>
       </div>
   </section>
@@ -326,7 +331,7 @@
 
         <div class="cta-container reveal">
             <a href="#book" class="cta-white">COUNT ME IN</a>
-            <span class="cta-subtext-white" style="font-size: 1.3rem; color: #fff; display: block; margin-top: 20px; font-weight: 700;">I want appointments booked while I'm in the field</span>
+            <span class="cta-subtext-white">I want appointments booked while I'm in the field</span>
         </div>
       </div>
   </section>
