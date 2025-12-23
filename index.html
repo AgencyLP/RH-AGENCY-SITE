@@ -199,21 +199,24 @@
     .faq-item ul { padding-left: 20px; color: #555; margin-top: 10px; }
     .faq-item li { margin-bottom: 8px; font-weight: 600; }
 
-    /* ===== New Booking Section Styles ===== */
-    .contact-wrap{ max-width:1100px; margin:0 auto; display:grid; gap:24px; }
-    @media (min-width:900px){ .contact-wrap{ grid-template-columns: minmax(0,2.1fr) minmax(0,1.1fr); align-items:flex-start; } }
-    .contact-main{ background:var(--bg-card); border:1px solid var(--border); border-radius:20px; padding:28px 24px 32px; box-shadow:var(--shadow-soft); position:relative; overflow:hidden; }
-    .calendly-header{ text-align:center; margin-bottom:18px; }
-    .calendly-header h2{ font-size:clamp(1.9rem,3vw,2.4rem); font-weight:800; background:var(--gradient-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:6px; }
-    .calendly-header p{ color:var(--text-secondary); font-size:1rem; max-width:420px; margin:0 auto; }
-    .contact-main-proof{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin:16px 0 18px; font-size:.9rem; color:var(--text-secondary); }
-    .contact-main-proof span{ display:inline-flex; align-items:center; gap:6px; padding:5px 10px; border-radius:999px; border:1px solid var(--border); background:rgba(0,0,0,.02); font-weight: 600; }
-    .contact-side{ display:grid; gap:16px; }
-    .contact-hero{ background:var(--bg-card); border:1px solid var(--border); border-radius:20px; padding:26px 22px; position:relative; overflow:hidden; box-shadow:var(--shadow-soft); }
-    .contact-hero h3{ font-size:1.2rem; font-weight:800; margin-bottom:6px; }
-    .contact-hero p{ color:var(--text-secondary); font-size:.95rem; margin-bottom:12px; }
-    .cta-side{ display:block; text-align:center; background:var(--accent); color:#fff; padding:12px; border-radius:10px; text-decoration:none; font-weight:700; margin-bottom:8px; }
-    .cta-secondary-side{ display:block; text-align:center; padding:10px; border-radius:10px; border:1px solid var(--border); background:#f4f4f4; color:var(--text-primary); text-decoration:none; font-weight:600; }
+    /* ===== Responsive Booking Layout ===== */
+    .booking-section-wrap { 
+        max-width: 1100px; margin: 0 auto; display: grid; gap: 30px; grid-template-columns: 1fr;
+    }
+    @media (min-width: 992px) {
+        .booking-section-wrap { grid-template-columns: 2.2fr 1fr; }
+    }
+    .booking-calendly-card { 
+        background: #fff; border: 1px solid var(--border); border-radius: 24px; padding: 10px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03); overflow: hidden;
+    }
+    .booking-sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .booking-sidebar-card { 
+        background: #fff; border: 1px solid var(--border); border-radius: 20px; padding: 25px; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+    .booking-sidebar-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+    .booking-sidebar-card p { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
 
     @media (max-width: 600px) {
       .math-grid { flex-direction: column; gap: 30px; }
@@ -655,31 +658,34 @@
     <div class="reveal">
         <div class="calendly-header">
             <h2>Book Your Free Strategy Call</h2>
-            <p>Choose a time that works for you. We’ll review your area and walk you through a simple plan to increase qualified bookings.</p>
+            <p>Select a time that works for you. We'll show you exactly how to fill your pipeline with high-intent appointments.</p>
         </div>
 
-        <div class="contact-wrap">
-            <div class="contact-main">
+        <div class="booking-section-wrap">
+            <div class="booking-calendly-card">
                 <div class="contact-main-proof">
                     <span>📅 15–30 minute call</span>
-                    <span>✅ No hard pitch, just a clear plan</span>
+                    <span>✅ No hard pitch</span>
                 </div>
                 <div class="calendly-inline-widget" data-url="https://calendly.com/rhagency07/free-business-strategy-call" style="min-width:320px;height:700px;"></div>
             </div>
 
-            <div class="contact-side">
-                <div class="contact-hero">
-                    <h3>Prefer to talk first?</h3>
-                    <p>Reach out directly and we’ll answer questions, share recent results, and point you to the best next step.</p>
+            <div class="booking-sidebar">
+                <div class="booking-sidebar-card">
+                    <h3>Direct Contact</h3>
+                    <p>Want to talk now? Reach out directly and we’ll answer any questions about the pay-per-basis deal.</p>
                     <a href="tel:+66983246313" class="cta-side">Call: +66 983246313</a>
                     <a href="mailto:rhagency.team@gmail.com" class="cta-secondary-side">Email Us</a>
-                    <p style="margin-top:15px; font-size:.9rem; color:var(--text-secondary); text-align: center;">Fast responses during business hours.</p>
                 </div>
                 
-                <div style="background:#fff; border:1px solid var(--border); padding:20px; border-radius:20px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
-                    <strong style="display:block; margin-bottom:10px; font-size:0.9rem; text-transform:uppercase; color:#888;">Recent Success</strong>
-                    <div style="font-weight:700; border-left:3px solid #22c55e; padding-left:10px;">Roofing Contractor · USA</div>
-                    <p style="font-size:0.85rem; color:#555; margin-top:5px;">📅 18 high-intent bookings in the first 14 days of launching the Loop.</p>
+                <div class="booking-sidebar-card">
+                    <strong style="display:block; margin-bottom:10px; font-size:0.8rem; text-transform:uppercase; color:#888; letter-spacing:0.05em;">What we discuss</strong>
+                    <ul style="list-style:none; padding:0; font-size:0.9rem; color:#555;">
+                        <li style="margin-bottom:10px;">✓ Your service area & jobs</li>
+                        <li style="margin-bottom:10px;">✓ Appointment quotas</li>
+                        <li style="margin-bottom:10px;">✓ Pay-per-basis terms</li>
+                        <li style="margin-bottom:10px;">✓ Go-live timeline</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -701,7 +707,7 @@
     }, { threshold: 0.5 });
     leadTypes.forEach(el=>leadIo.observe(el));
 
-    // ✅ Track Calendly events into GA4
+    // GA4 Calendly Tracking
     window.addEventListener("message", function (e) {
       if (e.origin === "https://calendly.com" && e.data && e.data.event && e.data.event.indexOf("calendly.") === 0) {
         if (typeof gtag === "function") {
