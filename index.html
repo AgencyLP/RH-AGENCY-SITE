@@ -35,7 +35,7 @@
       line-height:1.6; overflow-x:hidden;
     }
 
-    /* ===== Layout Components ===== */
+    /* ===== Background Grid ===== */
     .grid-background{
       position:fixed; inset:0; z-index:-1;
       background-image: linear-gradient(rgba(0,0,0,.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.02) 1px, transparent 1px);
@@ -69,8 +69,7 @@
       box-shadow:0 4px 12px rgba(0,0,0,.1);
     }
 
-    /* ===== Hero & Typography ===== */
-    .hero{text-align:center; padding-top:60px;}
+    /* ===== Typography & Hero Box ===== */
     .hero-eyebrow-box {
         display: inline-block;
         background: #000;
@@ -80,6 +79,7 @@
         font-weight: 800;
         text-transform: uppercase;
         font-size: 0.9rem;
+        letter-spacing: 0.05em;
         margin-bottom: 24px;
         box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
     }
@@ -96,7 +96,7 @@
     .letter-intro { font-size: 1.3rem; font-weight: 800; margin-bottom: 32px; color: var(--text-primary); }
     .letter-body p { font-size: 1.2rem; margin-bottom: 28px; color: #333; line-height: 1.6; }
 
-    /* ===== CTA Buttons & Alignment ===== */
+    /* ===== Centered CTA Buttons ===== */
     .cta-container { text-align: center; margin: 60px 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
     
     .cta-light-grey, .cta-white {
@@ -116,16 +116,12 @@
       background: linear-gradient(120deg, transparent, rgba(255,255,255,0.8), transparent);
       animation: shimmer 3s infinite;
     }
+    .cta-subtext-dark { display: block; margin-top: 20px; font-weight: 700; color: #000; font-size: 1.2rem; }
+    .cta-subtext-white { display: block; margin-top: 20px; font-weight: 700; color: #fff; font-size: 1.2rem; }
 
-    .cta-subtext-dark { display: block; margin-top: 20px; font-weight: 700; color: #000; font-size: 1.2rem; text-align: center; }
-    .cta-subtext-white { display: block; margin-top: 20px; font-weight: 700; color: #fff; font-size: 1.2rem; text-align: center; }
-
-    /* ===== Grids & Cards ===== */
+    /* ===== Lists & Grids ===== */
     .deal-with-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin: 40px 0; }
-    .deal-with-card { 
-      background: #fff; border: 1px solid var(--border); padding: 20px; border-radius: 16px; 
-      display: flex; gap: 12px; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-    }
+    .deal-with-card { background: #fff; border: 1px solid var(--border); padding: 20px; border-radius: 16px; display: flex; gap: 12px; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
     .deal-with-card svg { color: #ef4444; flex-shrink: 0; }
     .deal-with-card span { font-weight: 700; }
 
@@ -143,23 +139,19 @@
       background: #000; color: #fff; padding: 100px 20px;
     }
     .full-width-inner { max-width: 900px; margin: 0 auto; text-align: center; }
-    .full-width-inner h2 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 950; line-height: 1.1; margin-bottom: 40px; color: #fff; }
-    .full-width-inner p { font-size: 1.25rem; margin-bottom: 30px; line-height: 1.7; color: #fff; }
-
     .lead-breakdown { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin: 60px 0; text-align: left; }
     .lead-type { background: #111; border: 1px solid #333; padding: 35px; border-radius: 24px; transition: 0.5s; }
     .lead-type.active { border-color: #fff; box-shadow: 0 0 40px rgba(255,255,255,0.1); }
     .lead-type strong { display: block; font-size: 1.5rem; color: #fff; margin-bottom: 12px; font-weight: 800; }
-    .lead-type span { color: #bbb !important; font-size: 1.1rem; line-height: 1.5; }
+    .lead-type span { color: #bbb !important; font-size: 1.1rem; }
 
-    /* ===== Math & Table ===== */
+    /* ===== Math & Scenarios ===== */
     .math-grid { display: flex; justify-content: space-between; gap: 20px; margin: 40px 0; border-bottom: 1px solid var(--border); padding-bottom: 30px; }
     .math-card .val { display: block; font-size: 2.5rem; font-weight: 900; color: #000; line-height: 1; }
     .math-card .label { font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; margin-top: 8px; }
     .intent-table { width: 100%; border-collapse: collapse; margin: 40px 0; text-align: left; }
     .intent-table th { padding: 15px; background: #f8fafc; font-size: 0.9rem; color: #666; }
     .intent-table td { padding: 20px 15px; border-bottom: 1px solid var(--border); font-size: 1.1rem; color: #333; }
-    
     .scenario-box { margin-top: 60px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
     .scenario-card { padding: 30px; border: 1px solid var(--border); border-radius: 20px; background: #fff; }
     .scenario-card.winner { border: 2px solid #000; background: #fdfdfd; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
@@ -227,11 +219,7 @@
   <section class="full-width-dark-section">
       <div class="full-width-inner reveal">
         <h2>YOUR MARKETING IS FAILING BECAUSE YOU'RE MISSING THE CRITICAL STEP</h2>
-        
         <p>The problem isn't the ads. <span style="color: #ef4444; font-weight: 800; border-bottom: 2px solid #ef4444;">It's what happens after someone clicks.</span></p>
-        
-        <p style="margin-bottom: 50px; opacity: 0.9;">When a homeowner fills out a form, one of three things happens:</p>
-
         <div class="lead-breakdown">
           <div class="lead-type reveal">
             <strong>1. The "Hot" Prospect</strong>
@@ -246,9 +234,6 @@
             <span>Just browsing, not serious. They will ghost you the moment you pick up the phone.</span>
           </div>
         </div>
-
-        <p style="max-width: 750px; margin: 0 auto 40px;">Most agencies dump all three into your lap and call them "leads." <span style="font-weight: 700; text-decoration: underline;">You waste time chasing ghost leads</span> while the real opportunities slip through to your competitors.</p>
-
         <div class="cta-container">
             <a href="#book" class="cta-white">I'M TIRED OF LOSING JOBS TO COMPETITORS</a>
             <span class="cta-subtext-white">Show me how to stay booked solid 24/7</span>
@@ -288,8 +273,7 @@
     <div class="reveal">
         <h2 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin-bottom: 30px;">The problem is…</h2>
         <div class="letter-body">
-            <p>Qualification and follow-up require <strong>capacity</strong> most home service businesses don't have.</p>
-            <p>You’re already running jobs, managing crews, and putting out fires… <span class="mark">expecting you to chase every lead for weeks is unrealistic.</span></p>
+            <p>Qualification and follow-up require <strong>capacity</strong> most home service businesses don't have. You’re already running jobs, managing crews, and putting out fires… <span class="mark">expecting you to chase every lead is unrealistic.</span></p>
 
             <div style="background: #fdfdfd; border: 1px solid var(--border); padding: 40px; border-radius: 24px; margin: 50px 0;">
                 <h3 style="font-size: 2.2rem; font-weight: 900; line-height: 1.2; margin-bottom: 20px;">That’s where the <span style="text-decoration: underline;">Homeowner Conversion Loop™</span> came from.</h3>
@@ -326,7 +310,11 @@
         <div style="text-align: left; max-width: 800px; margin: 40px auto;">
             <p style="font-size: 1.25rem; margin-bottom: 20px;">After more than <strong>34 weeks of testing and optimization</strong>… The results speak for themselves.</p>
             <p style="font-size: 1.25rem;">A completely done-for-you system working nonstop, sorting the serious from the time-wasters.</p>
-            <p style="font-size: 1.8rem; font-weight: 900; text-align: center; margin-top: 40px;">Sounds unreal? <span class="mark" style="color: #000; -webkit-text-fill-color: #000;">But it exists!</span></p>
+            
+            <p style="font-size: 1.8rem; font-weight: 900; text-align: center; margin-top: 40px; color: #fff;">
+              Sounds unreal? 
+              <span style="background: #fde047; color: #000; padding: 0.2em 0.6em; border-radius: 4px; display: inline-block; margin-left: 8px;">But it exists!</span>
+            </p>
         </div>
 
         <div class="cta-container reveal">
