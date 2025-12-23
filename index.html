@@ -123,20 +123,7 @@
       font-size:clamp(2.4rem,7vw,4.6rem); line-height:1.1; font-weight:900; letter-spacing:-.02em;
       margin:14px 0 16px; background:var(--gradient-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     }
-    .subtitle{font-size:clamp(1.05rem,2vw,1.25rem); color:var(--text-secondary); max-width:720px; margin:0 auto 28px}
-
-    .cta{
-      display:inline-block; background:var(--accent); color:var(--accent-text);
-      padding:14px 28px; border-radius:10px; text-decoration:none; font-weight:700;
-      box-shadow:0 8px 24px rgba(0,0,0,.18); position:relative; overflow:hidden;
-    }
-    .cta:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
-    .cta::before{
-      content:''; position:absolute; inset:0; transform:translateX(-100%);
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent);
-      transition:transform .6s ease;
-    }
-    .cta:hover::before{transform:translateX(100%)}
+    .subtitle{font-size:clamp(1.05rem,2vw,1.25rem); color:var(--text-secondary); max-width:820px; margin:0 auto 28px}
 
     /* float dots */
     .float{position:absolute;width:4px;height:4px;background:rgba(0,0,0,.2);border-radius:50%;animation:float 10s ease-in-out infinite}
@@ -161,7 +148,7 @@
       line-height: 1.8;
     }
     .letter-intro {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: 24px;
       color: var(--text-primary);
@@ -169,7 +156,7 @@
     .letter-body p {
       font-size: 1.15rem;
       color: var(--text-secondary);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
     .letter-body p strong { color: var(--text-primary); }
     .deal-with-grid {
@@ -196,7 +183,39 @@
       font-style: italic;
       font-size: 1.25rem;
       color: var(--text-primary);
-      font-weight: 500;
+      font-weight: 600;
+    }
+    
+    /* LIGHT GREY CTA BUTTON */
+    .letter-cta-wrap {
+      text-align: center;
+      margin-top: 56px;
+    }
+    .cta-light-grey {
+      display: inline-block;
+      background: #f4f4f4;
+      color: #333;
+      padding: 18px 36px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.2rem;
+      border: 1px solid rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    }
+    .cta-light-grey:hover {
+      background: #ededed;
+      border-color: rgba(0,0,0,0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+    .cta-undertext {
+      display: block;
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      font-style: italic;
     }
 
     /* generic cards */
@@ -565,13 +584,19 @@
       <div class="letter-intro">Dear home service company owner…</div>
       
       <div class="letter-body">
-        <p><strong>Stop running ads if you want to book more appointments.</strong></p>
+        <p>Stop running ads if you want to book more appointments.</p>
         
-        <p>I know this sounds backwards. Especially coming from a marketing team that should be pushing you to spend more.</p>
+        <p>I know this sounds backwards.</p>
         
-        <p>But after developing and testing a new system with 32 home service companies… We discovered something that flips everything you know about lead generation.</p>
+        <p>Especially coming from a marketing team that should be pushing you to spend more.</p>
         
-        <p>Now, if you're tired of the feast-and-famine cycle, working 70-hour weeks one month, then scrambling for jobs the next… <strong>Keep reading.</strong></p>
+        <p>But after developing and testing a new system with 32 home service companies…</p>
+        
+        <p>We discovered something that flips everything you know about lead generation.</p>
+        
+        <p>Now, if you're tired of the feast-and-famine cycle, working 70-hour weeks one month, then scrambling for jobs the next…</p>
+        
+        <p>Keep reading.</p>
         
         <p>Because you're about to discover how your competitors are booking 40+ qualified appointments every month using a system most agencies don't even know exists yet.</p>
 
@@ -598,11 +623,19 @@
           </div>
         </div>
 
-        <p>We get it. There are 2.5 million home-service businesses in the U.S. alone. Competition is brutal. New contractors appear daily…</p>
-        
-        <p>And the “old ways” of booking appointments aren't cutting it anymore. Knocking doors, cold calling, buying shared leads, referrals… <strong>Those methods are expensive, time-consuming, and inconsistent.</strong></p>
-        
-        <p>What you need is a predictable system that fills your pipeline with qualified homeowners while you're in the field closing jobs. And in the next few minutes, you're going to see exactly how that system works.</p>
+        <p>We get it.</p>
+        <p>There are 2.5 million home-service businesses in the U.S. alone.</p>
+        <p>Competition is brutal. New contractors appear daily…</p>
+        <p>And the “old ways” of booking appointments aren't cutting it anymore.</p>
+        <p>Knocking doors, cold calling, buying shared leads, referrals…</p>
+        <p>Those methods are expensive, time-consuming, and inconsistent.</p>
+        <p>What you need is a predictable system that fills your pipeline with qualified homeowners while you're in the field closing jobs.</p>
+        <p>And in the next few minutes, you're going to see exactly how that system works.</p>
+
+        <div class="letter-cta-wrap">
+          <a href="#contact" class="cta-light-grey">show me how this works</a>
+          <span class="cta-undertext">I want to see the system that books 40+ appointments</span>
+        </div>
       </div>
     </div>
   </section>
