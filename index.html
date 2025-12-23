@@ -102,7 +102,7 @@
     }
     @keyframes shimmer { 0% { left: -100%; } 30% { left: 100%; } 100% { left: 100%; } }
 
-    /* LIGHT GREY CTA (Top) */
+    /* LIGHT GREY CTA (Top & Math Section) */
     .cta-container { text-align: center; margin: 60px 0; }
     .cta-light-grey {
       position: relative; display: inline-block; background: #f2f2f2; color: #000; padding: 22px 50px;
@@ -115,6 +115,9 @@
       background: linear-gradient(120deg, transparent, rgba(255,255,255,0.8), transparent);
       animation: shimmer 3s infinite;
     }
+    /* New dark subtext for white background areas */
+    .cta-subtext-dark { display: block; margin-top: 20px; font-weight: 700; color: var(--text-primary); font-size: 1.2rem; }
+
 
     /* PURE WHITE CTA (Bottom / Black Section) */
     .cta-white {
@@ -183,8 +186,13 @@
     .scenario-card p { font-size: 1rem; color: #444; margin: 0; }
 
     .difference-callout { 
-        text-align: center; font-size: clamp(3rem, 10vw, 6rem); font-weight: 950; 
-        letter-spacing: -0.04em; margin-top: 80px; color: #000; line-height: 1;
+        text-align: center; 
+        /* REDUCED FONT SIZE AS REQUESTED */
+        font-size: clamp(2rem, 5vw, 3.5rem); 
+        font-weight: 950; 
+        letter-spacing: -0.04em; 
+        margin-top: 60px; 
+        color: #000; line-height: 1;
     }
 
     /* Reveal */
@@ -372,6 +380,11 @@
 
         <div class="difference-callout reveal">
             SEE THE DIFFERENCE?
+        </div>
+
+        <div class="cta-container reveal" style="margin-top: 60px;">
+            <a href="#book" class="cta-light-grey">Yes, I need the system</a>
+            <span class="cta-subtext-dark">Because Qualification + Follow-Up = More Closed Jobs</span>
         </div>
     </div>
   </section>
